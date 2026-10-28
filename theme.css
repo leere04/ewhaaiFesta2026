@@ -135,29 +135,3 @@ html {
     padding-bottom: 65px;
   }
 }
-
-/* 모바일 캐릭터 카드 2개 + 3개 배치 */
-@media (max-width: 760px) {
-  .guardian-tabs {
-    display: grid !important;
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto 24px;
-  }
-
-  .guardian-tabs > * {
-    grid-column: span 2;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .guardian-tabs > :nth-child(1) {
-    grid-column: 2 / span 2;
-  }
-
-  .guardian-tabs > :nth-child(2) {
-    grid-column: 4 / span 2;
-  }
-}
