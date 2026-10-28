@@ -36,8 +36,3 @@ h1, h2, h3, h4,
   font-family: 'Jua', sans-serif;
   font-weight: 400;
 }
-
-/* 메모장 내부의 중복 캐릭터 이름 숨기기 */
-#guardian-panel .guardian-story #guardian-name {
-  display: none !important;
-}
