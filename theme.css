@@ -25,3 +25,14 @@
 .daily-booth{background:#fceaf3;border-radius:12px;padding:16px;margin-top:12px}.daily-booth strong{display:block;font-size:13px;margin-bottom:5px}.daily-booth button{display:block;background:transparent;padding:7px 0;font-size:12px;text-align:left;color:#713657}
 .program-steps h3,.program-rules h3{font-size:15px;margin:24px 0 10px;color:#9e3767}.program-steps ol,.program-rules ul{padding-left:21px;font-size:13px;line-height:1.9}.program-steps li,.program-rules li{padding-left:3px;margin-bottom:9px}.program-rules{background:#f9eaf2;padding:1px 17px 8px;border-radius:12px}.program-rules h3{margin-top:16px}
 @media(max-width:760px){.map-layout{grid-template-columns:1fr;gap:30px}.map-figure{position:static;max-width:570px;width:100%;margin:auto}.map-directory{min-width:0}.hero-quicklinks{font-size:11px;gap:22px}.guardian-items>div{display:block}.map-directory span{font-size:13px}.map-section .section-heading{margin-bottom:25px}}
+
+/* 제목: 주아체 */
+h1, h2, h3, h4,
+.brand,
+.guardian-tabs span,
+.booth-card h3,
+.program-card h3,
+.review-booth-card-copy strong {
+  font-family: 'Jua', sans-serif;
+  font-weight: 400;
+}
