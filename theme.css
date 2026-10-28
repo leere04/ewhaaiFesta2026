@@ -135,3 +135,19 @@ html {
     padding-bottom: 65px;
   }
 }
+/* 모바일 캐릭터 카드 크기 축소 */
+@media (max-width: 760px) {
+  .guardian-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .guardian-tabs > button {
+    flex: 0 0 calc((100% - 16px) / 3) !important;
+    width: calc((100% - 16px) / 3) !important;
+    max-width: 130px !important;
+    min-width: 0 !important;
+  }
+}
