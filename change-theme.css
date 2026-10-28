@@ -1,0 +1,91 @@
+/* v6: 수호알 카드와 전 페이지 공통 딥 핑크 포인트 */
+:root{--festival-pink:#bc246b;--pink:#bc246b}
+.pink,.section-eyebrow,.heading-doodle,.gallery-kicker,.gallery-hero h1 em,.gallery-modal h2,.program-steps h3,.program-rules h3{color:var(--festival-pink)}
+.section-heading h2,.gallery-hero h1{letter-spacing:-1.2px}
+.hero-grid{background-color:#f8cadd;background-size:56px 56px;background-position:0 0,28px 28px}
+.hero:after{content:'✦';position:absolute;right:13%;top:70px;font-size:52px;color:#ffe28b;-webkit-text-stroke:2px #a74979;transform:rotate(12deg);pointer-events:none}
+.gallery-hero{border-top:9px solid #bc246b;border-radius:20px;background:linear-gradient(45deg,#ffffff45 25%,transparent 25%,transparent 75%,#ffffff45 75%),linear-gradient(45deg,#ffffff45 25%,transparent 25%,transparent 75%,#ffffff45 75%),#ffe6f1;background-size:40px 40px;background-position:0 0,20px 20px;padding:38px 24px}
+.gallery-hero h1 em{font-style:normal}.gallery-btn.primary{background:#bc246b;color:white}
+.guardian-tabs{max-width:1030px;gap:18px;margin:38px auto 34px;align-items:stretch}
+.guardian-tabs button{position:relative;isolation:isolate;overflow:hidden;border:2px solid #b89b71;border-radius:3px;padding:18px 12px 15px;background:radial-gradient(ellipse at center,#3b3046,#231f2d 75%);box-shadow:0 9px 18px #35202e30;min-height:305px;color:#e5cba1;transition:transform .25s,box-shadow .25s}
+.guardian-tabs button:before{content:'';position:absolute;inset:6px;border:1px solid #ad8a5e;z-index:-1;pointer-events:none}
+.guardian-tabs button:after{content:'';position:absolute;inset:16px 12px;border:1px solid #9c7d55;border-radius:48% 48% 42% 42%;z-index:-1;pointer-events:none}
+.guardian-tabs button:hover{transform:translateY(-7px);box-shadow:0 14px 24px #35202e45}
+.guardian-tabs button.selected{transform:translateY(-5px);border:2px solid #dc86b0;box-shadow:0 0 0 3px #f7d2e5,0 12px 22px #35202e30}
+.guardian-tabs button:focus-visible{outline:3px solid #bc246b;outline-offset:5px}
+.guardian-tabs .card-sigil{font-size:18px;border:1px solid #ba996b;color:#d8b574;width:28px;height:28px;border-radius:50%;line-height:26px;background:#292330}
+.guardian-tabs .card-art{display:flex;align-items:center;justify-content:center;width:100%;height:183px;margin:8px 0;color:inherit}
+.guardian-tabs img{width:100%;height:170px;object-fit:contain;margin:0;border-radius:0;filter:drop-shadow(0 5px 8px #0004)}
+.guardian-tabs .card-name{display:block;width:100%;padding:8px 2px;font-size:15px;line-height:1.25;text-align:center;color:#ead5ae;border:1px solid #b09164;background:#292330;transform:rotate(-2deg)}
+.guardian-tabs small{color:#d5b886;font-size:9px;letter-spacing:.6px;margin-top:14px}
+.guardian-tabs .selected small{color:#f2b4d3}
+.guardian-notebook[hidden]{display:none}
+.guardian-story h3,.guardian-story h4,.guardian-items dt,.guardian-picture blockquote{color:#bc246b}
+@media(max-width:760px){.guardian-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:450px}.guardian-tabs button{min-height:290px;padding:16px 12px}.guardian-tabs button:last-child{grid-column:1 / -1;width:calc(50% - 8px);justify-self:center}.guardian-tabs img{height:164px}.guardian-tabs .card-art{height:176px}.guardian-tabs .card-name{font-size:14px}.guardian-tabs small{font-size:9px}.hero:after{right:5%;top:25px;font-size:32px}.gallery-hero{padding:28px 17px}.site-header nav a:last-child{display:inline}}
+@media(prefers-reduced-motion:reduce){.guardian-tabs button{transition:none}}
+@media(max-width:480px){.site-header nav a:nth-child(4){display:none}.site-header nav{gap:12px}}
+/* v7: 초콜릿 브라운 수호 카드 + 체크/레이스/리본 부스 */
+.guardian-tabs button{background:radial-gradient(ellipse at center,#a47b65 0,#775440 65%,#624332 100%);border:2px solid #714c38;border-radius:10px;color:#fff0db;box-shadow:0 8px 19px #53332730;padding-top:25px}
+.guardian-tabs button:before{inset:7px;border:2px solid #dfb69a;border-radius:7px;background:repeating-linear-gradient(45deg,#ffe0cb12 0 3px,transparent 3px 9px);z-index:-2}
+.guardian-tabs button:after{inset:54px 20px 65px;border:5px dotted #f3d8bd;outline:2px solid #422b29;outline-offset:3px;border-radius:50%;background:#51352d;z-index:-1}
+.guardian-tabs .card-flourish{position:absolute;left:0;width:100%;height:100px;background:url('assets/card-scroll.svg') center top/100% 100% no-repeat;pointer-events:none;z-index:1}
+.guardian-tabs .card-flourish.top{top:0}.guardian-tabs .card-flourish.bottom{bottom:0;transform:rotate(180deg)}
+.guardian-tabs .card-sigil{border:0;background:#694531;color:#ffe0b4;width:auto;font-size:11px;letter-spacing:3px;z-index:2;height:20px;line-height:20px}
+.guardian-tabs .card-art{position:relative;z-index:2}
+.guardian-tabs .card-name{background:#c65b7d;border:1px solid #843b54;color:#fff5e5;box-shadow:0 3px 0 #442c2d55;clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%);transform:rotate(-3deg);z-index:2;padding:9px 8px}
+.guardian-tabs small{position:relative;z-index:2;color:#ffe7ca;font-size:8px;background:#694531;padding:2px 5px;border-radius:4px}
+.guardian-tabs button.selected{border-color:#bc246b;box-shadow:0 0 0 3px #f4bed5,0 10px 22px #53332735}
+.booth-card{border:2px solid #b35d79;border-radius:24px 24px 13px 13px;background:#fff4e9;padding:9px;box-shadow:4px 5px 0 #f0d4dd}
+.booth-card>.card-art{border-radius:15px 15px 5px 5px;border:1px solid #bd7790;background-color:#efd1bc;background-image:repeating-linear-gradient(0deg,transparent 0 12px,#d66e8833 12px 23px,transparent 23px 25px),repeating-linear-gradient(90deg,transparent 0 12px,#d66e8840 12px 23px,transparent 23px 25px)}
+.booth-card>.card-art:after{content:'♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥';position:absolute;bottom:0;left:0;right:0;text-align:center;letter-spacing:8px;white-space:nowrap;background:#51362f;color:#f0b3ce;font-size:14px;height:25px;line-height:25px}
+.booth-card>.card-art>svg{margin-bottom:15px}.booth-card .day-label{background:#fff6de;color:#794538;border:1px solid #c89e78}
+.booth-card .favorite-btn{top:17px;right:17px;background:#fff5ee;border:1px solid #c8879f;color:#bc246b}
+.booth-card .card-body{position:relative;margin-top:11px;border:1px solid #d492a9;border-radius:8px;background:#fffdf8;padding:18px 15px 12px;outline:2px dotted #e5b6c6;outline-offset:3px}
+.booth-card .card-meta{background:#c65b7d;color:#fff9ed;padding:6px 8px;border-radius:3px;justify-content:center;flex-wrap:wrap;line-height:1.5}
+.booth-card .booth-number{color:inherit}.booth-card h3{color:#a1265b;margin-top:12px}.booth-card .product-chip{background:#fff0e4;border-color:#dfbfa7;color:#714637}
+.booth-card .card-footer{border-top:1px dashed #ce99aa;color:#a1265b}.booth-card:hover{box-shadow:5px 8px 0 #eac2d1}
+@media(max-width:480px){.booth-card{padding:7px;border-radius:19px 19px 10px 10px}.booth-card .card-body{padding:12px 9px}.booth-card .card-meta{padding:5px 3px;font-size:8px}.booth-card .favorite-btn{top:13px;right:13px}.booth-card>.card-art:after{font-size:11px;letter-spacing:5px}.guardian-tabs button:after{inset:51px 16px 65px}}
+/* Cool hot pink / dark chocolate correction */
+:root{--festival-pink:#cd0876;--pink:#cd0876}
+.hero-grid{background-color:#f7a5d0;background-image:linear-gradient(45deg,#ffecf580 25%,transparent 25%,transparent 75%,#ffecf580 75%),linear-gradient(45deg,#ffecf580 25%,transparent 25%,transparent 75%,#ffecf580 75%)}
+.hero{background:linear-gradient(130deg,#ffdbef,#ef83c3)}
+.gallery-hero{background-color:#ffc5e5;border-top-color:#da087f}
+.guardian-tabs button{background:radial-gradient(ellipse at center,#513632 0,#342321 65%,#271a1a 100%);border-color:#6b4741}
+.guardian-tabs button:before{border-color:#bb8b8b;background:repeating-linear-gradient(45deg,#f3bbce0c 0 3px,transparent 3px 9px)}
+.guardian-tabs button:after{background:#2b1b20;border-color:#d4aab8;outline-color:#170e14}
+.guardian-tabs .card-sigil,.guardian-tabs small{background:#352127;color:#f6cadf}
+.guardian-tabs .card-name{background:#ce167b;border-color:#8f1258;color:#fff6fc}
+.guardian-tabs button.selected{border-color:#ee3498;box-shadow:0 0 0 3px #f9bddf,0 10px 22px #30111f55}
+.booth-card{background:#ffe7f4;border-color:#d63591;box-shadow:4px 5px 0 #f4acd5}
+.booth-card>.card-art{background-color:#ffb8de;background-image:repeating-linear-gradient(0deg,transparent 0 12px,#e20c8845 12px 23px,transparent 23px 25px),repeating-linear-gradient(90deg,transparent 0 12px,#ec118856 12px 23px,transparent 23px 25px);border-color:#dc57a1}
+.booth-card>.card-art:after{background:#342333;color:#ff8bce}
+.booth-card .card-body{background:#fffbfe;border-color:#ed99c9;outline-color:#e9a0ca}
+.booth-card .card-meta{background:#df1784;color:#fff}.booth-card h3,.booth-card .card-footer{color:#bd086c}
+.booth-card .day-label{background:#fff0fa;color:#a01664;border-color:#ed93c5}
+.booth-card .favorite-btn{background:#fff5fc;border-color:#e46eae;color:#d50c7b}
+.booth-card .product-chip{background:#ffe8f5;border-color:#efb1d6;color:#9d2569}
+.booth-card:hover{box-shadow:5px 8px 0 #ef9aca}
+.guardian-story h3,.guardian-story h4,.guardian-items dt,.guardian-picture blockquote{color:#cd0876}
+/* v8: 부드러운 체크와 링 바인더 캐릭터 소개 */
+.hero{background:linear-gradient(130deg,#fce2ee,#f3b7dd)}
+.hero-grid{background:none}
+.booth-card>.card-art{background-color:#ffd8ed;background-image:repeating-linear-gradient(0deg,transparent 0 12px,#ef49a326 12px 23px,transparent 23px 25px),repeating-linear-gradient(90deg,transparent 0 12px,#ed329d30 12px 23px,transparent 23px 25px)}
+.gallery-hero{background-color:#ffe4f3}
+.guardian-notebook{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:0 25px;padding:22px 28px 30px;border:3px solid #d74c97;border-radius:36px;background-color:#fff1f8;background-image:linear-gradient(#eaa5cb22 1px,transparent 1px),linear-gradient(90deg,#eaa5cb22 1px,transparent 1px);background-size:7px 7px;box-shadow:0 0 0 5px #fff5fb,0 0 0 8px #edb7d2,8px 12px 0 #ebc5d655;overflow:visible;margin-top:45px}
+.guardian-notebook:after{display:none}
+.guardian-profile-banner{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:22px;position:relative;min-height:57px;margin:-2px -8px 30px;padding:8px 24px;border:2px solid #d52d86;border-radius:22px;background:repeating-linear-gradient(45deg,#ffffff30 0 3px,transparent 3px 7px),#ec94c0;color:#a51061;box-shadow:inset 0 0 0 3px #ffdeed,0 3px 0 #d996b6}
+.guardian-profile-banner strong{font-size:26px;letter-spacing:1px;text-shadow:1px 1px #fff}.guardian-profile-banner>span{font-size:24px;color:#cb1677}
+.guardian-profile-banner:before{content:'';position:absolute;left:22px;top:-10px;width:13px;height:51px;border:3px solid #c2a775;border-radius:15px;transform:rotate(35deg);box-shadow:inset 0 0 0 2px #fff5d4}
+.guardian-picture{background:none;border:0;padding:15px 0 0;justify-content:center}
+.portrait-frame{background:transparent;box-shadow:none;transform:none;padding:0;max-width:340px}
+.portrait-frame:before{display:none}.portrait-frame img{height:350px;filter:drop-shadow(0 8px 5px #9d557329)}.portrait-frame>span{display:none}
+.guardian-picture blockquote{background:#fff9fc;border:1px dashed #d581ac;border-radius:18px;padding:12px 20px;margin-top:16px;font-size:14px}.guardian-symbols{color:#d94896;font-size:23px;letter-spacing:9px;margin:12px 0}
+.guardian-story{position:relative;background:#fffdfd;border:3px solid #be2875;border-radius:20px;padding:35px 25px 24px;box-shadow:5px 6px 0 #573044;margin:0 5px 7px 0}
+.guardian-story:before{content:'';position:absolute;left:20px;right:20px;top:-18px;height:31px;background:radial-gradient(ellipse at center,#fff7d3 0 15%,#d4a84a 20% 34%,#ffe9a0 39% 48%,transparent 53%) 0 0/50px 31px repeat-x;pointer-events:none}
+.guardian-story h3{font-size:24px;margin-bottom:10px}.guardian-tagline{font-size:14px}.guardian-items>div{padding:9px 0}.guardian-items>div:before{content:'♥';color:#dc579e;margin-right:7px;font-size:11px}.guardian-story>p:not([class]){font-size:13px;line-height:1.9}.guardian-selected{margin-top:12px}
+@media(max-width:760px){.guardian-notebook{padding:16px 17px 24px;grid-template-columns:1fr;gap:0;border-radius:25px;margin:35px 4px 0}.guardian-profile-banner{margin:0 -6px 18px;gap:12px;padding:10px 20px;min-height:48px}.guardian-profile-banner strong{font-size:20px}.guardian-profile-banner>span{font-size:17px}.guardian-profile-banner:before{left:12px;width:10px;height:35px}.guardian-picture{padding:0 10px 25px;border:0}.portrait-frame img{height:245px}.guardian-story{padding:30px 19px 21px;margin:10px 3px 0 0}.guardian-story h3{font-size:23px}.guardian-picture blockquote{font-size:12px}.guardian-symbols{display:none}}
+/* v9: 이름 띠에 겹쳐 붙인 하트 스티커 */
+.guardian-profile-banner{width:min(100%,650px);justify-self:center;box-sizing:border-box;margin-left:0;margin-right:0;isolation:isolate}
+.guardian-profile-banner strong{position:relative;z-index:1;padding:0 55px;font-size:26px}
+.guardian-profile-banner>.profile-heart-sticker{position:absolute;width:98px;height:70px;right:22px;top:-23px;background:url('assets/profile-hearts.svg') center/contain no-repeat;transform:rotate(9deg);filter:drop-shadow(1px 3px 1px #7a28552b);pointer-events:none}
+@media(max-width:760px){.guardian-profile-banner strong{font-size:20px;padding:0 42px 0 25px}.guardian-profile-banner>.profile-heart-sticker{width:69px;height:52px;right:5px;top:-20px}}

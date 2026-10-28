@@ -15,8 +15,8 @@ const booths = [
   {id:'animal-farm',number:5,name:'동물농장',org:'이세연(개인)',description:'별별 친구들이 모여 사는 작은 뜨개 동물농장에 놀러 오세요!',categories:['goods'],days:['wed'],products:['뜨개 키링'],note:'수요일에만 운영해요.',art:'yarn',bg:'#efe1f4',accent:'#b08bbd'},
   {id:'ludens',number:5,name:'우리동아리 정상영업합니다',org:'루덴스',description:'人예미 소속 동아리 루덴스 人지대 축제에 진출',categories:['goods'],days:['thu'],products:['스티커','자수 책갈피','티셔츠'],note:'목요일에만 운영해요.',art:'bookmark',bg:'#e3ecfb',accent:'#8c9ed0'},
   {id:'likelion',number:6,name:'이화여자대학교 멋쟁이사자처럼',org:'이화여자대학교 멋쟁이사자처럼',description:'대동제 웹사이트 개발하는 바로 그 동아리! 아기사자의 멋진 프로덕트를 소개합니다 🦁',categories:['goods'],days:['wed','thu'],products:['판매 품목 논의 중'],note:'판매 품목은 현재 논의 중이에요.',art:'lion',bg:'#fde8ca',accent:'#d9a164'},
-  {id:'randomforest',number:7,name:'랜덤포레스트',org:'랜덤포레스트',description:'밴드가 밥 먹여주니? 넵 랜포는 먹여드립니다.',categories:['food'],days:['wed','thu'],products:['국밥','차'],note:'판매 품목은 변동 가능성이 있어요.',art:'soup',bg:'#e0ece4',accent:'#86aa95'},
-  {id:'datascience',number:8,name:'데이터사이언스부스',org:'데이터사이언스',description:'불닭으로 일으킨 학생회?',categories:['food'],days:['wed','thu'],products:['불닭 샌드위치','아이스티'],note:'판매 품목은 미정이에요.',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'}
+  {id:'randomforest',number:7,name:'랜덤포레스트',org:'랜덤포레스트',description:'밴드가 밥 먹여주니? 넵 랜포는 먹여드립니다.',categories:['food'],days:['wed','thu'],products:['국밥','차'],note:'',art:'soup',bg:'#e0ece4',accent:'#86aa95'},
+  {id:'datascience',number:8,name:'데이터사이언스부스',org:'데이터사이언스',description:'불닭으로 일으킨 학생회?',categories:['food'],days:['wed','thu'],products:['불닭 샌드위치','아이스티'],note:'',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'}
 ];
 
 const programs = [

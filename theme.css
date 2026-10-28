@@ -1,4 +1,4 @@
-  /* 캐릭캐릭 체인지에서 영감을 받은 인지상정 스크랩북 테마.
+/* 캐릭캐릭 체인지에서 영감을 받은 인지상정 스크랩북 테마.
    원본 styles.css 위에 적용합니다. 학과 대표색은 data.js에서 수정하세요. */
 :root{--ink:#353056;--pink:#cd2876;--rose:#f7bed8;--paper:#fffafc;--line:#e7d7e3;--muted:#7c6277}
 .site-header{background:#fffafcf5;border-bottom:2px solid #eec0d4}.brand-heart{color:#da337e}.hero{background:linear-gradient(130deg,#fce2ee,#f3b7dd);padding-top:62px;padding-bottom:68px}.hero-grid{background-image:linear-gradient(45deg,#ffffff26 25%,transparent 25%,transparent 75%,#ffffff26 75%),linear-gradient(45deg,#ffffff26 25%,transparent 25%,transparent 75%,#ffffff26 75%);background-position:0 0,22px 22px;background-size:44px 44px}.hero:before{content:'';position:absolute;top:0;left:0;right:0;height:18px;background-color:#33315d;background-image:repeating-linear-gradient(90deg,transparent 0 23px,#e63887 23px 36px,transparent 36px 44px,#48b1d0 44px 47px,transparent 47px 60px),repeating-linear-gradient(0deg,transparent 0 7px,#e6388780 7px 11px);border-bottom:3px solid white}.hero-eyebrow{color:#8c305b}.hero h1{max-width:590px}.hero-copy{color:#653b5c}.hero-footnote{font-size:14px;font-weight:800;color:#613d5a;line-height:1.9;display:inline-block;background:#fff8eae8;padding:12px 26px;border:1px dashed #c684a5;transform:rotate(-2deg);box-shadow:5px 6px 0 #ab5b8220}.sticker-heart{font-size:85px;top:43px;left:6%}.sticker-star{top:49px;right:7%;font-size:60px}.sticker-spark{display:none}.hero-guardian{position:absolute;left:max(1%,calc(50% - 620px));bottom:80px;width:245px;transform:rotate(-8deg);z-index:1}.hero-guardian img{width:100%;height:auto;filter:drop-shadow(5px 9px 0 #ffffffb0)}.hero-guardian span,.hero-guardian-egg span{font-size:12px;display:inline-block;background:white;padding:5px 9px;border:1px solid #cf96b7;border-radius:8px;font-weight:700}.hero-guardian-egg{position:absolute;width:190px;right:max(2%,calc(50% - 575px));bottom:115px;transform:rotate(9deg);z-index:1}.hero-guardian-egg img{width:100%;height:auto;filter:drop-shadow(4px 7px 0 #ffffff90)}.festival-ribbon{background:#353056;color:#fff0f8;border-top:4px solid #ed79ad;border-bottom:4px solid #ed79ad}.festival-ribbon b{color:#f3b1d1}
@@ -25,72 +25,3 @@
 .daily-booth{background:#fceaf3;border-radius:12px;padding:16px;margin-top:12px}.daily-booth strong{display:block;font-size:13px;margin-bottom:5px}.daily-booth button{display:block;background:transparent;padding:7px 0;font-size:12px;text-align:left;color:#713657}
 .program-steps h3,.program-rules h3{font-size:15px;margin:24px 0 10px;color:#9e3767}.program-steps ol,.program-rules ul{padding-left:21px;font-size:13px;line-height:1.9}.program-steps li,.program-rules li{padding-left:3px;margin-bottom:9px}.program-rules{background:#f9eaf2;padding:1px 17px 8px;border-radius:12px}.program-rules h3{margin-top:16px}
 @media(max-width:760px){.map-layout{grid-template-columns:1fr;gap:30px}.map-figure{position:static;max-width:570px;width:100%;margin:auto}.map-directory{min-width:0}.hero-quicklinks{font-size:11px;gap:22px}.guardian-items>div{display:block}.map-directory span{font-size:13px}.map-section .section-heading{margin-bottom:25px}}
-
-/* 캐캐체 수호알 카드 - 기존 guardian-flip-* HTML과 theme.css 충돌 방지 */
-#guardian-tabs.guardian-tabs {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 15px;
-  width: 100%;
-  max-width: 1050px;
-  margin: 0 auto 36px;
-  align-items: stretch;
-}
-#guardian-tabs button.guardian-flip-card,
-#guardian-tabs button.guardian-flip-card.selected {
-  display: block;
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  height: 320px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  transform: none;
-  perspective: 1100px;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  overflow: visible;
-}
-#guardian-tabs button.guardian-flip-card:hover,
-#guardian-tabs button.guardian-flip-card.selected:hover {
-  transform: translateY(-5px);
-  box-shadow: none;
-  border: 0;
-}
-#guardian-tabs .guardian-flip-inner {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transition: transform .78s cubic-bezier(.2,.7,.2,1);
-}
-#guardian-tabs button.guardian-flip-card.is-flipped .guardian-flip-inner {
-  transform: rotateY(180deg);
-}
-#guardian-tabs .guardian-flip-face {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 22px 12px 20px;
-  overflow: hidden;
-  border: 2px solid #cca67a;
-  border-radius: 4px;
-  background: radial-gradient(ellipse at 50% 42%, #443147 0%, #2b202e 60%, #19141d 100%);
-  box-shadow: 0 10px 20px rgba(34,18,35,.22), inset 0 0 0 3px #1b1520;
-  color: #f5ddbb;
-  backface-visibility: hidden;
