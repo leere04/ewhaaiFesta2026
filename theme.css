@@ -135,3 +135,30 @@ html {
     padding-bottom: 65px;
   }
 }
+
+/* 모바일 수호캐릭터 카드 5개 한 줄 배치 */
+@media (max-width: 760px) {
+  .guardian-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .guardian-tabs button {
+    width: 100%;
+    min-width: 0;
+    padding: 6px 2px;
+  }
+
+  .guardian-tabs img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .guardian-tabs span {
+    font-size: 11px;
+  }
+}
