@@ -54,7 +54,17 @@ function renderBooths() {
   grid.innerHTML = visible.map(card).join('');
   document.getElementById('result-count').textContent = `${state.savedOnly ? '찜한 부스' : '총'} ${visible.length}개${state.savedOnly ? '' : '의 부스'}`;
   document.getElementById('saved-count').textContent = favoriteIds.size;
-  document.getElementById('saved-nav').setAttribute('aria-label',`찜한 부스 ${favoriteIds.size}개 보기`);
+  document.getElementById('saved-nav').addEventListener('click', () => {
+  resetFilters();
+  state.savedOnly = true;
+  renderBooths();
+  window.location.hash = '#booths';
+
+  setTimeout(() => {
+    document.getElementById('saved-filter')
+      .focus({preventScroll: true});
+  }, 0);
+});
   const savedFilter = document.getElementById('saved-filter');
   savedFilter.setAttribute('aria-pressed',state.savedOnly);
   savedFilter.querySelector('span').textContent = state.savedOnly ? '♥' : '♡';
