@@ -36,3 +36,102 @@ h1, h2, h3, h4,
   font-family: 'Jua', sans-serif;
   font-weight: 400;
 }
+
+/* ===== 새로운 탑바 ===== */
+
+.site-header {
+  height: 96px;
+}
+
+.header-inner {
+  max-width: 1440px;
+  padding: 0 28px;
+  gap: 20px;
+}
+
+.site-header nav {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.site-header nav::-webkit-scrollbar {
+  display: none;
+}
+
+.site-header nav a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 14px 12px;
+  border-radius: 12px;
+  transition: background .2s, color .2s;
+}
+
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
+  background: #fce5f1;
+  color: #b72a70;
+}
+
+.site-header .saved-nav {
+  flex-shrink: 0;
+  padding: 11px 16px;
+}
+
+/* 화면 비율에 따라 콘텐츠가 잘리지 않도록 */
+html {
+  scroll-behavior: auto;
+}
+
+.hero {
+  min-height: calc(100svh - 96px);
+}
+
+/* ===== 모바일 전용 ===== */
+
+@media (max-width: 760px) {
+
+  .site-header {
+    height: 72px;
+  }
+
+  .header-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .site-header nav {
+    justify-content: flex-start;
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  .site-header nav a {
+    padding: 10px 9px;
+  }
+
+  .site-header .saved-nav {
+    padding: 6px 9px;
+  }
+
+  /* 첫 화면 캐릭터만 숨기기 */
+  .hero-guardian,
+  .hero-guardian-egg {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 65px;
+  }
+}
