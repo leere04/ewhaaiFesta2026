@@ -124,6 +124,43 @@
   const teamTwo = {"id": "likelion-dalpan", "number": 7, "name": "멋쟁이사자처럼 2팀 · 달판", "org": "이화여자대학교 멋쟁이사자처럼", "description": "대화 캡처를 바탕으로 인간관계 갈등을 판결해 주는 AI 재판소, 달판! 신촌 대학 연합 AI 창업 경진대회에 출품한 직접 만든 웹사이트를 소개합니다.", "categories": ["experience"], "days": ["wed", "thu"], "products": ["판결 체험 + 인스타 스토리 인증 → 토끼 말랑이 증정", "서비스 내 1,000원 결제 인증 → 토끼 모양 아몬드 쿠키 증정"], "hours": "11/4(수) 09:30~18:00 / 11/5(목) 12:30~18:00", "location": "학생문화관 앞 7번 부스", "note": "서비스에서 결제한 내역을 부스에서 인증해 주세요.", "steps": ["달판에 회원가입하고 AI 판결받기", "판결문 이미지를 저장하고 공유 링크 복사하기", "인스타그램 스토리에 업로드하고 부스에서 인증하기"], "art": "lion", "bg": "#ebe9f4", "accent": "#665574", "extraGalleryTitle": "멋사 2팀 달판 카드뉴스", "extraGalleryImages": ["assets/booth-dalpan-01.jpg", "assets/booth-dalpan-02.jpg", "assets/booth-dalpan-03.jpg"], "links": [{"label": "달판 바로가기 ↗", "url": "https://dalpan.vercel.app/"}]};
   const lionIndex = booths.findIndex(b => b.id === 'likelion');
   if (lionIndex !== -1) { Object.assign(booths[lionIndex], teamOne); if (!booths.some(b => b.id === teamTwo.id)) booths.splice(lionIndex + 1, 0, teamTwo); }
+
+  // 멋사 3팀은 기존 부스 업데이트 파일에서 함께 등록합니다.
+  const teamThree = {
+    id: 'likelion-gooong',
+    number: 7,
+    name: '멋쟁이사자처럼 3팀 · 구웅이의 행복',
+    org: '이화여자대학교 멋쟁이사자처럼',
+    description: '구웅이와 함께하는 수제 빼빼로와 귀여운 스티커! 오리지널과 이화 버전을 만나보세요.',
+    categories: ['food', 'goods'],
+    days: ['wed','thu'],
+    products: [
+      '구웅이 수제 빼빼로 오리지널 990원',
+      '구웅이 수제 빼빼로 말차맛 990원',
+      '구웅이 스티커 오리지널 990원',
+      '구웅이 스티커 이화 ver. 990원'
+    ],
+    hours: '11/4(수)·11/5(목) 10:00~17:00',
+    location: '학생문화관 앞 멋쟁이사자처럼 부스',
+    note: '수제 빼빼로와 스티커 2종을 판매해요. 디자인은 카드뉴스를 확인해 주세요.',
+    pricesConfirmed: true,
+    art: 'lion',
+    bg: '#fff1da',
+    accent: '#e39b4b',
+    extraGalleryTitle: '구웅이의 행복 카드뉴스',
+    extraGalleryImages: [
+      'assets/booth-likelion-gooong-01.png',
+      'assets/booth-likelion-gooong-02.png',
+      'assets/booth-likelion-gooong-03.png'
+    ]
+  };
+  if (!booths.some(booth => booth.id === teamThree.id)) {
+    const dalpanIndex = booths.findIndex(booth => booth.id === 'likelion-dalpan');
+    const firstLionIndex = booths.findIndex(booth => booth.id === 'likelion');
+    const targetIndex = dalpanIndex >= 0 ? dalpanIndex + 1 : (firstLionIndex >= 0 ? firstLionIndex + 1 : booths.length);
+    booths.splice(targetIndex, 0, teamThree);
+  }
+
   // 부스 카드의 메뉴·검색 정보도 즉시 최신 내용으로 바꿉니다.
   if (typeof renderBooths === 'function') renderBooths();
 

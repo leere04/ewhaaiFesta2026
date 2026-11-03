@@ -77,3 +77,33 @@
 .guardian-card-full-story[open] .guardian-story-more-closed{display:none}
 .guardian-card-full-story[open] .guardian-story-more-open{display:inline-block}
 .guardian-card-full-story .guardian-story-content{padding-top:7px}
+
+/* 2026-11-03: 카드 안 모든 텍스트를 밝은 흰색으로 통일 */
+.guardian-notebook.guardian-poster-profile .guardian-poster-description,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description :is(h3,h4,h5,p,strong,span,summary),
+.guardian-notebook.guardian-poster-profile .guardian-poster-description details,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description a {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-tagline {
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+.guardian-mobile-summary {display:none}
+/* 카드 상단 이미지에 이미 큰 이름이 있으므로 본문에서는 중복 이름을 표시하지 않습니다. */
+.guardian-poster-description .guardian-card-full-name {display:none!important}
+/* 크게 보기 모달에서는 본문을 넉넉하게 보여 줍니다. */
+.guardian-reading-body .guardian-desktop-detail {display:block!important}
+.guardian-reading-body .guardian-mobile-summary {display:none!important}
+@media(max-width:760px){
+  .guardian-poster-description .guardian-desktop-detail{display:none!important}
+  .guardian-poster-description .guardian-mobile-summary{display:block!important}
+  .guardian-poster-description {font-size:clamp(8px,2.45vw,11px);line-height:1.5}
+  .guardian-poster-description .guardian-card-full-tagline {margin:0 0 9px;font-size:1.05em}
+  .guardian-poster-description .guardian-mobile-summary .guardian-card-full-section {margin-top:6px;padding-top:6px}
+  .guardian-poster-description .guardian-mobile-summary h4 {font-size:1em;line-height:1.3;margin:0 0 4px}
+  .guardian-poster-description .guardian-mobile-summary p {line-height:1.5;margin:0}
+  .guardian-poster-enlarge {display:block!important;z-index:2}
+}

@@ -23,16 +23,21 @@ function guardianDisplayName(guardian) {
 }
 // 기존 특징·상징·이야기 내용은 변경하지 않습니다.
 function guardianFullDescription(guardian) {
+  const symbolNames = guardian.items.map(([name]) => esc(name)).join(' · ');
   return `
-    <h3 class="guardian-card-full-name">${esc(guardianDisplayName(guardian))}</h3>
     <p class="guardian-card-full-tagline">${esc(guardian.tagline)}</p>
-    ${guardian.quote ? `<p class="guardian-card-full-quote">“${esc(guardian.quote)}”</p>` : ''}
-    <p class="guardian-card-full-intro">${esc(guardian.intro)}</p>
-    ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4>${guardian.items.map(([name,desc])=>`<p><strong>${esc(name)}</strong> — ${esc(desc)}</p>`).join('')}</div>` : ''}
-    ${guardian.story.length ? `<details class="guardian-card-full-section guardian-card-full-story">
-      <summary>수호 캐릭터 이야기 <span class="guardian-story-more-closed">더보기</span><span class="guardian-story-more-open">접기</span></summary>
-      <div class="guardian-story-content">${guardian.story.map(([name,desc])=>`<h5>${esc(name)}</h5><p>${esc(desc)}</p>`).join('')}</div>
-    </details>` : ''}
+    <div class="guardian-mobile-summary">
+      ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4><p>${symbolNames}</p></div>` : ''}
+    </div>
+    <div class="guardian-desktop-detail">
+      ${guardian.quote ? `<p class="guardian-card-full-quote">“${esc(guardian.quote)}”</p>` : ''}
+      <p class="guardian-card-full-intro">${esc(guardian.intro)}</p>
+      ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4>${guardian.items.map(([name,desc])=>`<p><strong>${esc(name)}</strong> — ${esc(desc)}</p>`).join('')}</div>` : ''}
+      ${guardian.story.length ? `<details class="guardian-card-full-section guardian-card-full-story">
+        <summary>수호 캐릭터 이야기 <span class="guardian-story-more-closed">더보기</span><span class="guardian-story-more-open">접기</span></summary>
+        <div class="guardian-story-content">${guardian.story.map(([name,desc])=>`<h5>${esc(name)}</h5><p>${esc(desc)}</p>`).join('')}</div>
+      </details>` : ''}
+    </div>
   `;
 }
 function selectGuardian(id) {
