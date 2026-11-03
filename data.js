@@ -24,7 +24,7 @@ const programs = [
   {id:'fishing',name:'낚시부스',description:'내 마음을 Unlock! 나의 수호알을 낚아라!',detail:'내 마음을 Unlock! 나의 수호알을 낚아라!',art:'fishing',bg:'#f0f8f6'},
   {id:'egg',name:'수호알 꾸미기',description:'되고 싶은 나의 모습, 험프티 록 수호알 공방',detail:'되고 싶은 나의 모습, 험프티 록 수호알 공방',art:'egg',bg:'#fff5f8'},
   {id:'fortune',name:'운세부스',description:'빛나라, 나의 다이아! 오늘의 럭키 컬러 & 운세',detail:'빛나라, 나의 다이아! 오늘의 럭키 컬러 & 운세',art:'fortune',bg:'#f2effb'},
-  {id:'cotton',name:'솜사탕부스',description:'축제의 설렘을 달콤한 한 입에.',detail:'달콤한 솜사탕과 함께 인지상정의 즐거움을 만나보세요.',art:'cotton',bg:'#fffdf9'},
+  {id:'cotton',name:'솜사탕부스',description:'인지대 학생은 학생증 확인 시 1개 무료! 그 외에는 1개당 1,000원이에요.',detail:'달콤한 솜사탕과 함께 인지상정의 즐거움을 만나보세요.',participation:'인공지능대학 소속 학생은 학생증 확인 시 솜사탕 1개를 무료로 제공해요. 인공지능대학 소속이 아닌 경우 1개당 1,000원에 구매할 수 있어요.',art:'cotton',bg:'#fffdf9'},
   {id:'stamp',name:'도장판 이벤트',description:'축제를 즐기며 도장판 이벤트도 함께해요!',detail:'축제를 즐기는 또 하나의 방법, 도장판 이벤트가 준비되어 있어요.',art:'stamp',bg:'#fff2c8'}
 ];
 
