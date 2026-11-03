@@ -25,6 +25,7 @@ const programs = [
   {id:'egg',name:'수호알 꾸미기',description:'되고 싶은 나의 모습, 험프티 록 수호알 공방',detail:'되고 싶은 나의 모습, 험프티 록 수호알 공방',art:'egg',bg:'#fff5f8'},
   {id:'fortune',name:'운세부스',description:'빛나라, 나의 다이아! 오늘의 럭키 컬러 & 운세',detail:'빛나라, 나의 다이아! 오늘의 럭키 컬러 & 운세',art:'fortune',bg:'#f2effb'},
   {id:'cotton',name:'솜사탕부스',description:'인지대 학생은 학생증 확인 시 1개 무료! 그 외에는 1개당 1,000원이에요.',detail:'달콤한 솜사탕과 함께 인지상정의 즐거움을 만나보세요.',participation:'인공지능대학 소속 학생은 학생증 확인 시 솜사탕 1개를 무료로 제공해요. 인공지능대학 소속이 아닌 경우 1개당 1,000원에 구매할 수 있어요.',art:'cotton',bg:'#fffdf9'},
+  {id:'sponsor',name:'협찬품 배부 부스',description:'협찬품 수령 안내는 실내 4번 부스에서 확인해 주세요.',detail:'실내 4번 협찬품 배부 부스예요. 수령 대상과 배부 품목은 현장에서 확인해 주세요.',art:'gift',bg:'#fff5e8',hours:'현장 안내'},
   {id:'stamp',name:'도장판 이벤트',description:'축제를 즐기며 도장판 이벤트도 함께해요!',detail:'축제를 즐기는 또 하나의 방법, 도장판 이벤트가 준비되어 있어요.',art:'stamp',bg:'#fff2c8'}
 ];
 
@@ -128,4 +129,10 @@ const programGuides = {
     rewards: ['하이디라오 3만 원권', '배달의민족 1만 원권', '메가커피 5천 원권']
   }
 };
-programs.forEach(program => Object.assign(program, programGuides[program.id] || {}));
+// 실내 부스는 행사 운영 매뉴얼의 배치도(1~4번)에 맞춥니다.
+const indoorProgramOrder = { egg: 1, fortune: 2, photo: 3, sponsor: 4 };
+programs.forEach(program => {
+  Object.assign(program, programGuides[program.id] || {});
+  program.zone = Object.prototype.hasOwnProperty.call(indoorProgramOrder, program.id) ? 'indoor' : 'outdoor';
+  if (program.zone === 'indoor') program.indoorBoothNumber = indoorProgramOrder[program.id];
+});
