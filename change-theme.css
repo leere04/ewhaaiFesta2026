@@ -129,20 +129,12 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 #map-highlights polygon{fill:transparent;stroke:transparent;stroke-width:3;vector-effect:non-scaling-stroke;stroke-linejoin:round;transition:fill .18s,stroke .18s}
 #map-highlights polygon.is-selected{fill:#f6a9cc66;stroke:#d72a7e;filter:drop-shadow(0 0 5px #ffb2d7)}
 .map-directory .map-booth-row>.map-locate,.map-directory .daily-booth>.map-locate{grid-column:1;grid-row:1;display:block;text-align:left;padding:8px 6px;margin:-4px -6px 0;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--ink);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
-.map-directory .map-locate:hover,.map-directory .map-locate[aria-pressed=true]{background:#fbe3ef;color:#a51e60}
-.map-directory .map-locate[aria-pressed=true]{box-shadow:inset 3px 0 #d72a7e}
 .map-locate:focus-visible,.map-program-link:focus-visible{outline:3px solid #d82d7c;outline-offset:3px}
 .map-program-link{grid-column:2;grid-row:1 / 3;font-size:12px;color:#bd286a;padding:8px;min-height:44px;display:flex;align-items:center}
 .map-figure figcaption{display:flex;flex-wrap:wrap;justify-content:center;gap:7px 16px;line-height:1.7}
 .map-figure figcaption a{color:#a51e60;text-underline-offset:3px}
 @media(max-width:760px){.map-figure{scroll-margin-top:88px}.map-directory .map-booth-row>.map-locate{font-size:13px}}
 @media(prefers-reduced-motion:reduce){#map-highlights polygon{transition:none}}
-/* Stretch the location button across the entire row; detail links remain above it. */
-.map-directory .map-booth-row,.map-directory .daily-booth{position:relative;isolation:isolate;border-radius:10px;transition:background .18s;cursor:pointer}
-.map-directory .map-locate:after{content:'';position:absolute;inset:0;border-radius:10px;cursor:pointer;z-index:1}
-.map-directory .map-booth-row>[data-booth],.map-directory .map-program-link,.map-directory .daily-booth>[data-booth]{position:relative;z-index:2}
-.map-directory .map-booth-row:has(.map-locate:hover),.map-directory .daily-booth:has(.map-locate:hover),.map-directory .map-row-selected{background:#fbe3ef}
-.map-directory .map-row-selected{box-shadow:inset 3px 0 #d72a7e}
-.map-directory .map-locate[aria-pressed=true]{box-shadow:none;background:transparent}
-.map-directory .map-locate:focus-visible:after{outline:3px solid #d82d7c;outline-offset:2px}
-.map-directory .map-locate:focus-visible{outline:none}
+/* The whole row selects a map location, with visual emphasis only on the map. */
+.map-directory .map-booth-row,.map-directory .daily-booth{cursor:pointer}
+.map-directory .map-booth-row>.map-locate,.map-directory .daily-booth>.map-locate{margin:0;padding:0 4px;background:transparent;box-shadow:none}
