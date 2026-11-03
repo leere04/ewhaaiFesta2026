@@ -8,7 +8,7 @@
 'use strict';
 
 const booths = [
-  {id:'commit',number:1,name:'CODE: OPEN HEART X알 정화 대작전!',org:'컴공 학생회',description:'🔥 작년 그 맛 그대로! 마라로제컴볶이 🔥\n얼얼한 마라 + 꾸덕한 로제 = 맛.없.없 조합\n인지상정에서 만나요😎',categories:['food','goods'],days:['wed','thu'],products:['마라로제떡볶이','티셔츠','리무버블 스티커','멀티 클리너'],note:'음식과 굿즈를 함께 판매해요.',art:'tteok',bg:'#fbe2d9',accent:'#d98c78'},
+  {id:'commit',number:1,name:'컴온앤비욘',org:'컴공 학생회',description:'🔥 작년 그 맛 그대로! 마라로제컴볶이 🔥\n얼얼한 마라 + 꾸덕한 로제 = 맛.없.없 조합\n인지상정에서 만나요😎',categories:['food','goods'],days:['wed','thu'],products:['마라로제떡볶이','티셔츠','리무버블 스티커','멀티 클리너'],note:'음식과 굿즈를 함께 판매해요.',art:'tteok',bg:'#fbe2d9',accent:'#d98c78'},
   {id:'click',number:2,name:'사보 크크',org:'사보 학생회',description:'🥐 겉바속쫀! 소금빵 크로플 🥐\n소금빵 생지를 와플기에 꾹 눌러 구워낸 소금빵 크로플을 판매합니다!',categories:['food','goods'],days:['wed','thu'],products:['소금빵 크로플','스티커','핀 뱃지','키링'],note:'음식과 굿즈를 함께 판매해요.',art:'croffle',bg:'#fcf0cb',accent:'#cfa854'},
   {id:'steady',number:3,name:'스테디 셀러',org:'Steady',description:'호떡에 이어 어묵으로 돌아온 스테디 셀러입니다',categories:['food'],days:['wed','thu'],products:['물 오뎅','마라 오뎅'],note:'',art:'fishcake',bg:'#e1edde',accent:'#84a580'},
   {id:'ewhale',number:4,name:'네이버 웨일 캠퍼스 크루 | EWHALE',org:'네이버 웨일 캠퍼스 크루 EWHALE',description:'네이버 웨일 체험만 해도 키캡 키링·스트레스볼 증정!',categories:['experience'],days:['wed','thu'],products:['네이버 웨일 체험','키캡 키링·스트레스볼 증정'],note:'체험형 부스로 별도 판매는 없어요. 참여자를 대상으로 네이버 웨일 굿즈를 증정해요.',art:'whale',bg:'#dceef6',accent:'#78afc3'},
