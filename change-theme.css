@@ -102,3 +102,6 @@
 .game-ticket-label,.game-ticket-caption{background:#fff8fc;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:700;color:#a51061;text-align:center}
 .game-start:focus-visible,.site-header nav .game-nav:focus-visible{outline:3px solid #be2875;outline-offset:4px}
 @media(max-width:760px){.game-ticket{grid-template-columns:1fr}.game-ticket-art{border-left:0;border-top:2px dashed #be2875;padding:24px}.game-ticket-art img{width:170px}.game-ticket-copy{padding:28px 22px}.game-start{font-size:13px;padding:12px 16px}.game-login-note{font-size:11px}}
+/* Original festival poster plaid, cropped from assets/festival-poster.png.
+   Source crop: x=568, y=824, width=120, height=92. */
+.booth-card>.card-art,.game-ticket-art{background-color:#4c3b70;background-image:url('assets/festival-plaid.png');background-size:120px 92px;background-repeat:repeat}
