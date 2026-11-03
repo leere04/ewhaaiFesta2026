@@ -2,8 +2,11 @@
 (() => {
   const section = document.getElementById('booth-map');
   const overlay = document.getElementById('map-highlights');
-  if (!section || !overlay) return;
-  // Polygon corners in the original 1229 x 1080 map, shared across all screen sizes.
+  const directory = section?.querySelector('.map-directory');
+  const status = document.getElementById('map-selection-status');
+  if (!section || !overlay || !directory) return;
+
+  // Coordinates in the original 1229×1080 booth-map image.
   const locations = {
     commit: ['528,785 598,787 594,897 524,894'],
     click: ['517,669 586,664 594,774 524,778'],
@@ -22,56 +25,58 @@
     polygon.dataset.location = id;
     overlay.append(polygon);
   }));
-  const directory = section.querySelector('.map-directory');
-  directory.querySelectorAll('.map-booth-row').forEach(row => {
-    const details = row.querySelector('[data-booth]');
-    const link = row.querySelector('a');
-    const name = row.querySelector(':scope > span, .map-locate');
-    const description = row.querySelector('small');
-    const control = document.createElement(details ? 'button' : 'a');
-    control.className = 'map-booth-row';
-    control.dataset.mapLocation = details ? details.dataset.booth : 'festival';
-    if (details) {
-      control.type = 'button';
-      control.dataset.booth = details.dataset.booth;
-      control.setAttribute('aria-haspopup', 'dialog');
-    } else control.href = link.href;
-    const title = document.createElement('span');
-    title.textContent = name.textContent;
-    const small = document.createElement('small');
-    small.textContent = description.textContent;
-    const action = document.createElement('b');
-    action.textContent = details ? details.textContent : link.textContent;
-    control.append(title, small, action);
-    row.replaceWith(control);
+
+  // Leave the row's existing '자세히 보기' button alone.
+  // Only the booth name becomes a map-location button, without data-booth.
+  const boothRows = [...directory.querySelectorAll(':scope > .map-booth-row')];
+  boothRows.forEach(row => {
+    const details = row.querySelector('button[data-booth]');
+    const title = row.querySelector(':scope > span');
+    const location = details?.dataset.booth || 'festival';
+    row.dataset.mapLocation = location === 'likelion-dalpan' ? 'likelion' : location;
+    if (title) {
+      const locate = document.createElement('button');
+      locate.type = 'button';
+      locate.className = 'map-locate';
+      locate.textContent = title.textContent;
+      locate.setAttribute('aria-pressed', 'false');
+      locate.setAttribute('aria-label', title.textContent + ' 지도에서 위치 확인');
+      title.replaceWith(locate);
+    }
   });
-  const daily = directory.querySelector('.daily-booth');
-  const dailyTitle = daily.querySelector('.map-locate');
-  const heading = document.createElement('strong');
-  heading.textContent = dailyTitle.textContent;
-  dailyTitle.replaceWith(heading);
-  daily.querySelectorAll('[data-booth]').forEach(button => {
-    button.dataset.mapLocation = 'daily';
-    button.classList.add('map-daily-row');
-  });
-  const rows = [...directory.querySelectorAll('[data-map-location]')];
-  const status = document.getElementById('map-selection-status');
-  const initialStatus = '';
-  status.textContent = initialStatus;
+  const daily = directory.querySelector(':scope > .daily-booth');
+  if (daily) daily.dataset.mapLocation = 'daily';
+  const rows = daily ? [...boothRows, daily] : boothRows;
+  let selected = null;
+  const initialStatus = '부스명을 누르면 배치도에 위치가 표시돼요.';
+  if (status) status.textContent = initialStatus;
+
   function highlight(row) {
     const id = row?.dataset.mapLocation;
     overlay.querySelectorAll('polygon').forEach(polygon => {
       polygon.classList.toggle('is-selected', polygon.dataset.location === id);
     });
-    rows.forEach(item => item.classList.toggle('map-active', item === row));
-    status.textContent = row ? row.querySelector('span')?.textContent || row.textContent : initialStatus;
+    rows.forEach(item => {
+      item.classList.toggle('map-active', item === row);
+      const locate = item.querySelector(':scope > .map-locate');
+      if (locate) locate.setAttribute('aria-pressed', String(item === selected));
+    });
+    if (status) status.textContent = row
+      ? row.querySelector(':scope > .map-locate')?.textContent || initialStatus
+      : initialStatus;
   }
   rows.forEach(row => {
+    const locate = row.querySelector(':scope > .map-locate');
+    // Hover previews a booth; a name click makes the location stay selected.
     row.addEventListener('pointerenter', () => highlight(row));
-    row.addEventListener('pointerleave', () => highlight(null));
-    row.addEventListener('focus', () => highlight(row));
-    row.addEventListener('blur', () => highlight(null));
-    // The app's existing delegated data-booth handler opens the introduction.
-    row.addEventListener('click', () => highlight(row));
+    row.addEventListener('pointerleave', () => highlight(selected));
+    row.addEventListener('focusin', () => highlight(row));
+    row.addEventListener('focusout', event => {
+      if (!row.contains(event.relatedTarget)) highlight(selected);
+    });
+    locate?.addEventListener('click', () => {
+      selected = row;
+      highlight(row);
+    });
   });
 })();

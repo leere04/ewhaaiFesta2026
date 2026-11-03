@@ -172,7 +172,7 @@ html {
   .hero-content { width: min(100%, 520px); }
 }
 @media (max-width: 760px) {
-  .hero { min-height: calc(100svh - 140px); padding: 22px 18px 28px; }
+  .hero { min-height: calc(100svh - 164px); padding: 20px 18px 24px; }
   .hero-cast, .hero-heart, .hero-orbit { display: none; }
   .hero-eyebrow { font-size: 11px; letter-spacing: .08em; margin-bottom: 15px; }
   .hero h1 { width: min(100%, 460px); margin-bottom: 14px; }
@@ -193,3 +193,13 @@ html {
   .hero-actions .button, .hero-actions .button::after { transition: none; }
   .hero-actions .button:hover { transform: none; }
 }
+
+/* 2026-11-03: promotional credits and hero CTA alignment */
+.poster-section > div > p.poster-credit {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 14px auto 0;
+  text-align: center;
+}
+.hero-actions .button-dark { text-align: center; justify-content: center; }

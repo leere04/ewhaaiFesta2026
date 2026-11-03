@@ -22,14 +22,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261103-home-cards-2">
-  <link rel="stylesheet" href="theme.css?v=20261103-compact-poster-1">
+  <link rel="stylesheet" href="theme.css?v=20261103-final7">
   <!-- data.js?v=20261103-booth-info 먼저 불러온 뒤 app.js?v=20261103-booth-info 실행합니다. -->
-  <script src="data.js?v=20261103-program-summary" defer></script>
+  <script src="data.js?v=20261103-final7" defer></script>
   <script src="app.js?v=20261103-home-cards-2" defer></script>
   <script src="booth-updates.js?v=20261103-gallery-clean-1" defer></script>
   <script src="guardians.js?v=20261103-planet-eggs-2" defer></script>
-  <script src="booth-map.js?v=5" defer></script>
-<link rel="stylesheet" href="change-theme.css?v=20261103-home-cards-2"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
+  <script src="booth-map.js?v=20261103-final7" defer></script>
+<link rel="stylesheet" href="change-theme.css?v=20261103-final7"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="site-header">
@@ -67,14 +67,13 @@
       <div class="hero-content">
         <p class="hero-eyebrow">되고 싶은 나를 만나는 순간!</p>
         <h1 id="festival-title"><img class="hero-event-logo" src="assets/festival-logo.png" width="2048" height="1117" alt="제2회 인공지능대학 축제 인지상정" fetchpriority="high"></h1>
-        <p class="hero-concept">캐리캐리체인지 <span aria-hidden="true">✧</span></p>
         <p class="hero-copy">마음속 가능성을 깨우는 우리들의 축제.<br>나의 수호캐릭터와 함께, <strong>인지상정에서 체인지!</strong></p>
         <div class="hero-footnote">
           <p class="hero-date">2026. 11. 04. 수 — 11. 05. 목</p>
           <p>ECC 인지대 라운지 · 학생문화관 야외부스</p>
         </div>
         <div class="hero-actions">
-          <a class="button button-dark" href="#booths" aria-label="부스 구경하기">부스 구경하기 <span aria-hidden="true">↗</span></a>
+          <a class="button button-dark" href="#booths" aria-label="부스 구경하기">부스 구경하기</a>
           <a class="button button-light" href="#guardians" aria-label="수호캐릭터 만나기">수호캐릭터 만나기 <span aria-hidden="true">♡</span></a>
         </div>
         <div class="hero-quicklinks">
@@ -129,22 +128,22 @@
 
     <section id="programs" class="program-section">
       <div class="section">
-        <div class="section-heading"><div><p class="eyebrow section-eyebrow">02 / FESTIVAL PLAYLIST</p><h2>우리의 마음을, Unlock<span class="pink">!</span></h2></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
+        <div class="section-heading"><div><p class="eyebrow section-eyebrow">02 / FESTIVAL PLAYLIST</p><h2>우리의 마음을, <span class="pink">Unlock!</span></h2></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
         <div class="program-grid" id="program-grid"></div>
       </div>
     </section>
 
     <section class="section map-section" id="booth-map" aria-labelledby="map-title">
-      <div class="section-heading"><div><p class="eyebrow section-eyebrow">03 / FIND YOUR BOOTH</p><h2 id="map-title">우리 부스, <span class="pink">여기 있어!</span></h2><p class="section-description">학생문화관 야외부스 배치도 · 오른쪽 위가 ECC 방향이에요.</p></div><span class="heading-doodle" aria-hidden="true">⌖</span></div>
+      <div class="section-heading"><div><p class="eyebrow section-eyebrow">03 / FIND YOUR BOOTH</p><h2 id="map-title">우리 부스, <span class="pink">여기 있어!</span></h2><p class="section-description">학생문화관 야외부스 배치도</p></div><span class="heading-doodle" aria-hidden="true">⌖</span></div>
       <div class="map-layout">
         <figure class="map-figure"><div class="map-canvas"><img src="assets/booth-map.jpg?v=20261103" width="1229" height="1080" alt="야외부스 배치도. 왼쪽 위부터 EWHALE, 사보 크크, 컴온앤비욘이 있고 위쪽 대각선에는 랜덤포레스트, 스테디 셀러, 데이터사이언스, 멋쟁이사자처럼, 인공지능대학이 있어요. 아래쪽에는 일일부스가 있어요." loading="lazy"><svg id="map-highlights" viewBox="0 0 1229 1080" aria-hidden="true" focusable="false"></svg></div><figcaption><span id="map-selection-status" class="sr-only" role="status">부스명을 누르면 지도에 위치가 표시돼요.</span><a href="assets/booth-map.jpg?v=20261103" target="_blank" rel="noopener">원본 크게 보기 ↗</a></figcaption></figure>
         <div class="map-directory"><h3>배치도 속 부스 찾기</h3>
-          <div class="map-booth-row"><span>1번 · 컴온앤비욘</span><small>컴공 학생회</small><button type="button" data-booth="commit" aria-haspopup="dialog" aria-label="컴온앤비욘 자세히 보기">자세히 보기 ↗</button></div>
-          <div class="map-booth-row"><span>2번 · 사보 크크</span><small>사보 학생회</small><button type="button" data-booth="click" aria-haspopup="dialog" aria-label="사보 크크 자세히 보기">자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><span>1번 · 컴온앤비욘</span><small>컴퓨터공학과 학생회</small><button type="button" data-booth="commit" aria-haspopup="dialog" aria-label="컴온앤비욘 자세히 보기">자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><span>2번 · 사보 크크</span><small>사이버보안학과 학생회</small><button type="button" data-booth="click" aria-haspopup="dialog" aria-label="사보 크크 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>3번 · EWHALE</span><small>네이버 웨일 캠퍼스 크루</small><button type="button" data-booth="ewhale" aria-haspopup="dialog" aria-label="EWHALE 자세히 보기">자세히 보기 ↗</button></div>
-          <div class="map-booth-row"><span>4번 · 랜덤포레스트</span><small>국밥 · 차</small><button type="button" data-booth="randomforest" aria-haspopup="dialog" aria-label="랜덤포레스트 자세히 보기">자세히 보기 ↗</button></div>
-          <div class="map-booth-row"><span>5번 · 스테디 셀러</span><small>어묵 부스</small><button type="button" data-booth="steady" aria-haspopup="dialog" aria-label="스테디 셀러 자세히 보기">자세히 보기 ↗</button></div>
-          <div class="map-booth-row"><span>6번 · 데이터사이언스</span><small>데이터사이언스부스</small><button type="button" data-booth="datascience" aria-haspopup="dialog" aria-label="데이터사이언스 자세히 보기">자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><span>4번 · 랜덤포레스트</span><small>인지대 밴드부 랜덤포레스트</small><button type="button" data-booth="randomforest" aria-haspopup="dialog" aria-label="랜덤포레스트 자세히 보기">자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><span>5번 · 스테디 셀러</span><small>인지대 프로그래밍 동아리 Steady</small><button type="button" data-booth="steady" aria-haspopup="dialog" aria-label="스테디 셀러 자세히 보기">자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><span>6번 · 데이터사이언스</span><small>데이터사이언스학과 학생회</small><button type="button" data-booth="datascience" aria-haspopup="dialog" aria-label="데이터사이언스 자세히 보기">자세히 보기 ↗</button></div>
 <div class="map-booth-row"><span>7번 · 멋사 1팀 WEE</span><small>이화여자대학교 멋쟁이사자처럼</small><button type="button" data-booth="likelion" aria-haspopup="dialog">1팀 자세히 보기 ↗</button></div>
 <div class="map-booth-row"><span>7번 · 멋사 2팀 달판</span><small>이화여자대학교 멋쟁이사자처럼</small><button type="button" data-booth="likelion-dalpan" aria-haspopup="dialog">2팀 자세히 보기 ↗</button></div>
           <div class="map-booth-row"><button type="button" class="map-locate" data-map-location="festival" aria-pressed="false">8·9번 · 인공지능대학</button><small>낚시 부스 · 판매 부스</small><a class="map-program-link" href="#programs">프로그램 보기 ↗</a></div>
@@ -162,7 +161,7 @@
         <details><summary>찜한 부스는 어디에 저장되나요?<span aria-hidden="true">+</span></summary><div>하트를 누른 부스는 현재 기기의 브라우저에 저장돼요. 상단의 ‘찜한 부스’에서 모아볼 수 있어요. 브라우저 데이터를 삭제하거나 다른 기기를 사용하면 목록이 이어지지 않을 수 있어요.</div></details>
       </div>
     </section>
-    <section id="poster" class="section poster-section" aria-labelledby="poster-title"><div><p class="eyebrow section-eyebrow">SAVE THE DATE</p><h2 id="poster-title">우리, <span class="pink">여기서 만나!</span></h2><p class="poster-date">2026. 11. 04 — 11. 05</p><p>ECC 인지대 라운지 및<br>학생문화관 야외부스</p><p class="section-description">제2회 인공지능대학 축제 · 인지상정<br>주관: 제5대 인공지능대학 학생회 AIR</p></div><a class="poster-image" href="assets/festival-poster.png?v=3" target="_blank" rel="noopener" aria-label="인지상정 축제 포스터 원본 열기"><img src="assets/festival-poster.png?v=3" alt="인지상정 축제 포스터. 11월 4일부터 5일까지 인지대 라운지와 학생문화관 야외부스에서 만나요." loading="lazy"></a></section>
+    <section id="poster" class="section poster-section" aria-labelledby="poster-title"><div><p class="eyebrow section-eyebrow">SAVE THE DATE</p><h2 id="poster-title">우리, <span class="pink">여기서 만나!</span></h2><p class="poster-date">2026. 11. 04 — 11. 05</p><p>ECC 인지대 라운지 및<br>학생문화관 야외부스</p><p class="section-description poster-credit">제2회 인공지능대학 축제 · 인지상정<br>주관: 제5대 인공지능대학 학생회 AIR</p></div><a class="poster-image" href="assets/festival-poster.png?v=3" target="_blank" rel="noopener" aria-label="인지상정 축제 포스터 원본 열기"><img src="assets/festival-poster.png?v=3" alt="인지상정 축제 포스터. 11월 4일부터 5일까지 인지대 라운지와 학생문화관 야외부스에서 만나요." loading="lazy"></a></section>
     <section class="closing"><span aria-hidden="true">✦</span><p>우리의 마음이 만나는 곳, <strong>인지상정</strong></p><a href="#home" aria-label="맨 위로">↑</a></section>
   </main>
   <footer class="site-footer"><div><a class="brand" href="#home"><span class="brand-heart" aria-hidden="true">♥</span> 인지상정</a><p>제2회 인공지능대학 축제</p></div><p>먹고, 놀고, 반짝이는 우리를 만나는 시간.<br>2026. 11. 04–05 · 제5대 인공지능대학 학생회 AIR</p><span>OPEN YOUR HEART ♡</span></footer>
