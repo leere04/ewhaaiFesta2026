@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ko">
+<head>
 <style>
   /* PC·모바일 메모장 내부 캐릭터 이름 제거 */
   #guardian-panel #guardian-name,
@@ -8,7 +9,6 @@
 }
 </style>
 <script src="page-nav.js?v=1" defer></script>
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8cddd">
@@ -21,15 +21,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
-  <link rel="stylesheet" href="theme.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=20261103-home-cards-2">
+  <link rel="stylesheet" href="theme.css?v=20261103-home-cards-2">
   <!-- data.js?v=20261103-booth-info 먼저 불러온 뒤 app.js?v=20261103-booth-info 실행합니다. -->
   <script src="data.js?v=20261103-program-summary" defer></script>
-  <script src="app.js?v=20261103-program-summary" defer></script>
+  <script src="app.js?v=20261103-home-cards-2" defer></script>
   <script src="booth-updates.js?v=20261103-mochi-4" defer></script>
   <script src="guardians.js?v=20261103-planet-eggs-2" defer></script>
   <script src="booth-map.js?v=5" defer></script>
-<link rel="stylesheet" href="change-theme.css?v=20261103-serif"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
+<link rel="stylesheet" href="change-theme.css?v=20261103-home-cards-2"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="site-header">
@@ -37,10 +37,10 @@
     <nav aria-label="주 메뉴">
   <a href="#home">홈</a>
   <a class="game-nav" href="#game">인지상정 게임 <span aria-hidden="true">✦</span></a>
-  <a href="#guardians">수호캐릭터</a>
   <a href="#booths">부스 안내</a>
   <a href="#programs">축제 프로그램</a>
   <a href="#booth-map">부스 배치도</a>
+  <a href="#guardians">수호캐릭터</a>
 </nav>
 
     <button class="saved-nav" id="saved-nav" aria-label="찜한 부스 보기">
@@ -51,19 +51,35 @@
   </div>
 </header>
   <main id="main">
-    <section class="hero" id="home" aria-label="인지상정 축제 소개">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-sticker sticker-heart" aria-hidden="true">♥<span>마음을 열어봐!</span></div>
-      <div class="hero-sticker sticker-star" aria-hidden="true">✦</div>
-      <div class="hero-sticker sticker-spark" aria-hidden="true">✧</div>
-      <div class="hero-guardian" aria-hidden="true"><img src="assets/jini.png?v=3" alt="" width="1211" height="1297"><span>같이 배우고, 같이 꿈꾸자!</span></div>
-      <div class="hero-guardian-egg" aria-hidden="true"><img src="assets/roke.png?v=3" alt="" width="1254" height="1254"><span>마음의 문을 열어봐 ♡</span></div>
+    <section class="hero" id="home" aria-labelledby="festival-title">
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <span class="hero-spark hero-spark-one" aria-hidden="true">✦</span>
+      <span class="hero-spark hero-spark-two" aria-hidden="true">✧</span>
+      <span class="hero-heart" aria-hidden="true">♡</span>
+      <div class="hero-cast hero-cast-left" aria-hidden="true">
+        <img class="hero-character" src="assets/jini.png?v=3" alt="" width="1211" height="1297">
+        <img class="hero-egg" src="assets/jini-egg.png?v=3" alt="" width="120" height="150">
+      </div>
+      <div class="hero-cast hero-cast-right" aria-hidden="true">
+        <img class="hero-character" src="assets/roke.png?v=3" alt="" width="1254" height="1254">
+        <img class="hero-egg" src="assets/roke-egg.png?v=3" alt="" width="120" height="150">
+      </div>
       <div class="hero-content">
-        <div class="eyebrow hero-eyebrow"><span></span> 되고 싶은 나를 만나는 순간! <span></span></div>
-        <h1><span class="sr-only">제2회 인공지능대학 축제 인지상정</span><img src="assets/festival-logo.png" width="2048" height="1117" alt="" fetchpriority="high"></h1>
+        <p class="hero-eyebrow">되고 싶은 나를 만나는 순간!</p>
+        <h1 id="festival-title"><img class="hero-event-logo" src="assets/festival-logo.png" width="2048" height="1117" alt="제2회 인공지능대학 축제 인지상정" fetchpriority="high"></h1>
+        <p class="hero-concept">캐리캐리체인지 <span aria-hidden="true">✧</span></p>
         <p class="hero-copy">마음속 가능성을 깨우는 우리들의 축제.<br>나의 수호캐릭터와 함께, <strong>인지상정에서 체인지!</strong></p>
-        <div class="hero-actions"><a class="button button-dark" href="#booths">부스 구경하기 <span aria-hidden="true">↗</span></a><a class="button button-light" href="#programs">축제 프로그램 <span aria-hidden="true">✧</span></a></div><div class="hero-quicklinks"></a><a href="#poster">홍보 포스터↗</a><a href="#booth-map">부스 배치도 ↗</a> <a href="#guide">Q&A ↗</a></a></div>
-        <p class="hero-footnote">2026. 11. 04. 수 — 11. 05. 목<br>ECC 인지대 라운지 · 학생문화관 야외부스</p>
+        <div class="hero-footnote">
+          <p class="hero-date">2026. 11. 04. 수 — 11. 05. 목</p>
+          <p>ECC 인지대 라운지 · 학생문화관 야외부스</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#booths" aria-label="부스 구경하기">부스 구경하기 <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="#guardians" aria-label="수호캐릭터 만나기">수호캐릭터 만나기 <span aria-hidden="true">♡</span></a>
+        </div>
+        <div class="hero-quicklinks">
+          <a href="#programs">축제 프로그램</a><a href="#poster">홍보 포스터</a><a href="#booth-map">부스 배치도</a><a href="#guide">Q&A</a>
+        </div>
       </div>
       <div class="hero-bottom" aria-hidden="true"></div>
     </section>

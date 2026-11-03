@@ -2,8 +2,6 @@
 :root{--festival-pink:#bc246b;--pink:#bc246b}
 .pink,.section-eyebrow,.heading-doodle,.gallery-kicker,.gallery-hero h1 em,.gallery-modal h2,.program-steps h3,.program-rules h3{color:var(--festival-pink)}
 .section-heading h2,.gallery-hero h1{letter-spacing:-1.2px}
-.hero-grid{background-color:#f8cadd;background-size:56px 56px;background-position:0 0,28px 28px}
-.hero:after{content:'✦';position:absolute;right:13%;top:70px;font-size:52px;color:#ffe28b;-webkit-text-stroke:2px #a74979;transform:rotate(12deg);pointer-events:none}
 .gallery-hero{border-top:9px solid #bc246b;border-radius:20px;background:linear-gradient(45deg,#ffffff45 25%,transparent 25%,transparent 75%,#ffffff45 75%),linear-gradient(45deg,#ffffff45 25%,transparent 25%,transparent 75%,#ffffff45 75%),#ffe6f1;background-size:40px 40px;background-position:0 0,20px 20px;padding:38px 24px}
 .gallery-hero h1 em{font-style:normal}.gallery-btn.primary{background:#bc246b;color:white}
 .guardian-tabs{max-width:1030px;gap:18px;margin:38px auto 34px;align-items:stretch}
@@ -21,7 +19,7 @@
 .guardian-tabs .selected small{color:#f2b4d3}
 .guardian-notebook[hidden]{display:none}
 .guardian-story h3,.guardian-story h4,.guardian-items dt,.guardian-picture blockquote{color:#bc246b}
-@media(max-width:760px){.guardian-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:450px}.guardian-tabs button{min-height:290px;padding:16px 12px}.guardian-tabs button:last-child{grid-column:1 / -1;width:calc(50% - 8px);justify-self:center}.guardian-tabs img{height:164px}.guardian-tabs .card-art{height:176px}.guardian-tabs .card-name{font-size:14px}.guardian-tabs small{font-size:9px}.hero:after{right:5%;top:25px;font-size:32px}.gallery-hero{padding:28px 17px}.site-header nav a:last-child{display:inline}}
+@media(max-width:760px){.guardian-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:450px}.guardian-tabs button{min-height:290px;padding:16px 12px}.guardian-tabs button:last-child{grid-column:1 / -1;width:calc(50% - 8px);justify-self:center}.guardian-tabs img{height:164px}.guardian-tabs .card-art{height:176px}.guardian-tabs .card-name{font-size:14px}.guardian-tabs small{font-size:9px}.gallery-hero{padding:28px 17px}.site-header nav a:last-child{display:inline}}
 @media(prefers-reduced-motion:reduce){.guardian-tabs button{transition:none}}
 @media(max-width:480px){.site-header nav a:nth-child(4){display:none}.site-header nav{gap:12px}}
 /* v7: 초콜릿 브라운 수호 카드 + 체크/레이스/리본 부스 */
@@ -47,8 +45,6 @@
 @media(max-width:480px){.booth-card{padding:7px;border-radius:19px 19px 10px 10px}.booth-card .card-body{padding:12px 9px}.booth-card .card-meta{padding:5px 3px;font-size:8px}.booth-card .favorite-btn{top:13px;right:13px}.booth-card>.card-art:after{font-size:11px;letter-spacing:5px}.guardian-tabs button:after{inset:51px 16px 65px}}
 /* Cool hot pink / dark chocolate correction */
 :root{--festival-pink:#cd0876;--pink:#cd0876}
-.hero-grid{background-color:#f7a5d0;background-image:linear-gradient(45deg,#ffecf580 25%,transparent 25%,transparent 75%,#ffecf580 75%),linear-gradient(45deg,#ffecf580 25%,transparent 25%,transparent 75%,#ffecf580 75%)}
-.hero{background:linear-gradient(130deg,#ffdbef,#ef83c3)}
 .gallery-hero{background-color:#ffc5e5;border-top-color:#da087f}
 .guardian-tabs button{background:radial-gradient(ellipse at center,#513632 0,#342321 65%,#271a1a 100%);border-color:#6b4741}
 .guardian-tabs button:before{border-color:#bb8b8b;background:repeating-linear-gradient(45deg,#f3bbce0c 0 3px,transparent 3px 9px)}
@@ -65,10 +61,7 @@
 .booth-card .favorite-btn{background:#fff5fc;border-color:#e46eae;color:#d50c7b}
 .booth-card .product-chip{background:#ffe8f5;border-color:#efb1d6;color:#9d2569}
 .booth-card:hover{box-shadow:5px 8px 0 #ef9aca}
-.guardian-story h3,.guardian-story h4,.guardian-items dt,.guardian-picture blockquote{color:#cd0876}
-/* v8: 부드러운 체크와 링 바인더 캐릭터 소개 */
-.hero{background:linear-gradient(130deg,#fce2ee,#f3b7dd)}
-.hero-grid{background:none}
+.guardian-story h3,.guardian-story h4,.guardian-items dt,.guardian-picture blockquote{color:#cd0876}/* v8: 부드러운 체크와 링 바인더 캐릭터 소개 */
 .booth-card>.card-art{background-color:#ffd8ed;background-image:repeating-linear-gradient(0deg,transparent 0 12px,#ef49a326 12px 23px,transparent 23px 25px),repeating-linear-gradient(90deg,transparent 0 12px,#ed329d30 12px 23px,transparent 23px 25px)}
 .gallery-hero{background-color:#ffe4f3}
 .guardian-notebook{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:0 25px;padding:22px 28px 30px;border:3px solid #d74c97;border-radius:36px;background-color:#fff1f8;background-image:linear-gradient(#eaa5cb22 1px,transparent 1px),linear-gradient(90deg,#eaa5cb22 1px,transparent 1px);background-size:7px 7px;box-shadow:0 0 0 5px #fff5fb,0 0 0 8px #edb7d2,8px 12px 0 #ebc5d655;overflow:visible;margin-top:45px}
@@ -104,10 +97,8 @@
 .game-egg-lineup img:nth-child(odd){transform:translateY(8px) rotate(-5deg)}
 .game-ticket-label,.game-ticket-caption{background:#fff8fc;padding:8px 14px;border-radius:20px;font-size:11px;font-weight:700;color:#a51061;text-align:center}
 .game-start:focus-visible,.site-header nav .game-nav:focus-visible{outline:3px solid #be2875;outline-offset:4px}
-@media(max-width:760px){.game-ticket{grid-template-columns:1fr}.game-ticket-art{border-left:0;border-top:2px dashed #be2875;padding:24px}.game-ticket-art img{width:170px}.game-ticket-copy{padding:28px 22px}.game-start{font-size:13px;padding:12px 16px}.game-login-note{font-size:11px}}
-/* Original festival poster plaid, cropped from assets/festival-poster.png.
+@media(max-width:760px){.game-ticket{grid-template-columns:1fr}.game-ticket-art{border-left:0;border-top:2px dashed #be2875;padding:24px}.game-ticket-art img{width:170px}.game-ticket-copy{padding:28px 22px}.game-start{font-size:13px;padding:12px 16px}.game-login-note{font-size:11px}}/* Original festival poster plaid, cropped from assets/festival-poster.png.
    Source crop: x=568, y=824, width=120, height=92. */
-.hero:before{background:#4c3b70 url('assets/festival-plaid.png') left center/120px 92px repeat}
 /* Same pink plaid layers and spacing as the game css/common.css body. */
 .booth-card>.card-art,.game-ticket-art{
   background:
@@ -158,3 +149,10 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 .program-card:hover .program-art>svg,.program-card:focus-visible .program-art>svg{transform:rotate(2deg) scale(1.06)}
 .game-ticket-label{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:15px;letter-spacing:1.3px}
 .game-ticket-caption{font-family:'Noto Serif KR','Batang',serif;font-weight:500;font-size:12px;letter-spacing:.3px}
+
+/* The detail button covers the card; the separate favorite stays above it. */
+.booth-card { position: relative; }
+.booth-card .booth-open { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: inherit; background: transparent; padding: 0; z-index: 2; cursor: pointer; }
+.booth-card .booth-open:active { transform: none; }
+.booth-card .booth-open:focus-visible { outline: 3px solid #aa2a65; outline-offset: -4px; }
+.booth-card .favorite-btn { z-index: 3; }
