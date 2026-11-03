@@ -22,42 +22,55 @@
     polygon.dataset.location = id;
     overlay.append(polygon);
   }));
-  section.querySelectorAll('.map-booth-row').forEach(row => {
+  const directory = section.querySelector('.map-directory');
+  directory.querySelectorAll('.map-booth-row').forEach(row => {
     const details = row.querySelector('[data-booth]');
-    const name = row.querySelector(':scope > span');
-    if (!details || !name) return;
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'map-locate';
-    button.dataset.mapLocation = details.dataset.booth;
-    button.setAttribute('aria-pressed', 'false');
-    button.textContent = name.textContent;
-    name.replaceWith(button);
+    const link = row.querySelector('a');
+    const name = row.querySelector(':scope > span, .map-locate');
+    const description = row.querySelector('small');
+    const control = document.createElement(details ? 'button' : 'a');
+    control.className = 'map-booth-row';
+    control.dataset.mapLocation = details ? details.dataset.booth : 'festival';
+    if (details) {
+      control.type = 'button';
+      control.dataset.booth = details.dataset.booth;
+      control.setAttribute('aria-haspopup', 'dialog');
+    } else control.href = link.href;
+    const title = document.createElement('span');
+    title.textContent = name.textContent;
+    const small = document.createElement('small');
+    small.textContent = description.textContent;
+    const action = document.createElement('b');
+    action.textContent = details ? details.textContent : link.textContent;
+    control.append(title, small, action);
+    row.replaceWith(control);
   });
-  function selectLocation(id, label) {
-    if (!locations[id]) return;
+  const daily = directory.querySelector('.daily-booth');
+  const dailyTitle = daily.querySelector('.map-locate');
+  const heading = document.createElement('strong');
+  heading.textContent = dailyTitle.textContent;
+  dailyTitle.replaceWith(heading);
+  daily.querySelectorAll('[data-booth]').forEach(button => {
+    button.dataset.mapLocation = 'daily';
+    button.classList.add('map-daily-row');
+  });
+  const rows = [...directory.querySelectorAll('[data-map-location]')];
+  const status = document.getElementById('map-selection-status');
+  const initialStatus = status.textContent;
+  function highlight(row) {
+    const id = row?.dataset.mapLocation;
     overlay.querySelectorAll('polygon').forEach(polygon => {
       polygon.classList.toggle('is-selected', polygon.dataset.location === id);
     });
-    section.querySelectorAll('[data-map-location]').forEach(button => {
-      const selected = button.dataset.mapLocation === id;
-      button.setAttribute('aria-pressed', String(selected));
-    });
-    document.getElementById('map-selection-status').textContent = label + ' 위치를 표시했어요.';
-    if (matchMedia('(max-width: 760px)').matches) {
-      section.querySelector('.map-figure').scrollIntoView({block:'start', behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
-    }
+    rows.forEach(item => item.classList.toggle('map-active', item === row));
+    status.textContent = row ? row.querySelector('span')?.textContent || row.textContent : initialStatus;
   }
-  section.addEventListener('click', event => {
-    const row = event.target.closest('.map-booth-row, .daily-booth');
-    const locate = event.target.closest('[data-map-location]') || row?.querySelector('[data-map-location]');
-    if (locate) selectLocation(locate.dataset.mapLocation, locate.textContent.trim());
-    const details = event.target.closest('[data-booth]');
-    if (details) {
-      const id = details.dataset.booth;
-      const target = id === 'animal-farm' || id === 'ludens' ? 'daily' : id;
-      const label = section.querySelector(`[data-map-location="${target}"]`)?.textContent.trim();
-      selectLocation(target, label || details.textContent.trim());
-    }
+  rows.forEach(row => {
+    row.addEventListener('pointerenter', () => highlight(row));
+    row.addEventListener('pointerleave', () => highlight(null));
+    row.addEventListener('focus', () => highlight(row));
+    row.addEventListener('blur', () => highlight(null));
+    // The app's existing delegated data-booth handler opens the introduction.
+    row.addEventListener('click', () => highlight(row));
   });
 })();

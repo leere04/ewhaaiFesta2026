@@ -138,3 +138,12 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 /* The whole row selects a map location, with visual emphasis only on the map. */
 .map-directory .map-booth-row,.map-directory .daily-booth{cursor:pointer}
 .map-directory .map-booth-row>.map-locate,.map-directory .daily-booth>.map-locate{margin:0;padding:0 4px;background:transparent;box-shadow:none}
+/* One native control per booth: hover previews its map location; click opens details. */
+.map-directory>.map-booth-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;width:100%;padding:16px 12px;text-align:left;background:transparent;border:0;border-bottom:1px solid #eadce1;border-radius:10px;color:var(--ink);font:inherit;text-decoration:none;cursor:pointer;transition:background .18s}
+.map-directory>.map-booth-row>span{grid-column:1;font-size:14px;font-weight:700}
+.map-directory>.map-booth-row>small{grid-column:1;color:#756873;font-size:12px}
+.map-directory>.map-booth-row>b{grid-column:2;grid-row:1 / 3;align-self:center;color:#bd286a;font-size:12px;font-weight:400}
+.map-directory .map-active{background:#fbe3ef;box-shadow:inset 3px 0 #d72a7e}
+.map-directory .map-booth-row:focus-visible,.map-directory .map-daily-row:focus-visible{outline:3px solid #d82d7c;outline-offset:2px}
+.map-directory .daily-booth>.map-daily-row{display:block;width:100%;min-height:48px;padding:12px 10px;text-align:left;border-radius:8px;cursor:pointer}
+@media(max-width:480px){.map-directory>.map-booth-row{gap:5px 8px}.map-directory>.map-booth-row>b{max-width:85px;font-size:11px}.map-directory>.map-booth-row>span{font-size:13px}}
