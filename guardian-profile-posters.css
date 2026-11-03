@@ -126,3 +126,68 @@
   .guardian-poster-description .guardian-symbol-name{font-size:.9em;line-height:1.55}
   .guardian-poster-description .guardian-symbol-heart{margin-right:.42em}
 }
+
+
+/* 2026-11-04: 수호 캐릭터 프로필의 글씨체·흰색 테두리 하트·간결한 상징 설명 */
+.guardian-notebook.guardian-poster-profile .guardian-poster-description,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h4,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h5,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-story summary,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-list {
+  /* 상단 이미지의 캐릭터명과 어울리는 명조 계열로 모두 통일 */
+  font-family:'Noto Serif KR','AppleMyungjo','Batang',serif!important;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h4 {
+  font-weight:700!important;
+  letter-spacing:-.025em;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-list {
+  gap:7px;
+  margin:7px 0 10px;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-detail {
+  font-weight:400!important;
+  font-size:.96em;
+  line-height:1.65;
+  word-break:keep-all;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-title,
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-meaning {
+  font-weight:400!important;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-heart {
+  display:inline-block;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-family:Arial,'Apple SD Gothic Neo',sans-serif!important;
+  font-size:1.12em;
+  font-weight:400;
+  line-height:1;
+  margin-right:.48em;
+  vertical-align:-.05em;
+}
+/* 지니의 첫 소개 문구가 오른쪽 상단 테두리에 붙지 않도록 살짝 아래로 */
+.guardian-notebook.guardian-poster-profile[data-guardian="jini"] .guardian-card-full-tagline {
+  padding-top:10px;
+}
+.guardian-reading-body .guardian-symbol-heart {
+  color:#70566b!important;
+  -webkit-text-fill-color:#70566b!important;
+  font-family:Arial,'Apple SD Gothic Neo',sans-serif!important;
+  font-size:1.14em;
+}
+.guardian-reading-body .guardian-symbol-detail,
+.guardian-reading-body .guardian-symbol-title {font-weight:400}
+@media(max-width:760px) {
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-list {
+    gap:4px;
+    margin:5px 0 4px;
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-detail {
+    font-size:.89em;
+    line-height:1.38;
+  }
+  .guardian-notebook.guardian-poster-profile[data-guardian="jini"] .guardian-card-full-tagline {
+    padding-top:5px;
+  }
+}
