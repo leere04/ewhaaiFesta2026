@@ -40,7 +40,9 @@
       polygon.classList.toggle('is-selected', polygon.dataset.location === id);
     });
     section.querySelectorAll('[data-map-location]').forEach(button => {
-      button.setAttribute('aria-pressed', String(button.dataset.mapLocation === id));
+      const selected = button.dataset.mapLocation === id;
+      button.setAttribute('aria-pressed', String(selected));
+      button.closest('.map-booth-row, .daily-booth')?.classList.toggle('map-row-selected', selected);
     });
     document.getElementById('map-selection-status').textContent = label + ' 위치를 표시했어요.';
     if (matchMedia('(max-width: 760px)').matches) {

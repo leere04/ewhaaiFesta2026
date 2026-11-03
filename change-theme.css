@@ -137,3 +137,12 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 .map-figure figcaption a{color:#a51e60;text-underline-offset:3px}
 @media(max-width:760px){.map-figure{scroll-margin-top:88px}.map-directory .map-booth-row>.map-locate{font-size:13px}}
 @media(prefers-reduced-motion:reduce){#map-highlights polygon{transition:none}}
+/* Stretch the location button across the entire row; detail links remain above it. */
+.map-directory .map-booth-row,.map-directory .daily-booth{position:relative;isolation:isolate;border-radius:10px;transition:background .18s}
+.map-directory .map-locate:after{content:'';position:absolute;inset:0;border-radius:10px;cursor:pointer;z-index:1}
+.map-directory .map-booth-row>[data-booth],.map-directory .map-program-link,.map-directory .daily-booth>[data-booth]{position:relative;z-index:2}
+.map-directory .map-booth-row:has(.map-locate:hover),.map-directory .daily-booth:has(.map-locate:hover),.map-directory .map-row-selected{background:#fbe3ef}
+.map-directory .map-row-selected{box-shadow:inset 3px 0 #d72a7e}
+.map-directory .map-locate[aria-pressed=true]{box-shadow:none;background:transparent}
+.map-directory .map-locate:focus-visible:after{outline:3px solid #d82d7c;outline-offset:2px}
+.map-directory .map-locate:focus-visible{outline:none}

@@ -24,7 +24,8 @@
   <script src="data.js?v=20261103-booth-info" defer></script>
   <script src="app.js?v=20261103-booth-info" defer></script>
   <script src="guardians.js?v=9" defer></script>
-<link rel="stylesheet" href="change-theme.css?v=20261103"></head>
+  <script src="booth-map.js?v=2" defer></script>
+<link rel="stylesheet" href="change-theme.css?v=20261103-map2"></head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="site-header">
@@ -117,8 +118,8 @@
     <section class="section map-section" id="booth-map" aria-labelledby="map-title">
       <div class="section-heading"><div><p class="eyebrow section-eyebrow">03 / FIND YOUR BOOTH</p><h2 id="map-title">우리 부스, <span class="pink">여기 있어!</span></h2><p class="section-description">학생문화관 야외부스 배치도 · 오른쪽 위가 ECC 방향이에요.</p></div><span class="heading-doodle" aria-hidden="true">⌖</span></div>
       <div class="map-layout">
-        <figure class="map-figure"><a href="assets/booth-map.jpg?v=20261103" target="_blank" rel="noopener" aria-label="야외부스 배치도 원본 크게 보기"><img src="assets/booth-map.jpg?v=20261103" width="1229" height="1080" alt="야외부스 배치도. 왼쪽 위부터 EWHALE, 사보 크크, 컴온앤비욘이 있고 위쪽 대각선에는 랜덤포레스트, 스테디 셀러, 데이터사이언스, 멋쟁이사자처럼, 인공지능대학이 있어요. 아래쪽에는 일일부스가 있어요." loading="lazy"></a><figcaption>이미지를 누르면 원본을 크게 볼 수 있어요.</figcaption></figure>
-        <div class="map-directory"><h3>배치도 속 부스 찾기</h3><p>‘자세히 보기’를 누르면 부스 소개가 열려요.</p>
+        <figure class="map-figure"><div class="map-canvas"><img src="assets/booth-map.jpg?v=20261103" width="1229" height="1080" alt="야외부스 배치도. 왼쪽 위부터 EWHALE, 사보 크크, 컴온앤비욘이 있고 위쪽 대각선에는 랜덤포레스트, 스테디 셀러, 데이터사이언스, 멋쟁이사자처럼, 인공지능대학이 있어요. 아래쪽에는 일일부스가 있어요." loading="lazy"><svg id="map-highlights" viewBox="0 0 1229 1080" aria-hidden="true" focusable="false"></svg></div><figcaption><span id="map-selection-status" role="status">부스명을 누르면 지도에 위치가 표시돼요.</span><a href="assets/booth-map.jpg?v=20261103" target="_blank" rel="noopener">원본 크게 보기 ↗</a></figcaption></figure>
+        <div class="map-directory"><h3>배치도 속 부스 찾기</h3><p>부스 소개 칸 어디든 누르면 지도에 위치가 표시돼요. ‘자세히 보기’로 소개도 확인해 보세요.</p>
           <div class="map-booth-row"><span>1번 · 컴온앤비욘</span><small>컴공 학생회</small><button type="button" data-booth="commit" aria-haspopup="dialog" aria-label="컴온앤비욘 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>2번 · 사보 크크</span><small>사보 학생회</small><button type="button" data-booth="click" aria-haspopup="dialog" aria-label="사보 크크 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>3번 · EWHALE</span><small>네이버 웨일 캠퍼스 크루</small><button type="button" data-booth="ewhale" aria-haspopup="dialog" aria-label="EWHALE 자세히 보기">자세히 보기 ↗</button></div>
@@ -126,8 +127,8 @@
           <div class="map-booth-row"><span>5번 · 스테디 셀러</span><small>어묵 부스</small><button type="button" data-booth="steady" aria-haspopup="dialog" aria-label="스테디 셀러 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>6번 · 데이터사이언스</span><small>데이터사이언스부스</small><button type="button" data-booth="datascience" aria-haspopup="dialog" aria-label="데이터사이언스 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>7번 · 멋쟁이사자처럼</span><small>이화여자대학교 멋쟁이사자처럼</small><button type="button" data-booth="likelion" aria-haspopup="dialog" aria-label="멋쟁이사자처럼 자세히 보기">자세히 보기 ↗</button></div>
-          <a href="#programs"><span>8·9번 · 인공지능대학</span><small>낚시 부스 · 판매 부스</small><b aria-hidden="true">↓</b></a>
-          <div class="daily-booth"><strong>10번 · 일일부스</strong><button data-booth="animal-farm" aria-haspopup="dialog">11/4 수 · 동물농장 — 자세히 보기 ↗</button><button data-booth="ludens" aria-haspopup="dialog">11/5 목 · 우리동아리 정상영업합니다 — 자세히 보기 ↗</button></div>
+          <div class="map-booth-row"><button type="button" class="map-locate" data-map-location="festival" aria-pressed="false">8·9번 · 인공지능대학</button><small>낚시 부스 · 판매 부스</small><a class="map-program-link" href="#programs">프로그램 보기 ↗</a></div>
+          <div class="daily-booth"><button type="button" class="map-locate" data-map-location="daily" aria-pressed="false">10번 · 일일부스</button><button data-booth="animal-farm" aria-haspopup="dialog">11/4 수 · 동물농장 — 자세히 보기 ↗</button><button data-booth="ludens" aria-haspopup="dialog">11/5 목 · 우리동아리 정상영업합니다 — 자세히 보기 ↗</button></div>
         </div>
       </div>
     </section>
