@@ -14,7 +14,29 @@ function selectGuardian(id) {
   });
   guardianPanel.hidden = false;
   guardianPanel.style.setProperty('--guardian-color',guardian.color);
-  guardianPanel.innerHTML = `<header class="guardian-profile-banner"><strong>${esc(guardian.id === 'data' ? '데사 수호캐릭터' : guardian.name)}</strong><span class="profile-heart-sticker" aria-hidden="true"></span></header><div class="guardian-picture"><div class="portrait-frame"><img src="${esc(guardian.character || guardian.egg)}" alt="${esc(guardian.name)}${guardian.character ? ' 캐릭터' : '의 수호알'}" width="1254" height="1254"><span>${esc(guardian.character ? guardian.name : '세이의 수호알')}</span></div>${guardian.quote ? `<blockquote>“${esc(guardian.quote)}”</blockquote>` : ''}<div class="guardian-symbols" aria-hidden="true">♡ ✦ ♧ ◇</div></div><div class="guardian-story"><p class="eyebrow">${esc(guardian.dept)} / MY GUARDIAN</p><p class="guardian-tagline">${esc(guardian.tagline)}</p><div class="guardian-keywords">${guardian.keywords.map(word => `<span>#${esc(word)}</span>`).join('')}</div><p>${esc(guardian.intro)}</p>${guardian.items.length ? `<dl class="guardian-items">${guardian.items.map(item => `<div><dt>${esc(item[0])}</dt> <dd>${esc(item[1])}</dd></div>`).join('')}</dl>` : ''}${guardian.story.length ? `<details class="guardian-more"><summary>수호캐릭터의 이야기 펼치기 <span aria-hidden="true">+</span></summary>${guardian.story.map(part => `<div><h4>${esc(part[0])}</h4><p>${esc(part[1])}</p></div>`).join('')}</details>` : ''}<p class="guardian-selected" role="status">${esc(guardian.short)}의 수호알을 열었어요 ♡</p></div>`;
+  guardianPanel.classList.add('guardian-poster-profile');
+  const profileDesigns = {
+    sei: 'assets/guardian-profile-sei.png',
+    roke: 'assets/guardian-profile-roke.png',
+    jini: 'assets/guardian-profile-jini.png',
+    data: 'assets/guardian-profile-data.png',
+    lumi: 'assets/guardian-profile-lumi.png'
+  };
+  const design = profileDesigns[id] || profileDesigns.sei;
+  guardianPanel.innerHTML = `
+    <div class="guardian-poster-stage">
+      <img class="guardian-poster-template" src="${esc(design)}" alt="${esc(guardian.name)} 테마의 수호캐릭터 소개 카드" width="1703" height="991" loading="lazy">
+      <img class="guardian-poster-person" src="${esc(guardian.character || guardian.egg)}" alt="${esc(guardian.name)} 수호캐릭터" loading="lazy">
+      <div class="guardian-poster-summary">
+        <strong>${esc(guardian.tagline)}</strong>
+        <p>${esc(guardian.intro)}</p>
+      </div>
+    </div>
+    <div class="guardian-poster-info">
+      <div class="guardian-poster-tags">${guardian.keywords.map(word => `<span>#${esc(word)}</span>`).join('')}</div>
+      ${guardian.items.length ? `<dl class="guardian-poster-symbols">${guardian.items.map(item => `<div><dt>${esc(item[0])}</dt><dd>${esc(item[1])}</dd></div>`).join('')}</dl>` : ''}
+      ${guardian.story.length ? `<details class="guardian-poster-story"><summary>수호캐릭터의 이야기 펼치기 <span aria-hidden="true">+</span></summary>${guardian.story.map(part => `<section><h4>${esc(part[0])}</h4><p>${esc(part[1])}</p></section>`).join('')}</details>` : ''}
+    </div>`;
 }
 guardianTabs.classList.add('planet-cards');
 guardianTabs.innerHTML = guardians.map(guardian => `<button type="button" data-guardian="${guardian.id}" aria-controls="guardian-panel" aria-pressed="false" aria-label="${esc(guardian.dept)} ${esc(guardian.name)} 소개 보기" style="--guardian-color:${guardian.color}"><img class="guardian-card-design" src="assets/guardian-card-${guardian.id}.png" alt="" width="330" height="640"><img class="guardian-reveal-character" src="${esc(guardian.egg)}" alt=""></button>`).join('');

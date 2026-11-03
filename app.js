@@ -136,7 +136,7 @@ function openProgram(id) {
   dialogBoothId = null;
   const ordered = items => `<ol class="program-detail-list">${items.map(item => `<li>${esc(item)}</li>`).join('')}</ol>`;
   const unordered = items => `<ul class="program-detail-list">${items.map(item => `<li>${esc(item)}</li>`).join('')}</ul>`;
-  showDialog(`<div class="dialog-art" style="--card-bg:${program.bg}">${art(program.art)}</div><div class="dialog-body"><p class="dialog-label">FESTIVAL PROGRAM · ${program.zone === 'indoor' ? `실내 ${program.indoorBoothNumber}번` : '야외 부스'}</p><h2 id="detail-title">${esc(program.name)}</h2><p class="dialog-description">${esc(program.detail)}</p><dl class="detail-info program-detail-info"><dt>장소</dt><dd>${program.zone === 'indoor' ? `ECC 9번 출구 앞 인공지능대학 라운지 · 실내 ${program.indoorBoothNumber}번` : '학생문화관 야외부스'}</dd><dt>운영 시간</dt><dd>${esc(program.hours || '10:00~17:00')}</dd>${program.steps?.length ? `<dt>참여 방법</dt><dd>${ordered(program.steps)}</dd>` : ''}${program.rewards?.length ? `<dt>${esc(program.rewardTitle || '상품·혜택')}</dt><dd>${unordered(program.rewards)}</dd>` : ''}${program.noticeItems?.length ? `<dt>참고 사항</dt><dd>${unordered(program.noticeItems)}</dd>` : (program.notice ? `<dt>참고 사항</dt><dd>${esc(program.notice)}</dd>` : '')}</dl>${program.rewardImage ? `<figure class="program-reward-preview"><img src="${esc(program.rewardImage)}" alt="${esc(program.rewardImageAlt || '이벤트 상품 사진')}" loading="lazy"><figcaption>1,000원 할인권 실물 예시 · 사진으로는 사용 불가</figcaption></figure>` : ''}</div>`);
+  showDialog(`<div class="dialog-art" style="--card-bg:${program.bg}">${art(program.art)}</div><div class="dialog-body"><p class="dialog-label">FESTIVAL PROGRAM · ${program.zone === 'indoor' ? `실내 ${program.indoorBoothNumber}번` : '야외 부스'}</p><h2 id="detail-title">${esc(program.name)}</h2><p class="dialog-description">${esc(program.detail)}</p><dl class="detail-info program-detail-info"><dt>장소</dt><dd>${program.zone === 'indoor' ? `ECC 인지대 라운지 · 실내 ${program.indoorBoothNumber}번` : '학문관 야외 부스'}</dd><dt>운영 시간</dt><dd>${esc(program.hours || '10:00~17:00')}</dd>${program.steps?.length ? `<dt>참여 방법</dt><dd>${ordered(program.steps)}</dd>` : ''}${program.rewards?.length ? `<dt>${esc(program.rewardTitle || '상품·혜택')}</dt><dd>${unordered(program.rewards)}</dd>` : ''}${program.noticeItems?.length ? `<dt>참고 사항</dt><dd>${unordered(program.noticeItems)}</dd>` : (program.notice ? `<dt>참고 사항</dt><dd>${esc(program.notice)}</dd>` : '')}</dl>${program.rewardImage ? `<figure class="program-reward-preview"><img src="${esc(program.rewardImage)}" alt="${esc(program.rewardImageAlt || '이벤트 상품 사진')}" loading="lazy"><figcaption>1,000원 할인권 실물 예시 · 사진으로는 사용 불가</figcaption></figure>` : ''}</div>`);
 }
 
 const programGroupContainer = document.getElementById('program-grid');
@@ -145,11 +145,11 @@ const indoorPrograms = programs.filter(program => program.zone === 'indoor').sor
 const outdoorPrograms = programs.filter(program => program.zone === 'outdoor');
 programGroupContainer.innerHTML = `
   <section class="program-area program-area-indoor" aria-labelledby="indoor-program-title">
-    <div class="program-area-heading"><div><span class="program-area-tag">INSIDE</span><h3 id="indoor-program-title">실내 부스</h3></div><p>ECC 9번 출구 앞 · 인공지능대학 라운지<br><small>1번 수호알 꾸미기 · 2번 운세 · 3번 포토 · 4번 협찬품 배부</small></p></div>
+    <div class="program-area-heading"><div><h3 id="indoor-program-title">실내 부스</h3></div><p>ECC 인지대 라운지<br><small>1번 수호알 꾸미기 · 2번 운세 · 3번 포토 · 4번 협찬품 배부</small></p></div>
     <div class="program-grid">${indoorPrograms.map(programCard).join('')}</div>
   </section>
   <section class="program-area program-area-outdoor" aria-labelledby="outdoor-program-title">
-    <div class="program-area-heading"><div><span class="program-area-tag">OUTSIDE</span><h3 id="outdoor-program-title">야외 부스</h3></div><p>학생문화관 야외부스<br><small>도장판은 야외에서 수령하고, 완성 후 실내 부스에서 응모해요.</small></p></div>
+    <div class="program-area-heading"><div><h3 id="outdoor-program-title">야외 부스</h3></div><p>학문관 야외 부스<br><small>도장판은 야외에서 수령하고, 완성 후 실내 부스에서 응모해요.</small></p></div>
     <div class="program-grid">${outdoorPrograms.map(programCard).join('')}</div>
   </section>`;
 
