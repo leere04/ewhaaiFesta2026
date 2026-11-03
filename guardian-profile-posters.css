@@ -1,52 +1,65 @@
-/* 수호캐릭터 설명 카드: 제공된 다섯 장의 디자인을 그대로 사용합니다. */
+/* 수호캐릭터: 제공된 디자인 카드 오른쪽 테두리 안에 소개 전문 표시 */
 .guardian-notebook.guardian-poster-profile{
-  display:block; min-height:0; margin:26px auto 0; padding:0; border:0;
-  border-radius:0; background:none; box-shadow:none; overflow:visible;
-  width:min(100%,1010px);
+  display:block !important; min-height:0; margin:26px auto 0; padding:0 !important;
+  border:0 !important; border-radius:0 !important; background:none !important;
+  box-shadow:none !important; overflow:visible !important; width:min(100%,1010px);
 }
-.guardian-notebook.guardian-poster-profile[hidden]{display:none!important;}
+.guardian-notebook.guardian-poster-profile[hidden]{display:none!important}
 .guardian-notebook.guardian-poster-profile::before,
 .guardian-notebook.guardian-poster-profile::after{display:none!important}
-.guardian-poster-stage{position:relative;width:100%;aspect-ratio:1703/991;overflow:hidden;border-radius:9px;isolation:isolate;}
-.guardian-poster-template{display:block;width:100%;height:100%;object-fit:fill;}
-.guardian-poster-person{
-  position:absolute;left:5.2%;top:15%;width:35%;height:67%;object-fit:contain;
-  filter:drop-shadow(0 5px 8px #130a2528);pointer-events:none;
+.guardian-poster-stage{position:relative;width:100%;aspect-ratio:1703/991;overflow:hidden;border-radius:8px;isolation:isolate}
+.guardian-poster-template{display:block;width:100%;height:100%;object-fit:fill}
+.guardian-poster-person{position:absolute;left:4.2%;top:15%;width:36%;height:69%;object-fit:contain;filter:drop-shadow(0 4px 7px #130a252c);pointer-events:none}
+.guardian-poster-description{
+  position:absolute;left:48.1%;top:15.3%;width:43.5%;height:73.5%;padding:9px 8px 11px 7px;
+  overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#ffffff70 transparent;
+  color:#fff9ed;text-shadow:0 1px 2px #130a2140;text-align:left;
+  font-size:clamp(9px,1.15vw,13px);line-height:1.6;box-sizing:border-box;
 }
-.guardian-poster-summary{
-  position:absolute;left:48%;top:20%;width:42%;height:65%;overflow:auto;
-  scrollbar-width:thin;scrollbar-color:#ffffff60 transparent;
-  color:#fff9ec;text-shadow:0 1px 2px #160b1748;
-  font-family:inherit;font-size:clamp(12px,1.55vw,16px);line-height:1.72;
+.guardian-poster-description:focus-visible{outline:2px solid #fff;outline-offset:-3px}
+.guardian-poster-description .guardian-card-full-name{margin:0 0 6px;font-size:1.3em;font-weight:900;line-height:1.35;color:inherit}
+.guardian-card-full-tagline{font-weight:850;margin:0 0 9px}
+.guardian-card-full-intro,.guardian-card-full-quote{margin:0 0 10px}
+.guardian-card-full-quote{font-style:italic;font-weight:700}
+.guardian-card-full-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.guardian-card-full-tags span{border:1px solid currentColor;border-radius:30px;padding:0 6px;white-space:nowrap;font-size:.82em}
+.guardian-card-full-section{border-top:1px solid #ffffff50;padding-top:9px;margin-top:9px}
+.guardian-card-full-section h4{font-size:1.08em;margin:0 0 6px;color:inherit}
+.guardian-card-full-section h5{font-size:1em;margin:9px 0 3px;color:inherit}
+.guardian-card-full-section p{margin:0 0 8px;overflow-wrap:anywhere}
+.guardian-poster-enlarge{
+  position:absolute;bottom:11.5%;right:8%;border:1px solid #fff9;color:#fff;background:#161126b0;
+  border-radius:999px;padding:5px 10px;font-size:11px;cursor:pointer;display:none;
 }
-.guardian-poster-summary strong{display:block;font-size:1.08em;line-height:1.55;margin:0 0 13px;font-weight:900;color:inherit;}
-.guardian-poster-summary p{margin:0;white-space:normal;overflow-wrap:break-word;}
-.guardian-poster-info{
-  padding:21px 24px 23px;border:2px solid color-mix(in srgb,var(--guardian-color) 36%,#eecde3);
-  border-top:0;border-radius:0 0 16px 16px;background:#fff8fc;box-shadow:0 4px 11px #2f193214;
+/* 각 카드의 원래 색상에 맞춰 글씨 대비 확보 */
+.guardian-poster-profile[data-guardian="lumi"] .guardian-poster-description,
+.guardian-poster-profile[data-guardian="roke"] .guardian-poster-description{color:#fffbe2}
+.guardian-poster-profile[data-guardian="jini"] .guardian-poster-description{color:#f7faff}
+.guardian-poster-profile[data-guardian="data"] .guardian-poster-description{color:#fff5fb}
+.guardian-reading-dialog{
+  border:0;padding:0;border-radius:20px;max-height:min(86dvh,780px);width:min(92vw,570px);
+  background:#fff8fc;color:#49374f;box-shadow:0 15px 55px #160b2460;
 }
-.guardian-poster-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px;}
-.guardian-poster-tags span{font-size:12px;color:var(--guardian-color);background:#fff;
-  padding:5px 11px;border-radius:20px;border:1px solid #e6d8e1;font-weight:800;}
-.guardian-poster-symbols{margin:0;}
-.guardian-poster-symbols>div{display:grid;grid-template-columns:minmax(88px,25%) 1fr;gap:14px;
-  padding:10px 0;border-bottom:1px dashed #e3d3de;font-size:13px;line-height:1.7;}
-.guardian-poster-symbols dt{color:var(--guardian-color);font-weight:900;}
-.guardian-poster-symbols dd{margin:0;color:#5f4d60;}
-.guardian-poster-story{margin-top:12px;font-size:13px;line-height:1.75;}
-.guardian-poster-story summary{cursor:pointer;padding:12px 3px;font-weight:850;color:var(--guardian-color);}
-.guardian-poster-story section{padding:5px 3px 13px;}
-.guardian-poster-story h4{font-size:14px;margin:0 0 5px;color:var(--guardian-color);}
-.guardian-poster-story p{margin:0;color:#594a5d;}
+.guardian-reading-dialog::backdrop{background:#170f2ec9}
+.guardian-reading-shell{position:relative;padding:27px 25px 25px;max-height:84dvh;overflow-y:auto;box-sizing:border-box}
+.guardian-reading-close{position:sticky;top:0;float:right;border:0;border-radius:50%;background:#ecdae8;color:#473448;
+  cursor:pointer;width:32px;height:32px;font-size:22px;line-height:1;z-index:1}
+.guardian-reading-heading{color:var(--guardian-color);font-weight:900;font-size:19px;margin-bottom:15px;padding-right:42px}
+.guardian-reading-body{font-size:14px;line-height:1.8;color:#554356}
+.guardian-reading-body .guardian-card-full-name{font-size:20px;margin:0 0 6px;color:var(--guardian-color)}
+.guardian-reading-body .guardian-card-full-tagline{font-size:15px}
+.guardian-reading-body .guardian-card-full-tags span{border-color:#e3c9da}
+.guardian-reading-body .guardian-card-full-section{border-color:#e2cad9}
 @media(max-width:760px){
-  .guardian-notebook.guardian-poster-profile{margin-top:22px;}
-  .guardian-poster-stage{border-radius:5px;}
-  .guardian-poster-person{left:5%;top:16%;width:35%;height:64%;}
-  .guardian-poster-summary{left:47.4%;top:19%;width:43%;height:67%;font-size:clamp(9.5px,2.65vw,12px);line-height:1.38;}
-  .guardian-poster-summary strong{margin-bottom:5px;font-size:1em;line-height:1.35;}
-  .guardian-poster-info{padding:13px 14px 16px;}
-  .guardian-poster-tags span{font-size:10px;padding:3px 8px;}
-  .guardian-poster-symbols>div{grid-template-columns:minmax(75px,29%) 1fr;gap:10px;font-size:11px;}
-  .guardian-poster-story{font-size:12px;}
+  .guardian-notebook.guardian-poster-profile{margin-top:19px!important}
+  .guardian-poster-stage{border-radius:5px}
+  .guardian-poster-person{left:4.5%;top:17%;width:35%;height:65%}
+  .guardian-poster-description{left:47.6%;top:16%;width:44.7%;height:70%;padding:1px 3px 4px;
+    font-size:clamp(8px,2.25vw,12px);line-height:1.3}
+  .guardian-poster-description h4{font-size:1em}
+  .guardian-poster-enlarge{display:block;font-size:9px;padding:3px 6px;bottom:13.5%;right:7%}
+  .guardian-card-full-tags{gap:2px}
+  .guardian-card-full-tags span{padding:0 3px}
+  .guardian-reading-shell{padding:18px}
 }
-@media(max-width:390px){.guardian-poster-summary{font-size:9.7px;line-height:1.26;}.guardian-poster-summary strong{margin-bottom:3px;}}
+@media(prefers-reduced-motion:reduce){.guardian-reading-dialog{scroll-behavior:auto}}
