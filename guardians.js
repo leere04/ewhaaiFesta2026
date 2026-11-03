@@ -21,13 +21,21 @@ guardianDialog.addEventListener('click', event => { if (event.target === guardia
 function guardianDisplayName(guardian) {
   return guardian.name.replace(/^[A-Za-z]+\s*[·\-–]\s*/, '');
 }
-// 기존 특징·상징·이야기 내용은 변경하지 않습니다.
+// 모바일 카드에는 원래 상징 설명에서 추린 짧은 뜻만 표시합니다.
+// 데스크톱과 크게 보기의 원문은 그대로 유지합니다.
+const guardianMobileSymbolNotes = {
+  sei: ['클릭과 실행', '생각의 연결', '직접 써 갈 이야기'],
+  roke: ['올바른 접근', '소중한 것의 보호'],
+  jini: ['배움과 연결', '학습과 사고', '새로운 가능성'],
+  data: ['이야기의 개화', '데이터의 연결', '패턴 읽기', '숨은 가능성'],
+  lumi: ['선택할 길', '나만의 방향', '꿈과 가능성']
+};
 function guardianFullDescription(guardian) {
-  const symbolNames = guardian.items.map(([name]) => esc(name)).join(' · ');
+  const symbolRows = guardian.items.map(([name, desc], index) => `<p><strong>${esc(name)}</strong> — ${esc(guardianMobileSymbolNotes[guardian.id]?.[index] || desc)}</p>`).join('');
   return `
     <p class="guardian-card-full-tagline">${esc(guardian.tagline)}</p>
     <div class="guardian-mobile-summary">
-      ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4><p>${symbolNames}</p></div>` : ''}
+      ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4><div class="guardian-mobile-symbols">${symbolRows}</div></div>` : ''}
     </div>
     <div class="guardian-desktop-detail">
       ${guardian.quote ? `<p class="guardian-card-full-quote">“${esc(guardian.quote)}”</p>` : ''}
