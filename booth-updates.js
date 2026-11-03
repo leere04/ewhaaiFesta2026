@@ -9,6 +9,21 @@
   if (typeof booths === 'undefined' || typeof openBooth !== 'function') return;
 
   const updates = {
+    steady: {
+      products: [
+        '일반 어묵 2,000원',
+        '마라 어묵 2,500원',
+        'Steady Set 4,000원'
+      ],
+      pricesConfirmed: true,
+      note: 'Steady Set: 일반 어묵 1개 + 마라 어묵 1개 (각각 따로 담아드려요).',
+      extraGalleryTitle: '스테디 셀러 메뉴·가격 안내',
+      extraGalleryImages: [
+        'assets/booth-steady-01.png',
+        'assets/booth-steady-02.png',
+        'assets/booth-steady-03.png'
+      ]
+    },
     datascience: {
       description: '학점은 말랑하지 않아도 모찌는 말랑하니까.\n\n🫐 블베로 달콤하게!\n\n🍇 샤머로 청량하게!\n\n🍊 귤로 상큼하게!\n\n과제는 미뤄도 모찌는 못 미룸.\n오늘의 행복, 일단 먹고 생각하자 🍡',
       products: [
@@ -16,7 +31,7 @@
         '블루베리 요거트 4,500원',
         '귤 요거트 4,000원'
       ],
-      hours: '11/4(수)·11/5(목) 10:00–17:00',
+      hours: '10:00~17:00',
       location: '학생문화관 6번 부스',
       pricesConfirmed: true,
       note: '메뉴 사진은 아래 안내를 확인해 주세요.',
@@ -47,7 +62,7 @@
         '찌라시 스티커 1,000원',
         '자수책갈피 9,000원'
       ],
-      hours: '11/5(목) 10:00–17:00',
+      hours: '10:00~17:00',
       location: '학생문화관 10번 부스',
       note: '11월 5일 목요일 하루만 운영해요. 각 굿즈의 디자인은 카드뉴스에서 확인할 수 있어요.',
       extraGalleryTitle: '루덴스 부스 카드뉴스',
@@ -94,8 +109,8 @@
           : src);
     }
   }
-  const teamOne = {"id": "likelion", "number": 7, "name": "멋쟁이사자처럼 1팀 · WEE", "org": "이화여자대학교 멋쟁이사자처럼", "description": "오늘의 날씨를, 오늘의 행동으로! 날씨 맞춤 알림과 오늘의 운세를 제공하는 WEE를 만나보세요.", "categories": ["goods", "experience"], "days": ["wed", "thu"], "products": ["1일 운세 + 스티커 3종 1,000원", "7일 운세 + 커피 + 스티커 3종 + 아크릴 굿즈 5,900원", "14일 운세 + 커피 + 전체 종류 스티커 + NFC 굿즈 11,600원", "21일 운세 + 전체 구성품 16,000원", "날씨 프리미엄 21일 이용권 2,500원 (커피 1병 + 스티커 2종)", "학잠 WEE 키링 · 메시지 스티커 (개별 가격 현장 확인)"], "hours": "11/4(수)·11/5(목) 10:00–17:00", "location": "학생문화관 앞 7번 부스", "note": "인스타그램 스토리 인증 시 스티커 1종 무료 증정! 날씨 프리미엄과 운세 이용권은 별도입니다.", "art": "lion", "bg": "#e4f6fc", "accent": "#70b8cb", "extraGalleryTitle": "멋사 1팀 WEE 카드뉴스", "extraGalleryImages": ["assets/booth-wee-01.png", "assets/booth-wee-02.png", "assets/booth-wee-03.png", "assets/booth-wee-04.png", "assets/booth-wee-05.png", "assets/booth-wee-06.png"], "links": [{"label": "WEE 바로가기 ↗", "url": "https://weether.kr/"}, {"label": "WEE 인스타그램 ↗", "url": "https://www.instagram.com/wee.weether/"}]};
-  const teamTwo = {"id": "likelion-dalpan", "number": 7, "name": "멋쟁이사자처럼 2팀 · 달판", "org": "이화여자대학교 멋쟁이사자처럼", "description": "대화 캡처를 바탕으로 인간관계 갈등을 판결해 주는 AI 재판소, 달판! 신촌 대학 연합 AI 창업 경진대회에 출품한 직접 만든 웹사이트를 소개합니다.", "categories": ["experience"], "days": ["wed", "thu"], "products": ["판결 체험 + 인스타 스토리 인증 → 토끼 말랑이 증정", "서비스 내 1,000원 결제 인증 → 토끼 모양 아몬드 쿠키 증정"], "hours": "11/4(수) 09:30–18:00 · 11/5(목) 12:30–18:00", "location": "학생문화관 앞 7번 부스", "note": "서비스에서 결제한 내역을 부스에서 인증해 주세요.", "steps": ["달판에 회원가입하고 AI 판결받기", "판결문 이미지를 저장하고 공유 링크 복사하기", "인스타그램 스토리에 업로드하고 부스에서 인증하기"], "art": "lion", "bg": "#ebe9f4", "accent": "#665574", "extraGalleryTitle": "멋사 2팀 달판 카드뉴스", "extraGalleryImages": ["assets/booth-dalpan-01.jpg", "assets/booth-dalpan-02.jpg", "assets/booth-dalpan-03.jpg"], "links": [{"label": "달판 바로가기 ↗", "url": "https://dalpan.vercel.app/"}]};
+  const teamOne = {"id": "likelion", "number": 7, "name": "멋쟁이사자처럼 1팀 · WEE", "org": "이화여자대학교 멋쟁이사자처럼", "description": "오늘의 날씨를, 오늘의 행동으로! 날씨 맞춤 알림과 오늘의 운세를 제공하는 WEE를 만나보세요.", "categories": ["goods", "experience"], "days": ["wed", "thu"], "products": ["1일 운세 + 스티커 3종 1,000원", "7일 운세 + 커피 + 스티커 3종 + 아크릴 굿즈 5,900원", "14일 운세 + 커피 + 전체 종류 스티커 + NFC 굿즈 11,600원", "21일 운세 + 전체 구성품 16,000원", "날씨 프리미엄 21일 이용권 2,500원 (커피 1병 + 스티커 2종)", "학잠 WEE 키링 · 메시지 스티커 (개별 가격 현장 확인)"], "hours": "10:00~17:00", "location": "학생문화관 앞 7번 부스", "note": "인스타그램 스토리 인증 시 스티커 1종 무료 증정! 날씨 프리미엄과 운세 이용권은 별도입니다.", "art": "lion", "bg": "#e4f6fc", "accent": "#70b8cb", "extraGalleryTitle": "멋사 1팀 WEE 카드뉴스", "extraGalleryImages": ["assets/booth-wee-01.png", "assets/booth-wee-02.png", "assets/booth-wee-03.png", "assets/booth-wee-04.png", "assets/booth-wee-05.png", "assets/booth-wee-06.png"], "links": [{"label": "WEE 바로가기 ↗", "url": "https://weether.kr/"}, {"label": "WEE 인스타그램 ↗", "url": "https://www.instagram.com/wee.weether/"}]};
+  const teamTwo = {"id": "likelion-dalpan", "number": 7, "name": "멋쟁이사자처럼 2팀 · 달판", "org": "이화여자대학교 멋쟁이사자처럼", "description": "대화 캡처를 바탕으로 인간관계 갈등을 판결해 주는 AI 재판소, 달판! 신촌 대학 연합 AI 창업 경진대회에 출품한 직접 만든 웹사이트를 소개합니다.", "categories": ["experience"], "days": ["wed", "thu"], "products": ["판결 체험 + 인스타 스토리 인증 → 토끼 말랑이 증정", "서비스 내 1,000원 결제 인증 → 토끼 모양 아몬드 쿠키 증정"], "hours": "11/4(수) 09:30~18:00 / 11/5(목) 12:30~18:00", "location": "학생문화관 앞 7번 부스", "note": "서비스에서 결제한 내역을 부스에서 인증해 주세요.", "steps": ["달판에 회원가입하고 AI 판결받기", "판결문 이미지를 저장하고 공유 링크 복사하기", "인스타그램 스토리에 업로드하고 부스에서 인증하기"], "art": "lion", "bg": "#ebe9f4", "accent": "#665574", "extraGalleryTitle": "멋사 2팀 달판 카드뉴스", "extraGalleryImages": ["assets/booth-dalpan-01.jpg", "assets/booth-dalpan-02.jpg", "assets/booth-dalpan-03.jpg"], "links": [{"label": "달판 바로가기 ↗", "url": "https://dalpan.vercel.app/"}]};
   const lionIndex = booths.findIndex(b => b.id === 'likelion');
   if (lionIndex !== -1) { Object.assign(booths[lionIndex], teamOne); if (!booths.some(b => b.id === teamTwo.id)) booths.splice(lionIndex + 1, 0, teamTwo); }
   // 부스 카드의 메뉴·검색 정보도 즉시 최신 내용으로 바꿉니다.

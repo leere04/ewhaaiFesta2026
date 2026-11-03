@@ -230,3 +230,66 @@ html {
 .program-reward-preview { margin: 16px 0 0; padding: 12px; border: 1px solid #eadce6; background: #fffafb; border-radius: 14px; }
 .program-reward-preview img { width: 100%; max-width: 520px; height: auto; display: block; margin: 0 auto; border-radius: 6px; }
 .program-reward-preview figcaption { margin-top: 9px; font-size: 12px; color: #876d81; text-align: center; line-height: 1.5; }
+
+
+/* 2026-11-03: 프로그램 카드는 조금만 짧게, 모바일 홈은 16px 더 여유 있게 */
+@media (min-width: 761px) {
+  .program-card { min-height: 240px; }
+  .program-top { height: 59px; }
+}
+@media (min-width: 431px) and (max-width: 760px) {
+  .program-card { min-height: 226px; padding-block: 18px; }
+  .program-top { height: 55px; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: calc(100svh - 120px); }
+}
+@media (min-width: 351px) and (max-width: 430px) {
+  .program-card { min-height: 218px; padding-block: 14px; }
+  .program-top { height: 53px; }
+  .program-card .program-desc { min-height: 48px; }
+}
+@media (max-width: 350px) {
+  .program-card { min-height: 216px; }
+}
+
+
+/* 멋사 1팀 WEE · 2팀 달판 — 실제 카드뉴스의 캐릭터 부분을 그대로 표시 */
+.brand-mascot-art {
+  position: relative; z-index: 1;
+  display: block; flex: 0 0 auto;
+  width: 144px; height: 130px;
+  border-radius: 17px;
+  background-repeat: no-repeat;
+  box-shadow: 0 3px 9px #3324441c;
+  transform: rotate(-4deg);
+  transition: transform .2s ease;
+}
+.brand-mascot-wee {
+  background-color: #b9d5fa;
+  background-image: url('assets/booth-wee-01.png');
+  background-size: 250px 312.5px;
+  background-position: -4px -102px;
+}
+.brand-mascot-dalpan {
+  background-color: #232337;
+  background-image: url('assets/booth-dalpan-01.jpg');
+  background-size: 300px 400px;
+  background-position: -164px -23px;
+}
+/* 카드뉴스의 QR/큰 글자가 캐릭터 옆에 비치지 않도록 영역을 미세 조정 */
+.brand-mascot-dalpan::before {
+  content: ''; position: absolute; z-index: 1; left: 0; top: 0;
+  width: 30px; height: 84px; background: #232337;
+}
+.booth-card:hover .brand-mascot-art { transform: rotate(1deg) scale(1.04); }
+.dialog-art .brand-mascot-art { width: 154px; height: 134px; transform: none; }
+.dialog-art .brand-mascot-wee { background-size: 280px 350px; background-position: 2px -117px; }
+@media (max-width: 430px) {
+  .booth-card .brand-mascot-art { width: 110px; height: 104px; }
+  .booth-card .brand-mascot-wee { background-size: 220px 275px; background-position: -6px -90px; }
+  .booth-card .brand-mascot-dalpan { background-size: 245px 326.7px; background-position: -131px -19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-mascot-art { transition: none; }
+}
