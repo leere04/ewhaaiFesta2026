@@ -9,6 +9,17 @@
   if (typeof booths === 'undefined' || typeof openBooth !== 'function') return;
 
   const updates = {
+    randomforest: {
+      products: [
+        '돼지국밥 4,000원',
+        '고기 추가 1,000원',
+        '매실차 2,000원',
+        '세트메뉴 (돼지국밥 + 매실차) 5,500원'
+      ],
+      pricesConfirmed: true,
+      extraGalleryTitle: '랜덤포레스트 메뉴·가격 안내',
+      extraGalleryImages: ['assets/booth-randomforest-menu-20261103.png']
+    },
     steady: {
       products: [
         '일반 어묵 2,000원',

@@ -293,3 +293,9 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .brand-mascot-art { transition: none; }
 }
+
+/* 기획 부스 프로그램 상세보기: 상품·혜택/참고 사항은 동그라미 대신 - 기호로 표시 */
+ul.program-detail-list { list-style: none; padding-left: 0; }
+ul.program-detail-list > li { position: relative; padding-left: 13px; }
+ul.program-detail-list > li::before { content: "-"; position: absolute; left: 0; top: 0; font-weight: 700; }
+/* 번호가 있는 참여 순서는 기존 번호를 그대로 유지 */
