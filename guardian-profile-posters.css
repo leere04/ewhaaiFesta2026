@@ -190,3 +190,49 @@
   text-align:center;
   font-size:1.06em;
 }
+
+
+/* 2026-11-04: 수호 캐릭터 카드 소개 문구 가운데 정렬 + 상징의 수직 여백 균형 */
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-tagline {
+  text-align:center !important;
+  line-height:1.65;
+  margin-left:auto;
+  margin-right:auto;
+  word-break:keep-all;
+}
+.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-list {
+  row-gap:12px;
+}
+@media (max-width:760px) {
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description {
+    display:flex;
+    flex-direction:column;
+    padding:4px 4px 6px;
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-tagline {
+    flex:0 0 auto;
+    margin-top:5px;
+    margin-bottom:6px;
+    line-height:1.66;
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-mobile-summary {
+    display:flex !important;
+    flex:1 1 auto;
+    flex-direction:column;
+    justify-content:center;
+    min-height:0;
+    padding-bottom:17px; /* 아래 '설명 크게 보기' 버튼과 간격 유지 */
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-mobile-summary .guardian-card-full-section {
+    width:100%;
+    margin-top:0;
+    padding-top:8px;
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-mobile-summary .guardian-symbol-list {
+    row-gap:clamp(7px,1.35vw,12px);
+    margin:8px 0;
+  }
+  .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-mobile-summary .guardian-symbol-detail {
+    line-height:1.5;
+  }
+}

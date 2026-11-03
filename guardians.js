@@ -36,12 +36,25 @@ function guardianSymbolRows(items, expanded = false) {
       <span class="guardian-symbol-title">${esc(name)}</span><span class="guardian-symbol-meaning"> — ${esc(desc)}</span>
     </p>`).join('');
 }
+// 카드에 들어가는 짧은 소개 문구의 줄바꿈만 조정합니다. 원문과 상세 설명은 그대로 둡니다.
+const guardianTaglineBreaks = {
+  roke: '지켜야 할 것은 지키고,',
+  jini: '함께 배우고 연결하며,',
+  lumi: '수많은 가능성 속에서,',
+  data: '흩어진 데이터 속에 숨은 이야기를'
+};
+function guardianTaglineDisplay(guardian) {
+  const line = guardianTaglineBreaks[guardian.id];
+  const tagline = esc(guardian.tagline);
+  if (!line || !guardian.tagline.includes(line)) return tagline;
+  return tagline.replace(esc(line), esc(line) + '<br class="guardian-tagline-break">');
+}
 function guardianFullDescription(guardian, expanded = false) {
   const briefItems = guardianCompactSymbols[guardian.id] || guardian.items.map(([name,desc])=>[name, desc]);
   const displayedItems = expanded ? (guardian.id === 'data' ? guardian.items.filter(item => ['벚꽃과 분홍빛', '데이터 지팡이'].includes(item[0])) : guardian.items) : briefItems;
   const symbolDetails = guardianSymbolRows(displayedItems);
   return `
-    <p class="guardian-card-full-tagline">${esc(guardian.tagline)}</p>
+    <p class="guardian-card-full-tagline">${guardianTaglineDisplay(guardian)}</p>
     <div class="guardian-mobile-summary">
       ${displayedItems.length ? `<div class="guardian-card-full-section"><div class="guardian-symbol-list">${symbolDetails}</div></div>` : ''}
     </div>
