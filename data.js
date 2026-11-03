@@ -10,13 +10,13 @@
 const booths = [
   {id:'commit',number:1,name:'컴온앤비욘',org:'컴공 학생회',description:'🔥 작년 그 맛 그대로! 마라로제컴볶이 🔥\n얼얼한 마라 + 꾸덕한 로제 = 맛.없.없 조합\n인지상정에서 만나요😎',categories:['food','goods'],days:['wed','thu'],products:['마라로제떡볶이','티셔츠','리무버블 스티커','멀티 클리너'],note:'음식과 굿즈를 함께 판매해요.',art:'tteok',bg:'#fbe2d9',accent:'#d98c78'},
   {id:'click',number:2,name:'사보 크크',org:'사보 학생회',description:'🥐 겉바속쫀! 소금빵 크로플 🥐\n소금빵 생지를 와플기에 꾹 눌러 구워낸 소금빵 크로플을 판매합니다!',categories:['food','goods'],days:['wed','thu'],products:['소금빵 크로플','스티커','핀 뱃지','키링'],note:'음식과 굿즈를 함께 판매해요.',art:'croffle',bg:'#fcf0cb',accent:'#cfa854'},
-  {id:'steady',number:5,name:'스테디 셀러',org:'Steady',description:'호떡에 이어 어묵으로 돌아온 스테디 셀러입니다',categories:['food'],days:['wed','thu'],products:['물 오뎅','마라 오뎅'],note:'',art:'fishcake',bg:'#e1edde',accent:'#84a580'},
   {id:'ewhale',number:3,name:'네이버 웨일 캠퍼스 크루 | EWHALE',org:'네이버 웨일 캠퍼스 크루 EWHALE',description:'네이버 웨일 체험만 해도 키캡 키링·스트레스볼 증정!',categories:['experience'],days:['wed','thu'],products:['네이버 웨일 체험','키캡 키링·스트레스볼 증정'],note:'체험형 부스로 별도 판매는 없어요. 참여자를 대상으로 네이버 웨일 굿즈를 증정해요.',art:'whale',bg:'#dceef6',accent:'#78afc3'},
-  {id:'animal-farm',number:10,name:'동물농장',org:'이세연(개인)',description:'별별 친구들이 모여 사는 작은 뜨개 동물농장에 놀러 오세요!',categories:['goods'],days:['wed'],products:['뜨개 키링'],note:'수요일에만 운영해요.',art:'yarn',bg:'#efe1f4',accent:'#b08bbd'},
-  {id:'ludens',number:10,name:'우리동아리 정상영업합니다',org:'루덴스',description:'人예미 소속 동아리 루덴스 人지대 축제에 진출',categories:['goods'],days:['thu'],products:['스티커','자수 책갈피','티셔츠'],note:'목요일에만 운영해요.',art:'bookmark',bg:'#e3ecfb',accent:'#8c9ed0'},
-  {id:'likelion',number:7,name:'이화여자대학교 멋쟁이사자처럼',org:'이화여자대학교 멋쟁이사자처럼',description:'대동제 웹사이트 개발하는 바로 그 동아리! 아기사자의 멋진 프로덕트를 소개합니다 🦁',categories:['goods'],days:['wed','thu'],products:['판매 품목 논의 중'],note:'판매 품목은 현재 논의 중이에요.',art:'lion',bg:'#fde8ca',accent:'#d9a164'},
   {id:'randomforest',number:4,name:'랜덤포레스트',org:'랜덤포레스트',description:'밴드가 밥 먹여주니? 넵 랜포는 먹여드립니다.',categories:['food'],days:['wed','thu'],products:['국밥','차'],note:'',art:'soup',bg:'#e0ece4',accent:'#86aa95'},
-  {id:'datascience',number:6,name:'데이터사이언스부스',org:'데이터사이언스',description:'불닭으로 일으킨 학생회?',categories:['food'],days:['wed','thu'],products:['불닭 샌드위치','아이스티'],note:'',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'}
+  {id:'steady',number:5,name:'스테디 셀러',org:'Steady',description:'호떡에 이어 어묵으로 돌아온 스테디 셀러입니다',categories:['food'],days:['wed','thu'],products:['물 오뎅','마라 오뎅'],note:'',art:'fishcake',bg:'#e1edde',accent:'#84a580'},
+  {id:'datascience',number:6,name:'데이터사이언스부스',org:'데이터사이언스',description:'불닭으로 일으킨 학생회?',categories:['food'],days:['wed','thu'],products:['불닭 샌드위치','아이스티'],note:'',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'},
+  {id:'likelion',number:7,name:'이화여자대학교 멋쟁이사자처럼',org:'이화여자대학교 멋쟁이사자처럼',description:'대동제 웹사이트 개발하는 바로 그 동아리! 아기사자의 멋진 프로덕트를 소개합니다 🦁',categories:['goods'],days:['wed','thu'],products:['판매 품목 논의 중'],note:'판매 품목은 현재 논의 중이에요.',art:'lion',bg:'#fde8ca',accent:'#d9a164'},
+  {id:'animal-farm',number:10,name:'동물농장',org:'이세연(개인)',description:'별별 친구들이 모여 사는 작은 뜨개 동물농장에 놀러 오세요!',categories:['goods'],days:['wed'],products:['뜨개 키링'],note:'수요일에만 운영해요.',art:'yarn',bg:'#efe1f4',accent:'#b08bbd'},
+  {id:'ludens',number:10,name:'우리동아리 정상영업합니다',org:'루덴스',description:'人예미 소속 동아리 루덴스 人지대 축제에 진출',categories:['goods'],days:['thu'],products:['스티커','자수 책갈피','티셔츠'],note:'목요일에만 운영해요.',art:'bookmark',bg:'#e3ecfb',accent:'#8c9ed0'}
 ];
 
 const programs = [
