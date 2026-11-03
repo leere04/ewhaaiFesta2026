@@ -17,16 +17,22 @@ document.body.appendChild(guardianDialog);
 guardianDialog.querySelector('.guardian-reading-close').addEventListener('click', () => guardianDialog.close());
 guardianDialog.addEventListener('click', event => { if (event.target === guardianDialog) guardianDialog.close(); });
 
-// 모든 기존 설정을 사용합니다. 새로운 설명을 만들거나 기존 이야기 일부를 생략하지 않습니다.
+// 캐릭터 이름은 한글만 표시합니다. (예: DAMI · 다미 → 다미)
+function guardianDisplayName(guardian) {
+  return guardian.name.replace(/^[A-Za-z]+\s*[·\-–]\s*/, '');
+}
+// 기존 특징·상징·이야기 내용은 변경하지 않습니다.
 function guardianFullDescription(guardian) {
   return `
-    <h3 class="guardian-card-full-name">${esc(guardian.name)}</h3>
+    <h3 class="guardian-card-full-name">${esc(guardianDisplayName(guardian))}</h3>
     <p class="guardian-card-full-tagline">${esc(guardian.tagline)}</p>
     ${guardian.quote ? `<p class="guardian-card-full-quote">“${esc(guardian.quote)}”</p>` : ''}
     <p class="guardian-card-full-intro">${esc(guardian.intro)}</p>
-    ${guardian.keywords.length ? `<div class="guardian-card-full-tags" aria-label="캐릭터 키워드">${guardian.keywords.map(word=>`<span>#${esc(word)}</span>`).join('')}</div>` : ''}
     ${guardian.items.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4>${guardian.items.map(([name,desc])=>`<p><strong>${esc(name)}</strong> — ${esc(desc)}</p>`).join('')}</div>` : ''}
-    ${guardian.story.length ? `<div class="guardian-card-full-section guardian-card-full-story"><h4>수호캐릭터 이야기</h4>${guardian.story.map(([name,desc])=>`<h5>${esc(name)}</h5><p>${esc(desc)}</p>`).join('')}</div>` : ''}
+    ${guardian.story.length ? `<details class="guardian-card-full-section guardian-card-full-story">
+      <summary>수호 캐릭터 이야기 <span class="guardian-story-more-closed">더보기</span><span class="guardian-story-more-open">접기</span></summary>
+      <div class="guardian-story-content">${guardian.story.map(([name,desc])=>`<h5>${esc(name)}</h5><p>${esc(desc)}</p>`).join('')}</div>
+    </details>` : ''}
   `;
 }
 function selectGuardian(id) {
@@ -48,13 +54,13 @@ function selectGuardian(id) {
   guardianPanel.innerHTML = `
     <div class="guardian-poster-stage">
       <img class="guardian-poster-template" src="${esc(guardianProfileDesigns[id])}" alt="" width="1703" height="991" loading="lazy">
-      <img class="guardian-poster-person" src="${esc(guardian.character || guardian.egg)}" alt="${esc(guardian.name)} 캐릭터" loading="lazy">
-      <section class="guardian-poster-description" aria-label="${esc(guardian.name)} 캐릭터의 전체 설명" tabindex="0">${fullHtml}</section>
-      <button type="button" class="guardian-poster-enlarge" aria-label="${esc(guardian.name)} 캐릭터 설명 크게 보기">설명 크게 보기</button>
+      <img class="guardian-poster-person" src="${esc(guardian.character || guardian.egg)}" alt="${esc(guardianDisplayName(guardian))} 캐릭터" loading="lazy">
+      <section class="guardian-poster-description" aria-label="${esc(guardianDisplayName(guardian))} 캐릭터의 전체 설명" tabindex="0">${fullHtml}</section>
+      <button type="button" class="guardian-poster-enlarge" aria-label="${esc(guardianDisplayName(guardian))} 캐릭터 설명 크게 보기">설명 크게 보기</button>
     </div>`;
   guardianPanel.querySelector('.guardian-poster-enlarge').addEventListener('click', () => {
     const body = guardianDialog.querySelector('.guardian-reading-body');
-    body.innerHTML = `<div class="guardian-reading-heading">${esc(guardian.dept)} · ${esc(guardian.name)}</div>${fullHtml}`;
+    body.innerHTML = `<div class="guardian-reading-heading">${esc(guardian.dept)} · ${esc(guardianDisplayName(guardian))}</div>${fullHtml}`;
     guardianDialog.dataset.guardian = id;
     guardianDialog.style.setProperty('--guardian-color', guardian.color);
     guardianDialog.showModal();
@@ -63,7 +69,7 @@ function selectGuardian(id) {
 // 기존 카드 뒤집기/선택 구조 유지
 if (guardianTabs && guardianPanel) {
   guardianTabs.classList.add('planet-cards');
-  guardianTabs.innerHTML = guardians.map(guardian => `<button type="button" data-guardian="${guardian.id}" aria-controls="guardian-panel" aria-pressed="false" aria-label="${esc(guardian.dept)} ${esc(guardian.name)} 소개 보기" style="--guardian-color:${guardian.color}"><img class="guardian-card-design" src="assets/guardian-card-${guardian.id}.png" alt="" width="330" height="640"><img class="guardian-reveal-character" src="${esc(guardian.egg)}" alt=""></button>`).join('');
+  guardianTabs.innerHTML = guardians.map(guardian => `<button type="button" data-guardian="${guardian.id}" aria-controls="guardian-panel" aria-pressed="false" aria-label="${esc(guardian.dept)} ${esc(guardianDisplayName(guardian))} 소개 보기" style="--guardian-color:${guardian.color}"><img class="guardian-card-design" src="assets/guardian-card-${guardian.id}.png" alt="" width="330" height="640"><img class="guardian-reveal-character" src="${esc(guardian.egg)}" alt=""></button>`).join('');
   guardianTabs.addEventListener('click', event => {
     const button = event.target.closest('[data-guardian]');
     if (button) selectGuardian(button.dataset.guardian);

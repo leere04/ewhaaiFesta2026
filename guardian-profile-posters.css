@@ -21,8 +21,6 @@
 .guardian-card-full-tagline{font-weight:850;margin:0 0 9px}
 .guardian-card-full-intro,.guardian-card-full-quote{margin:0 0 10px}
 .guardian-card-full-quote{font-style:italic;font-weight:700}
-.guardian-card-full-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
-.guardian-card-full-tags span{border:1px solid currentColor;border-radius:30px;padding:0 6px;white-space:nowrap;font-size:.82em}
 .guardian-card-full-section{border-top:1px solid #ffffff50;padding-top:9px;margin-top:9px}
 .guardian-card-full-section h4{font-size:1.08em;margin:0 0 6px;color:inherit}
 .guardian-card-full-section h5{font-size:1em;margin:9px 0 3px;color:inherit}
@@ -48,7 +46,6 @@
 .guardian-reading-body{font-size:14px;line-height:1.8;color:#554356}
 .guardian-reading-body .guardian-card-full-name{font-size:20px;margin:0 0 6px;color:var(--guardian-color)}
 .guardian-reading-body .guardian-card-full-tagline{font-size:15px}
-.guardian-reading-body .guardian-card-full-tags span{border-color:#e3c9da}
 .guardian-reading-body .guardian-card-full-section{border-color:#e2cad9}
 @media(max-width:760px){
   .guardian-notebook.guardian-poster-profile{margin-top:19px!important}
@@ -58,8 +55,25 @@
     font-size:clamp(8px,2.25vw,12px);line-height:1.3}
   .guardian-poster-description h4{font-size:1em}
   .guardian-poster-enlarge{display:block;font-size:9px;padding:3px 6px;bottom:13.5%;right:7%}
-  .guardian-card-full-tags{gap:2px}
-  .guardian-card-full-tags span{padding:0 3px}
   .guardian-reading-shell{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){.guardian-reading-dialog{scroll-behavior:auto}}
+
+/* 긴 캐릭터 이야기는 필요할 때만 펼쳐 읽을 수 있습니다. */
+.guardian-card-full-story{padding-bottom:6px}
+.guardian-card-full-story summary{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  cursor:pointer;font-weight:800;font-size:1.05em;list-style:none;
+  padding:3px 0;touch-action:manipulation;
+}
+.guardian-card-full-story summary::-webkit-details-marker{display:none}
+.guardian-card-full-story summary:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
+.guardian-card-full-story .guardian-story-more-closed,
+.guardian-card-full-story .guardian-story-more-open{
+  flex:none;display:inline-block;font-size:.88em;font-weight:750;
+  padding:2px 7px;border:1px solid currentColor;border-radius:999px;
+}
+.guardian-card-full-story .guardian-story-more-open{display:none}
+.guardian-card-full-story[open] .guardian-story-more-closed{display:none}
+.guardian-card-full-story[open] .guardian-story-more-open{display:inline-block}
+.guardian-card-full-story .guardian-story-content{padding-top:7px}
