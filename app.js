@@ -51,6 +51,7 @@ function card(booth) {
 function renderBooths() {
   const query = state.search.toLocaleLowerCase().replace(/\s+/g,'');
   const visible = booths.filter(booth => (state.day === 'all' || booth.days.includes(state.day)) && (state.category === 'all' || booth.categories.includes(state.category)) && (!state.savedOnly || favoriteIds.has(booth.id)) && (!query || [booth.name,booth.org,booth.description,...booth.products].join(' ').toLocaleLowerCase().replace(/\s+/g,'').includes(query)));
+  visible.sort((a, b) => Number(a.number) - Number(b.number));
   grid.innerHTML = visible.map(card).join('');
   document.getElementById('result-count').textContent = `${state.savedOnly ? '찜한 부스' : '총'} ${visible.length}개${state.savedOnly ? '' : '의 부스'}`;
   document.getElementById('saved-count').textContent = favoriteIds.size;
