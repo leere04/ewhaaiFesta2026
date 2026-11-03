@@ -38,14 +38,14 @@ let toastTimer;
 
 function card(booth) {
   const saved = favoriteIds.has(booth.id);
-  const subtitle = booth.id === 'ewhale' ? '체험하고 굿즈 받기' : '자세히 보기';
+  const subtitle = '자세히 보기';
   return `<article class="booth-card" style="--card-bg:${booth.bg};--card-accent:${booth.accent}">
     <div class="card-art"><span class="day-label">${dayLabel(booth)}</span>${art(booth.art)}<span class="art-spark" aria-hidden="true">✦</span><span class="art-dot" aria-hidden="true"></span></div>
     <button class="favorite-btn" data-save="${booth.id}" aria-pressed="${saved}" aria-label="${esc(booth.name)} 찜 ${saved ? '해제' : '하기'}">${saved ? '♥' : '♡'}</button>
     <div class="card-body"><div class="card-meta"><span class="booth-number">BOOTH ${String(booth.number).padStart(2,'0')}</span><span class="meta-dot"></span><span>${booth.categories.map(category => labels[category]).join(' · ')}</span></div>
-    <h3><button class="card-open" data-booth="${booth.id}" aria-haspopup="dialog">${esc(booth.name)}</button></h3><p class="card-org">${esc(booth.org)}</p><p class="card-description">${esc(booth.description)}</p>
+    <h3>${esc(booth.name)}</h3><p class="card-org">${esc(booth.org)}</p><p class="card-description">${esc(booth.description)}</p>
     <div class="card-products">${booth.products.slice(0,3).map(product => `<span class="product-chip">${esc(product)}</span>`).join('')}${booth.products.length>3 ? `<span class="product-chip">+${booth.products.length-3}</span>` : ''}</div>
-    <div class="card-footer"><span>${subtitle}</span><span aria-hidden="true">↗</span></div></div></article>`;
+    <button type="button" class="card-footer" data-booth="${booth.id}" aria-haspopup="dialog" aria-label="${esc(booth.name)} 자세히 보기"><span>${subtitle}</span><span aria-hidden="true">↗</span></button></div></article>`;
 }
 
 function renderBooths() {

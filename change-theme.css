@@ -117,3 +117,10 @@
     repeating-linear-gradient(135deg,rgb(72 35 55 / 7%) 0 1px,transparent 1px 4px),
     #edced9;
 }
+
+/* 2026-11-03: explicit booth details buttons */
+button.card-footer{width:100%;background:transparent;border:0;border-top:1px solid #eadce1;color:inherit;font-family:inherit;text-align:left;cursor:pointer;min-height:44px}
+button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px solid #d82d7c;outline-offset:3px}
+.map-booth-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:13px 0;border-bottom:1px solid #eadce1;align-items:center}
+.map-booth-row>span{font-weight:700}.map-booth-row>small{grid-column:1;color:#756873}
+.map-directory .map-booth-row>button{grid-column:2;grid-row:1 / 3;width:auto;margin:0;padding:8px;min-height:44px;border:0;background:transparent;color:#bd286a;font:inherit;font-size:12px;cursor:pointer}
