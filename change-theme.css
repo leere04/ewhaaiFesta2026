@@ -124,3 +124,16 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 .map-booth-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:13px 0;border-bottom:1px solid #eadce1;align-items:center}
 .map-booth-row>span{font-weight:700}.map-booth-row>small{grid-column:1;color:#756873}
 .map-directory .map-booth-row>button{grid-column:2;grid-row:1 / 3;width:auto;margin:0;padding:8px;min-height:44px;border:0;background:transparent;color:#bd286a;font:inherit;font-size:12px;cursor:pointer}
+.map-canvas{position:relative;isolation:isolate;border-radius:8px;overflow:hidden}
+#map-highlights{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#map-highlights polygon{fill:transparent;stroke:transparent;stroke-width:3;vector-effect:non-scaling-stroke;stroke-linejoin:round;transition:fill .18s,stroke .18s}
+#map-highlights polygon.is-selected{fill:#f6a9cc66;stroke:#d72a7e;filter:drop-shadow(0 0 5px #ffb2d7)}
+.map-directory .map-booth-row>.map-locate,.map-directory .daily-booth>.map-locate{grid-column:1;grid-row:1;display:block;text-align:left;padding:8px 6px;margin:-4px -6px 0;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--ink);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.map-directory .map-locate:hover,.map-directory .map-locate[aria-pressed=true]{background:#fbe3ef;color:#a51e60}
+.map-directory .map-locate[aria-pressed=true]{box-shadow:inset 3px 0 #d72a7e}
+.map-locate:focus-visible,.map-program-link:focus-visible{outline:3px solid #d82d7c;outline-offset:3px}
+.map-program-link{grid-column:2;grid-row:1 / 3;font-size:12px;color:#bd286a;padding:8px;min-height:44px;display:flex;align-items:center}
+.map-figure figcaption{display:flex;flex-wrap:wrap;justify-content:center;gap:7px 16px;line-height:1.7}
+.map-figure figcaption a{color:#a51e60;text-underline-offset:3px}
+@media(max-width:760px){.map-figure{scroll-margin-top:88px}.map-directory .map-booth-row>.map-locate{font-size:13px}}
+@media(prefers-reduced-motion:reduce){#map-highlights polygon{transition:none}}
