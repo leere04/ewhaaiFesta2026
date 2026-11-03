@@ -104,4 +104,13 @@
 @media(max-width:760px){.game-ticket{grid-template-columns:1fr}.game-ticket-art{border-left:0;border-top:2px dashed #be2875;padding:24px}.game-ticket-art img{width:170px}.game-ticket-copy{padding:28px 22px}.game-start{font-size:13px;padding:12px 16px}.game-login-note{font-size:11px}}
 /* Original festival poster plaid, cropped from assets/festival-poster.png.
    Source crop: x=568, y=824, width=120, height=92. */
-.booth-card>.card-art,.game-ticket-art{background-color:#4c3b70;background-image:url('assets/festival-plaid.png');background-size:120px 92px;background-repeat:repeat}
+.hero:before{background:#4c3b70 url('assets/festival-plaid.png') left center/120px 92px repeat}
+/* Same pink plaid layers and spacing as the game css/common.css body. */
+.booth-card>.card-art,.game-ticket-art{
+  background:
+    radial-gradient(circle at 50% 20%,rgb(255 250 246 / 42%),transparent 48rem),
+    repeating-linear-gradient(0deg,transparent 0 44px,rgb(105 51 79 / 18%) 44px 51px,transparent 51px 91px,rgb(255 250 246 / 38%) 91px 96px,transparent 96px 140px),
+    repeating-linear-gradient(90deg,transparent 0 44px,rgb(105 51 79 / 18%) 44px 51px,transparent 51px 91px,rgb(255 250 246 / 38%) 91px 96px,transparent 96px 140px),
+    repeating-linear-gradient(135deg,rgb(72 35 55 / 7%) 0 1px,transparent 1px 4px),
+    #edced9;
+}
