@@ -18,11 +18,11 @@
 }
 .guardian-poster-description:focus-visible{outline:2px solid #fff;outline-offset:-3px}
 .guardian-poster-description .guardian-card-full-name{margin:0 0 6px;font-size:1.3em;font-weight:900;line-height:1.35;color:inherit}
-.guardian-card-full-tagline{font-weight:850;margin:0 0 9px}
+.guardian-card-full-tagline{font-weight:400;margin:0 0 12px;line-height:1.6}
 .guardian-card-full-intro,.guardian-card-full-quote{margin:0 0 10px}
-.guardian-card-full-quote{font-style:italic;font-weight:700}
+.guardian-card-full-quote{font-style:italic;font-weight:400}
 .guardian-card-full-section{border-top:1px solid #ffffff50;padding-top:9px;margin-top:9px}
-.guardian-card-full-section h4{font-size:1.08em;margin:0 0 6px;color:inherit}
+.guardian-card-full-section h4{font-size:1.16em;font-weight:800;line-height:1.45;margin:0 0 10px;color:inherit}
 .guardian-card-full-section h5{font-size:1em;margin:9px 0 3px;color:inherit}
 .guardian-card-full-section p{margin:0 0 8px;overflow-wrap:anywhere}
 .guardian-poster-enlarge{
@@ -100,11 +100,29 @@
 @media(max-width:760px){
   .guardian-poster-description .guardian-desktop-detail{display:none!important}
   .guardian-poster-description .guardian-mobile-summary{display:block!important}
-  .guardian-poster-description {font-size:clamp(8px,2.45vw,11px);line-height:1.5;height:58%}
-  .guardian-poster-description .guardian-card-full-tagline {margin:0 0 5px;font-size:1.05em;text-align:center}
-  .guardian-poster-description .guardian-mobile-summary .guardian-card-full-section {margin-top:4px;padding-top:4px}
-  .guardian-poster-description .guardian-mobile-summary h4 {font-size:1em;line-height:1.3;margin:0 0 3px}
-  .guardian-poster-description .guardian-mobile-symbols p {line-height:1.4;margin:0 0 2px}
-  .guardian-poster-description .guardian-mobile-symbols strong {font-weight:850}
+  .guardian-poster-description {font-size:clamp(8px,2.45vw,11px);line-height:1.5}
+  .guardian-poster-description .guardian-card-full-tagline {margin:0 0 11px;font-size:1.05em;font-weight:400}
+  .guardian-poster-description .guardian-mobile-summary .guardian-card-full-section {margin-top:6px;padding-top:6px}
+  .guardian-poster-description .guardian-mobile-summary h4 {font-size:1.12em;font-weight:800;line-height:1.35;margin:0 0 7px}
+  .guardian-poster-description .guardian-mobile-summary p {line-height:1.5;margin:0}
   .guardian-poster-enlarge {display:block!important;z-index:2}
+}
+
+/* 수호알 설명 글자 계층: 상단 설명과 상징명은 보통, 섹션 제목만 굵게 */
+.guardian-poster-description .guardian-card-full-tagline,
+.guardian-reading-body .guardian-card-full-tagline{font-weight:400!important}
+.guardian-card-full-section h4{font-weight:800}
+.guardian-symbol-list{display:grid;gap:9px;margin:3px 0 9px}
+.guardian-symbol-list .guardian-symbol-detail,
+.guardian-symbol-list .guardian-symbol-name{
+  margin:0;font-size:.94em;font-weight:400;line-height:1.75;
+  overflow-wrap:anywhere;word-break:keep-all;
+}
+.guardian-symbol-title{font-weight:400}
+.guardian-symbol-heart{display:inline-block;margin-right:.48em;font-size:.92em;line-height:1;vertical-align:baseline}
+.guardian-reading-body .guardian-symbol-list{gap:11px;margin-top:6px}
+@media(max-width:760px){
+  .guardian-poster-description .guardian-symbol-list{gap:5px;margin:1px 0 4px}
+  .guardian-poster-description .guardian-symbol-name{font-size:.9em;line-height:1.55}
+  .guardian-poster-description .guardian-symbol-heart{margin-right:.42em}
 }
