@@ -138,7 +138,7 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 @media(max-width:760px){.map-figure{scroll-margin-top:88px}.map-directory .map-booth-row>.map-locate{font-size:13px}}
 @media(prefers-reduced-motion:reduce){#map-highlights polygon{transition:none}}
 /* Stretch the location button across the entire row; detail links remain above it. */
-.map-directory .map-booth-row,.map-directory .daily-booth{position:relative;isolation:isolate;border-radius:10px;transition:background .18s}
+.map-directory .map-booth-row,.map-directory .daily-booth{position:relative;isolation:isolate;border-radius:10px;transition:background .18s;cursor:pointer}
 .map-directory .map-locate:after{content:'';position:absolute;inset:0;border-radius:10px;cursor:pointer;z-index:1}
 .map-directory .map-booth-row>[data-booth],.map-directory .map-program-link,.map-directory .daily-booth>[data-booth]{position:relative;z-index:2}
 .map-directory .map-booth-row:has(.map-locate:hover),.map-directory .daily-booth:has(.map-locate:hover),.map-directory .map-row-selected{background:#fbe3ef}

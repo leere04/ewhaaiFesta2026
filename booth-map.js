@@ -50,7 +50,8 @@
     }
   }
   section.addEventListener('click', event => {
-    const locate = event.target.closest('[data-map-location]');
+    const row = event.target.closest('.map-booth-row, .daily-booth');
+    const locate = event.target.closest('[data-map-location]') || row?.querySelector('[data-map-location]');
     if (locate) selectLocation(locate.dataset.mapLocation, locate.textContent.trim());
     const details = event.target.closest('[data-booth]');
     if (details) {
