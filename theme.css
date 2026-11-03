@@ -172,7 +172,7 @@ html {
   .hero-content { width: min(100%, 520px); }
 }
 @media (max-width: 760px) {
-  .hero { min-height: calc(100svh - 164px); padding: 20px 18px 24px; }
+  .hero { min-height: calc(100svh - 136px); padding: 24px 18px 31px; }
   .hero-cast, .hero-heart, .hero-orbit { display: none; }
   .hero-eyebrow { font-size: 11px; letter-spacing: .08em; margin-bottom: 15px; }
   .hero h1 { width: min(100%, 460px); margin-bottom: 14px; }
@@ -182,7 +182,8 @@ html {
   .hero-footnote .hero-date { font-size: 14px; }
   .hero-footnote p { font-size: 11px; }
   .hero-actions { gap: 8px; }
-  .hero-actions .button { padding: 11px 13px; font-size: 12px; gap: 10px; min-height: 48px; }
+  .hero-actions .button { padding: 8px 13px; font-size: 12px; gap: 10px; min-height: 44px; }
+  .hero-actions .button span { line-height: 1; }
   .hero-quicklinks { gap: 4px 14px; font-size: 11px; margin-top: 10px; }
   .hero-quicklinks a { display: inline-flex; align-items: center; min-height: 44px; }
   .hero-spark-one { left: 7%; top: 14%; font-size: 22px; animation: none; }

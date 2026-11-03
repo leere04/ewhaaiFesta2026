@@ -8,8 +8,20 @@
 .guardian-tabs.planet-cards .guardian-reveal-character[hidden]{display:none}
 .guardian-tabs.planet-cards button.selected{border:0;outline:3px solid #e72f92;outline-offset:4px;transform:translateY(-5px)}
 .guardian-tabs.planet-cards button:focus-visible{outline:3px solid #cd0876;outline-offset:5px}
+/* Mobile: centered 2-card first row, 3-card second row; equal card widths. */
 @media(max-width:760px){
- .guardian-tabs.planet-cards{grid-template-columns:repeat(2,minmax(0,1fr));max-width:420px;gap:20px 16px}
- .guardian-tabs.planet-cards button:last-child{grid-column:1/-1;width:calc(50% - 8px);justify-self:center}
+ .guardian-tabs.planet-cards{
+   grid-template-columns:repeat(6,minmax(0,1fr));
+   max-width:390px;
+   gap:12px 8px;
+ }
+ .guardian-tabs.planet-cards button{grid-column:span 2;min-width:0}
+ .guardian-tabs.planet-cards button:nth-child(1){grid-column:2 / span 2}
+ .guardian-tabs.planet-cards button:nth-child(2){grid-column:4 / span 2}
+ .guardian-tabs.planet-cards button:last-child{
+   grid-column:span 2;
+   width:100%;
+   justify-self:stretch;
+ }
 }
 @media(prefers-reduced-motion:reduce){.guardian-tabs.planet-cards button{transition:none}}
