@@ -1,0 +1,15 @@
+
+/* Supplied guardian card artwork: preserve its complete 330 × 640 design. */
+.guardian-tabs.planet-cards{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1030px;gap:18px;align-items:start}
+.guardian-tabs.planet-cards button{display:block;position:relative;aspect-ratio:330/640;min-height:0;padding:0;border:0;border-radius:0;background:transparent;overflow:visible;isolation:isolate;box-shadow:0 8px 20px #35202e25}
+.guardian-tabs.planet-cards button::before,.guardian-tabs.planet-cards button::after{content:none}
+.guardian-tabs.planet-cards .guardian-card-design{display:block;width:100%;height:100%;object-fit:contain;margin:0;filter:none;border-radius:0}
+.guardian-tabs.planet-cards .guardian-reveal-character{position:absolute;top:17%;left:7%;width:86%;height:48%;object-fit:contain;margin:0;border-radius:0;filter:drop-shadow(0 4px 7px #0005);pointer-events:none}
+.guardian-tabs.planet-cards .guardian-reveal-character[hidden]{display:none}
+.guardian-tabs.planet-cards button.selected{border:0;outline:3px solid #e72f92;outline-offset:4px;transform:translateY(-5px)}
+.guardian-tabs.planet-cards button:focus-visible{outline:3px solid #cd0876;outline-offset:5px}
+@media(max-width:760px){
+ .guardian-tabs.planet-cards{grid-template-columns:repeat(2,minmax(0,1fr));max-width:420px;gap:20px 16px}
+ .guardian-tabs.planet-cards button:last-child{grid-column:1/-1;width:calc(50% - 8px);justify-self:center}
+}
+@media(prefers-reduced-motion:reduce){.guardian-tabs.planet-cards button{transition:none}}
