@@ -147,3 +147,9 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 .map-directory .map-booth-row:focus-visible,.map-directory .map-daily-row:focus-visible{outline:3px solid #d82d7c;outline-offset:2px}
 .map-directory .daily-booth>.map-daily-row{display:block;width:100%;min-height:48px;padding:12px 10px;text-align:left;border-radius:8px;cursor:pointer}
 @media(max-width:480px){.map-directory>.map-booth-row{gap:5px 8px}.map-directory>.map-booth-row>b{max-width:85px;font-size:11px}.map-directory>.map-booth-row>span{font-size:13px}}
+.program-grid>button.program-card{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer}
+.program-card .program-title{display:block;margin:0 0 7px;font-family:'Jua',sans-serif;font-size:20px;line-height:1.5;font-weight:400;letter-spacing:-.8px}
+.program-card .program-desc{display:block}
+.program-card:focus-visible{outline:3px solid #d82d7c;outline-offset:4px}
+@media(max-width:760px){.program-card .program-title{font-size:18px}}
+@media(max-width:430px){.program-card .program-title{font-size:16px}}
