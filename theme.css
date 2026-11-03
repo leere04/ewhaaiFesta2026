@@ -204,3 +204,29 @@ html {
   text-align: center;
 }
 .hero-actions .button-dark { text-align: center; justify-content: center; }
+
+/* 상세보기의 찜하기 버튼: 부스명 오른쪽의 작은 하트로 표시 (2026-11-03) */
+.dialog-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+.dialog-body .dialog-title-row h2 { flex: 1 1 auto; min-width: 0; margin: 0; }
+.dialog-title-row .dialog-heart { appearance: none; display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; padding: 8px; border: 0; border-radius: 50%; background: transparent; color: #ad6089; cursor: pointer; transition: transform .15s ease, color .15s ease, background-color .15s ease; }
+.dialog-title-row .dialog-heart svg { display: block; width: 26px; height: 26px; overflow: visible; }
+.dialog-title-row .dialog-heart svg path { fill: none; stroke: currentColor; transition: fill .15s ease, stroke .15s ease; }
+.dialog-title-row .dialog-heart[aria-pressed="true"] { color: #e84696; }
+.dialog-title-row .dialog-heart[aria-pressed="true"] svg path { fill: #e84696; stroke: #e84696; }
+.dialog-title-row .dialog-heart:hover { transform: scale(1.07); background: #fff0f8; }
+.dialog-title-row .dialog-heart:focus-visible { outline: 2px solid #c03e85; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .dialog-title-row .dialog-heart, .dialog-title-row .dialog-heart svg path { transition: none; } }
+
+/* 축제 프로그램 상세보기: 참여 방법과 상품 종류를 짧은 목록으로 표시 */
+.program-detail-info{grid-template-columns:86px minmax(0,1fr);align-items:start;row-gap:14px;line-height:1.65}
+.program-detail-info dt{font-weight:700;color:#9c3c70}
+.program-detail-info dd{min-width:0;overflow-wrap:anywhere}
+.program-detail-list{margin:0;padding-left:1.2em}
+.program-detail-list li{padding-left:2px;margin:0 0 5px}
+.program-detail-list li:last-child{margin-bottom:0}
+@media(max-width:430px){.program-detail-info{grid-template-columns:74px minmax(0,1fr);column-gap:10px;font-size:12px}}
+
+/* 1,000원 할인권은 실물 디자인 예시만 보여줍니다 (캡처 사용 불가). */
+.program-reward-preview { margin: 16px 0 0; padding: 12px; border: 1px solid #eadce6; background: #fffafb; border-radius: 14px; }
+.program-reward-preview img { width: 100%; max-width: 520px; height: auto; display: block; margin: 0 auto; border-radius: 6px; }
+.program-reward-preview figcaption { margin-top: 9px; font-size: 12px; color: #876d81; text-align: center; line-height: 1.5; }

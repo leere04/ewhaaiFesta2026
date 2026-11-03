@@ -11,7 +11,17 @@
   const updates = {
     datascience: {
       description: '학점은 말랑하지 않아도 모찌는 말랑하니까.\n\n🫐 블베로 달콤하게!\n\n🍇 샤머로 청량하게!\n\n🍊 귤로 상큼하게!\n\n과제는 미뤄도 모찌는 못 미룸.\n오늘의 행복, 일단 먹고 생각하자 🍡',
-      products: ['블루베리 모찌', '샤인머스캣 모찌', '귤 모찌']
+      products: [
+        '샤인머스캣 요거트 4,000원',
+        '블루베리 요거트 4,500원',
+        '귤 요거트 4,000원'
+      ],
+      hours: '11/4(수)·11/5(목) 10:00–17:00',
+      location: '학생문화관 6번 부스',
+      pricesConfirmed: true,
+      note: '메뉴 사진은 아래 안내를 확인해 주세요.',
+      extraGalleryTitle: '데이터사이언스 부스 메뉴·가격 안내',
+      extraGalleryImages: ['assets/booth-datascience-menu-20261103.jpg']
     },
     commit: {
       products: [
@@ -129,7 +139,7 @@
     const images = booth && (booth.promoImages || booth.extraGalleryImages);
     if (!booth || !body || !Array.isArray(images) || !images.length) return;
 
-    const save = body.querySelector('.dialog-save');
+    const save = body.querySelector('[data-dialog-save]');
     if (!save) return;
 
     if (booth.links) {
@@ -141,7 +151,7 @@
         a.href = item.url; a.target = '_blank'; a.rel = 'noopener';
         a.textContent = item.label; links.append(a);
       });
-      save.before(links);
+      body.appendChild(links);
     }
     // 사보크크의 기존 '펼치기 → 사진 세로 나열' UI만 제거합니다.
     // 이미지 배열은 data.js의 promoImages를 그대로 사용합니다.
@@ -164,7 +174,7 @@
       const note = document.createElement('p');
       note.textContent = booth.extraRewardNote;
       rewards.append(heading, list, note);
-      save.before(rewards);
+      body.appendChild(rewards);
     }
 
     const title = id === 'click' ? '사보크크 부스 카드뉴스' : booth.extraGalleryTitle || '부스 카드뉴스';
@@ -263,6 +273,6 @@
       hint.textContent = '이미지를 누르면 원본을 크게 볼 수 있어요.';
       gallery.appendChild(hint);
     }
-    save.before(gallery);
+    body.appendChild(gallery);
   };
 })();

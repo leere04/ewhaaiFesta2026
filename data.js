@@ -13,7 +13,7 @@ const booths = [
   {id:'ewhale',number:3,name:'네이버 웨일 캠퍼스 크루 | EWHALE',org:'네이버 웨일 캠퍼스 크루 EWHALE',description:"🐳 네이버 웨일과 ME:WE 확장앱을 체험하고 귀여운 웨일 굿즈를 받아 가세요!",categories:['experience'],days:['wed','thu'],products:["네이버 웨일 브라우저 체험", "ME:WE 확장앱 체험", "미션 완료 후 굿즈 받기"],note:"개인 노트북을 가져와 부스에서 ME:WE 확장앱을 체험하면 굿즈 3종을 모두 받을 수 있어요.",hours:"11/4(수) 10:00–17:00 · 11/5(목) 10:00–13:30",location:"학생문화관 앞 부스존 · 3번 EWHALE 부스",steps:["네이버 웨일 다운로드", "추천인 코드 ewha02 입력", "ME:WE 확장앱 체험하기", "미션 완료하고 굿즈 받기"],art:'whale',bg:'#dceef6',accent:'#78afc3'},
   {id:'randomforest',number:4,name:'랜덤포레스트',org:'인지대 밴드부 랜덤포레스트',description:'밴드가 밥 먹여주니? 넵 랜포는 먹여드립니다.',categories:['food'],days:['wed','thu'],products:['국밥','차'],note:'',art:'soup',bg:'#e0ece4',accent:'#86aa95'},
   {id:'steady',number:5,name:'스테디 셀러',org:'인지대 프로그래밍 동아리 Steady',description:'호떡에 이어 어묵으로 돌아온 스테디 셀러입니다',categories:['food'],days:['wed','thu'],products:['물 오뎅','마라 오뎅'],note:'',art:'fishcake',bg:'#e1edde',accent:'#84a580'},
-  {id:'datascience',number:6,name:'데이터사이언스부스',org:'데이터사이언스학과 학생회',description:'불닭으로 일으킨 학생회?',categories:['food'],days:['wed','thu'],products:['불닭 샌드위치','아이스티'],note:'',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'},
+  {id:'datascience',number:6,name:'데이터사이언스부스',org:'데이터사이언스학과 학생회',description:'학점은 말랑하지 않아도 모찌는 말랑하니까.\n\n🫐 블베로 달콤하게!\n\n🍇 샤머로 청량하게!\n\n🍊 귤로 상큼하게!\n\n과제는 미뤄도 모찌는 못 미룸.\n오늘의 행복, 일단 먹고 생각하자 🍡',categories:['food'],days:['wed','thu'],products:['샤인머스캣 요거트 4,000원','블루베리 요거트 4,500원','귤 요거트 4,000원'],hours:'11/4(수)·11/5(목) 10:00–17:00',location:'학생문화관 6번 부스',pricesConfirmed:true,note:'메뉴 사진은 상세보기에서 확인할 수 있어요.',art:'sandwich',bg:'#f9e0e9',accent:'#cc8ba6'},
   {id:'likelion',number:7,name:'이화여자대학교 멋쟁이사자처럼',org:'이화여자대학교 멋쟁이사자처럼',description:'대동제 웹사이트 개발하는 바로 그 동아리! 아기사자의 멋진 프로덕트를 소개합니다 🦁',categories:['goods'],days:['wed','thu'],products:['판매 품목 논의 중'],note:'판매 품목은 현재 논의 중이에요.',art:'lion',bg:'#fde8ca',accent:'#d9a164'},
   {id:'animal-farm',number:10,name:'동물농장',org:'개인부스',description:'별별 친구들이 모여 사는 작은 뜨개 동물농장에 놀러 오세요!',categories:['goods'],days:['wed'],products:['뜨개 키링'],note:'수요일에만 운영해요.',art:'yarn',bg:'#efe1f4',accent:'#b08bbd'},
   {id:'ludens',number:10,name:'우리동아리 정상영업합니다',org:'루덴스',description:'人예미 소속 동아리 루덴스 人지대 축제에 진출',categories:['goods'],days:['thu'],products:['스티커','자수 책갈피','티셔츠'],note:'목요일에만 운영해요.',art:'bookmark',bg:'#e3ecfb',accent:'#8c9ed0'}
@@ -57,23 +57,70 @@ const guardians = [
  ],items:[['지도','여러 가능성과 앞으로 선택할 길. 관심에 따라 전공을 선택하는 과정을 표현해요.'],['나침반','수많은 가능성 가운데 자신에게 맞는 방향을 찾아가는 과정이에요.'],['별','아직 정해지지 않은 꿈과 가능성을 나타내는 메인 심볼이에요.']]}
 ];
 
-// 참가자용 이용 안내. 운영진 배치·재고·당첨 비율은 공개하지 않습니다.
+// 참가자에게 필요한 참여 방법과 혜택만 노출합니다. 운영진용 재고·배치 정보는 제외합니다.
 const programGuides = {
   photo: {
-    detail: '케이프, 요술봉 등 소품으로 사진을 찍고, 꾸미기 재료로 나만의 추억을 완성해요.',
-    participation: '촬영한 사진을 꾸며 가져갈 수 있어요. 전신 거울 꾸미기와 거울 앞 기념 촬영도 함께 즐겨보세요.'
+    detail: '소품으로 사진을 찍고, 전신 거울도 직접 꾸며보세요!',
+    steps: [
+      '케이프·머리띠 등 준비된 소품으로 사진 촬영',
+      '마카 등 꾸미기 재료로 전신 거울을 꾸민 뒤 기념 촬영'
+    ],
+    rewardTitle: '체험 내용',
+    rewards: ['포토부스 촬영', '전신 거울 꾸미기']
   },
   fishing: {
-    detail: '제한시간 2분 안에 수호알을 낚고, 알 속 쪽지에 적힌 상품을 만나요.',
-    participation: '인지대·타대 학생 모두 참여할 수 있어요. 하루 1회 도전하며, 인지대 학생은 학생증 확인 후 첫 도전에서 꽝이 나오면 한 번 더 도전할 수 있어요. 상품은 소진될 수 있어요.'
+    detail: '1분 안에 수호알을 낚아 쪽지 속 상품을 확인해 보세요!',
+    steps: [
+      '학생증 확인 후 수호알 낚시 도전 (제한시간 1분)',
+      '낚은 알 속 쪽지를 열어 결과 확인',
+      '당첨 시 바로 상품 수령'
+    ],
+    rewardTitle: '상품 종류',
+    rewards: ['몬스터', '1,000원 할인권 (실물 쿠폰)', '이화비전 판 스티커 1장'],
+    rewardImage: 'assets/fishing-discount-coupon-20261103.jpg',
+    rewardImageAlt: '인지상정 1,000원 할인권 실물 디자인',
+    notice: '하루 1회 참여 가능해요. 인지대 학생은 꽝이 나오면 1회 추가 도전할 수 있고, 당첨 후에는 재도전할 수 없어요. 할인권은 실물로 제시해야 해요. 분실 시 재발급이 불가능하며, 사진으로는 사용할 수 없어요.'
   },
   egg: {
-    detail: '마카, 스티커, 파츠로 수호알을 꾸미고 메지루시 키링으로 만들어 보세요.',
-    participation: '완성한 수호알은 라운지 입구 방석 포토존에서 촬영해 보세요. @ewha_aicollege를 팔로우하고 계정을 태그해 사진을 인스타그램 스토리에 올리면, 축제 종료 후 추첨으로 상품을 드려요.'
+    detail: '나만의 수호알을 꾸미고, 인스타그램 이벤트에도 참여해요!',
+    steps: [
+      '마카·스티커 등 준비된 재료로 수호알 꾸미기',
+      '1~2분 건조한 뒤 완성한 수호알 사진 촬영',
+      '인스타그램 스토리에 학생회 계정 @ewha_aicollege 태그하여 업로드'
+    ],
+    rewardTitle: '이벤트 혜택',
+    rewards: ['스토리 이벤트 참여자 대상 축제 종료 후 추첨 상품'],
+    notice: '스토리는 24시간 유지해 주세요. 비공개 계정이거나 24시간 전에 삭제하면 이벤트 참여가 인정되지 않아요.'
   },
   fortune: {
-    detail: '운세 테스트로 오늘의 수호캐릭터를 찾고, 나만의 운세를 확인해요.',
-    participation: '결과에 나온 수호캐릭터의 운세 결과지 1장과 금고 속 상품 1개를 받아 가세요.'
+    detail: '운세 테스트로 오늘의 수호캐릭터를 찾아봐요!',
+    steps: [
+      '운세 테스트지 문항에 답하기',
+      '결과에 나온 오늘의 수호캐릭터 확인하기',
+      '해당 캐릭터 상자를 열어 상품 받기'
+    ],
+    rewardTitle: '받을 수 있는 것',
+    rewards: ['수호캐릭터 운세 결과지', '수호캐릭터별 상품 1개']
+  },
+  cotton: {
+    detail: '달콤한 솜사탕을 만나보세요!',
+    steps: [
+      '인공지능대학 학생은 학생증을 보여주고 솜사탕 수령',
+      '그 외 학생은 현장에서 솜사탕 구매'
+    ],
+    rewardTitle: '가격·혜택',
+    rewards: ['인지대 학생: 1인 1개 무료 (학생증 확인)', '그 외: 1개 1,000원']
+  },
+  stamp: {
+    detail: '기획 부스를 돌며 엠블럼 스티커를 모아 경품 추첨에 응모해요!',
+    steps: [
+      '야외 이벤트 부스에서 고민을 적은 X알을 제출하고 도장판 받기',
+      'AIR 기획 부스에 참여하며 엠블럼 스티커 모으기',
+      '완성한 도장판을 실내 부스에 보여주고 응모',
+      '축제 종료 후 추첨 결과 확인'
+    ],
+    rewardTitle: '추첨 경품',
+    rewards: ['하이디라오 3만 원권', '배달의민족 1만 원권', '메가커피 5천 원권']
   }
 };
 programs.forEach(program => Object.assign(program, programGuides[program.id] || {}));

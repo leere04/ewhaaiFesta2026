@@ -103,8 +103,9 @@ function updateDialogSave() {
   const button = dialog.querySelector('[data-dialog-save]');
   if (!button || !dialogBoothId) return;
   const saved = favoriteIds.has(dialogBoothId);
-  button.setAttribute('aria-pressed',saved);
-  button.innerHTML = saved ? '♥ 찜한 부스에 담았어요 · 해제' : '♡ 가고 싶은 부스로 찜하기';
+  button.setAttribute('aria-pressed', saved);
+  button.setAttribute('aria-label', `${booths.find(item => item.id === dialogBoothId)?.name || '부스'} ${saved ? '찜 해제' : '찜하기'}`);
+  button.setAttribute('title', saved ? '찜 해제' : '찜하기');
 }
 
 function showDialog(html) {
@@ -118,7 +119,7 @@ function openBooth(id) {
   const booth = booths.find(item => item.id === id);
   if (!booth) return;
   dialogBoothId = id;
-  showDialog(`<div class="dialog-art" style="--card-bg:${booth.bg}">${art(booth.art)}</div><div class="dialog-body"><p class="dialog-label">BOOTH ${String(booth.number).padStart(2,'0')} / ${booth.categories.map(category => labels[category]).join(' · ')}</p><h2 id="detail-title">${esc(booth.name)}</h2><p class="dialog-org">${esc(booth.org)}</p><p class="dialog-description">${esc(booth.description)}</p><dl class="detail-info"><dt>운영 요일</dt><dd>${fullDayLabel(booth)}</dd>${booth.hours ? `<dt>운영시간</dt><dd>${esc(booth.hours)}</dd>` : ''}${booth.location ? `<dt>장소</dt><dd>${esc(booth.location)}</dd>` : ''}<dt>${booth.id === 'ewhale' ? '체험·혜택' : '판매 품목'}</dt><dd class="detail-products">${booth.products.map(product => `<span class="product-chip">${esc(product)}</span>`).join('')}</dd>${booth.note ? `<dt>참고 사항</dt><dd>${esc(booth.note)}</dd>` : ''}</dl>${booth.steps ? `<section class="program-steps"><h3>참여 방법</h3><ol>${booth.steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol></section>` : ''}${booth.promoImages ? `<details><summary>사보 부스 카드뉴스 전체 보기</summary></p>${booth.promoImages.map((src,i) => `<a href="${esc(src)}" target="_blank" rel="noopener"><img src="${esc(src)}" alt="사보크크 카드뉴스 ${i+1}페이지" loading="lazy" style="display:block;width:100%;height:auto;margin:12px 0"></a>`).join('')}</details>` : ''}<button class="button button-dark dialog-save" data-dialog-save="${booth.id}"></button></div>`);
+  showDialog(`<div class="dialog-art" style="--card-bg:${booth.bg}">${art(booth.art)}</div><div class="dialog-body"><p class="dialog-label">BOOTH ${String(booth.number).padStart(2,'0')} / ${booth.categories.map(category => labels[category]).join(' · ')}</p><div class="dialog-title-row"><h2 id="detail-title">${esc(booth.name)}</h2><button type="button" class="dialog-heart" data-dialog-save="${booth.id}" aria-pressed="false" aria-label="${esc(booth.name)} 찜하기" title="찜하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></button></div><p class="dialog-org">${esc(booth.org)}</p><p class="dialog-description">${esc(booth.description)}</p><dl class="detail-info"><dt>운영 요일</dt><dd>${fullDayLabel(booth)}</dd>${booth.hours ? `<dt>운영시간</dt><dd>${esc(booth.hours)}</dd>` : ''}${booth.location ? `<dt>장소</dt><dd>${esc(booth.location)}</dd>` : ''}<dt>${booth.id === 'ewhale' ? '체험·혜택' : '판매 품목'}</dt><dd class="detail-products">${booth.products.map(product => `<span class="product-chip">${esc(product)}</span>`).join('')}</dd>${booth.note ? `<dt>참고 사항</dt><dd>${esc(booth.note)}</dd>` : ''}</dl>${booth.steps ? `<section class="program-steps"><h3>참여 방법</h3><ol>${booth.steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol></section>` : ''}${booth.promoImages ? `<details><summary>사보 부스 카드뉴스 전체 보기</summary></p>${booth.promoImages.map((src,i) => `<a href="${esc(src)}" target="_blank" rel="noopener"><img src="${esc(src)}" alt="사보크크 카드뉴스 ${i+1}페이지" loading="lazy" style="display:block;width:100%;height:auto;margin:12px 0"></a>`).join('')}</details>` : ''}</div>`);
   updateDialogSave();
 }
 
@@ -126,7 +127,9 @@ function openProgram(id) {
   const program = programs.find(item => item.id === id);
   if (!program) return;
   dialogBoothId = null;
-  showDialog(`<div class="dialog-art" style="--card-bg:${program.bg}">${art(program.art)}</div><div class="dialog-body"><p class="dialog-label">FESTIVAL PROGRAM ${String(programs.indexOf(program)+1).padStart(2,'0')}</p><h2 id="detail-title">${esc(program.name)}</h2><p class="dialog-description">${esc(program.detail)}</p><dl class="detail-info"><dt>운영 안내</dt><dd>오전 10시부터 오후 5시까지 운영해요.</dd><dt>참여 안내</dt><dd>${esc(program.participation || '참여 방법과 선물은 현장에서 확인해 주세요.')}</dd></dl></div>`);
+  const ordered = items => `<ol class="program-detail-list">${items.map(item => `<li>${esc(item)}</li>`).join('')}</ol>`;
+  const unordered = items => `<ul class="program-detail-list">${items.map(item => `<li>${esc(item)}</li>`).join('')}</ul>`;
+  showDialog(`<div class="dialog-art" style="--card-bg:${program.bg}">${art(program.art)}</div><div class="dialog-body"><p class="dialog-label">FESTIVAL PROGRAM ${String(programs.indexOf(program)+1).padStart(2,'0')}</p><h2 id="detail-title">${esc(program.name)}</h2><p class="dialog-description">${esc(program.detail)}</p><dl class="detail-info program-detail-info"><dt>운영 안내</dt><dd>오전 10시부터 오후 5시까지 운영해요.</dd>${program.steps?.length ? `<dt>참여 방법</dt><dd>${ordered(program.steps)}</dd>` : ''}${program.rewards?.length ? `<dt>${esc(program.rewardTitle || '상품·혜택')}</dt><dd>${unordered(program.rewards)}</dd>` : ''}${program.notice ? `<dt>참고 사항</dt><dd>${esc(program.notice)}</dd>` : ''}</dl>${program.rewardImage ? `<figure class="program-reward-preview"><img src="${esc(program.rewardImage)}" alt="${esc(program.rewardImageAlt || '이벤트 상품 사진')}" loading="lazy"><figcaption>1,000원 할인권 실물 예시 · 사진으로는 사용 불가</figcaption></figure>` : ''}</div>`);
 }
 
 document.getElementById('program-grid').innerHTML = programs.map((program,index) => `<button type="button" class="program-card" data-program="${program.id}" aria-haspopup="dialog" aria-label="${esc(program.name)} 안내 보기" style="--program-bg:${program.bg}"><span class="program-top"><span class="program-no">PLAY ${String(index+1).padStart(2,'0')}</span><span class="program-art">${art(program.art)}</span></span><span class="program-title">${esc(program.name)}</span><span class="program-desc">${esc(program.description)}</span></button>`).join('');
