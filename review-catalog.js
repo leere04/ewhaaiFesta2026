@@ -16,7 +16,7 @@ window.FESTIVAL_FOOD_CATALOG = [
   },
   {
     "id": "click",
-    "name": "사보 크크",
+    "name": "사보크크",
     "org": "사보 학생회",
     "art": "croffle",
     "bg": "#fcf0cb",
@@ -70,7 +70,7 @@ window.FESTIVAL_FOOD_CATALOG = [
     "id": "datascience",
     "name": "데이터사이언스부스",
     "org": "데이터사이언스",
-    "art": "sandwich",
+    "art": "mochi",
     "bg": "#f9e0e9",
     "menus": [
       {
