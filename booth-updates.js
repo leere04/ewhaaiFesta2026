@@ -1,8 +1,11 @@
-/* 인지상정 부스 추가 안내 (2026-11-03)
+/* 인지상정 부스 카드뉴스 수정 · 컴공/사보/웨일/루덴스 (2026-11-03 v2)
    기존 data.js, app.js, 다른 부스 기능은 덮어쓰지 않습니다.
-   index.html에서 app.js 다음에 이 파일을 한 번만 불러오면 됩니다. */
+   index.html에서 app.js 다음에 이 파일을 한 번만 불러오면 됩니다.
+   카드뉴스 이미지: assets/booth-*.jpg (assets 폴더 안에 업로드) */
 'use strict';
 (() => {
+  if (window.__boothTeamsLoaded) return;
+  window.__boothTeamsLoaded = true;
   if (typeof booths === 'undefined' || typeof openBooth !== 'function') return;
 
   const updates = {
@@ -71,6 +74,10 @@
   for (const booth of booths) {
     if (updates[booth.id]) Object.assign(booth, updates[booth.id]);
   }
+  const teamOne = {"id": "likelion", "number": 7, "name": "멋쟁이사자처럼 1팀 · WEE", "org": "이화여자대학교 멋쟁이사자처럼", "description": "오늘의 날씨를, 오늘의 행동으로! 날씨 맞춤 알림과 오늘의 운세를 제공하는 WEE를 만나보세요.", "categories": ["goods", "experience"], "days": ["wed", "thu"], "products": ["1일 운세 + 스티커 3종 1,000원", "7일 운세 + 커피 + 스티커 3종 + 아크릴 굿즈 5,900원", "14일 운세 + 커피 + 전체 종류 스티커 + NFC 굿즈 11,600원", "21일 운세 + 전체 구성품 16,000원", "날씨 프리미엄 21일 이용권 2,500원 (커피 1병 + 스티커 2종)", "학잠 WEE 키링 · 메시지 스티커 (개별 가격 현장 확인)"], "hours": "11/4(수)·11/5(목) 10:00–17:00", "location": "학생문화관 앞 7번 부스", "note": "인스타그램 스토리 인증 시 스티커 1종 무료 증정! 날씨 프리미엄과 운세 이용권은 별도입니다.", "art": "lion", "bg": "#e4f6fc", "accent": "#70b8cb", "extraGalleryTitle": "멋사 1팀 WEE 카드뉴스", "extraGalleryImages": ["assets/booth-wee-01.png", "assets/booth-wee-02.png", "assets/booth-wee-03.png", "assets/booth-wee-04.png", "assets/booth-wee-05.png", "assets/booth-wee-06.png"], "links": [{"label": "WEE 바로가기 ↗", "url": "https://weether.kr/"}, {"label": "WEE 인스타그램 ↗", "url": "https://www.instagram.com/wee.weether/"}]};
+  const teamTwo = {"id": "likelion-dalpan", "number": 7, "name": "멋쟁이사자처럼 2팀 · 달판", "org": "이화여자대학교 멋쟁이사자처럼", "description": "대화 캡처를 바탕으로 인간관계 갈등을 판결해 주는 AI 재판소, 달판! 신촌 대학 연합 AI 창업 경진대회에 출품한 직접 만든 웹사이트를 소개합니다.", "categories": ["experience"], "days": ["wed", "thu"], "products": ["판결 체험 + 인스타 스토리 인증 → 토끼 말랑이 증정", "서비스 내 1,000원 결제 인증 → 토끼 모양 아몬드 쿠키 증정"], "hours": "11/4(수) 09:30–18:00 · 11/5(목) 12:30–18:00", "location": "학생문화관 앞 7번 부스", "note": "서비스에서 결제한 내역을 부스에서 인증해 주세요.", "steps": ["달판에 회원가입하고 AI 판결받기", "판결문 이미지를 저장하고 공유 링크 복사하기", "인스타그램 스토리에 업로드하고 부스에서 인증하기"], "art": "lion", "bg": "#ebe9f4", "accent": "#665574", "extraGalleryTitle": "멋사 2팀 달판 카드뉴스", "extraGalleryImages": ["assets/booth-dalpan-01.jpg", "assets/booth-dalpan-02.jpg", "assets/booth-dalpan-03.jpg"], "links": [{"label": "달판 바로가기 ↗", "url": "https://dalpan.vercel.app/"}]};
+  const lionIndex = booths.findIndex(b => b.id === 'likelion');
+  if (lionIndex !== -1) { Object.assign(booths[lionIndex], teamOne); if (!booths.some(b => b.id === teamTwo.id)) booths.splice(lionIndex + 1, 0, teamTwo); }
   // 부스 카드의 메뉴·검색 정보도 즉시 최신 내용으로 바꿉니다.
   if (typeof renderBooths === 'function') renderBooths();
 
@@ -82,6 +89,11 @@
     .extra-booth-gallery-track::-webkit-scrollbar { display: none; }
     .extra-booth-gallery-slide { flex: 0 0 100%; min-width: 0; display: flex; justify-content: center; align-items: center; scroll-snap-align: start; background: #fff; }
     .extra-booth-gallery-slide img { display: block; width: 100%; height: min(58dvh, 550px); object-fit: contain; }
+    .extra-booth-gallery-slide { position:relative; }
+    .extra-booth-gallery-slide:focus-visible { outline:3px solid #bc79a2; outline-offset:-3px; }
+    .extra-booth-gallery-error { display:none; margin:20px; padding:20px; text-align:center; color:#874d65; background:#fff1f4; font-size:13px; line-height:1.8; border-radius:12px; }
+    .extra-booth-gallery-slide.is-broken img { display:none; }
+    .extra-booth-gallery-slide.is-broken .extra-booth-gallery-error { display:block; }
     .extra-booth-gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
     .extra-booth-gallery-controls button { border: 1px solid #ead2df; border-radius: 10px; padding: 7px 13px; background: #fff5fa; font-weight: 750; font-size: 12px; }
     .extra-booth-gallery-controls button:disabled { color: #bba9b3; opacity: .65; }
@@ -98,15 +110,35 @@
   `;
   document.head.appendChild(stylesheet);
 
-  // app.js가 이미 처리하는 기존 모달과 찜하기 이벤트를 그대로 사용합니다.
+  // app.js의 기존 모달/찜하기는 유지하고, 모든 카드뉴스만 동일한 슬라이더로 표시합니다.
   const oldOpenBooth = openBooth;
   openBooth = function(id) {
     oldOpenBooth(id);
     const booth = booths.find(item => item.id === id);
     const body = document.querySelector('#dialog-content .dialog-body');
-    if (!booth || !body || !booth.extraGalleryImages) return;
+    const images = booth && (booth.promoImages || booth.extraGalleryImages);
+    if (!booth || !body || !Array.isArray(images) || !images.length) return;
+
     const save = body.querySelector('.dialog-save');
     if (!save) return;
+
+    if (booth.links) {
+      const links = document.createElement('p');
+      links.style.cssText = 'display:flex;gap:10px;flex-wrap:wrap';
+      booth.links.forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'button button-dark';
+        a.href = item.url; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = item.label; links.append(a);
+      });
+      save.before(links);
+    }
+    // 사보크크의 기존 '펼치기 → 사진 세로 나열' UI만 제거합니다.
+    // 이미지 배열은 data.js의 promoImages를 그대로 사용합니다.
+    if (booth.promoImages) {
+      const oldDetails = body.querySelector('details');
+      if (oldDetails) oldDetails.remove();
+    }
 
     if (booth.extraRewards) {
       const rewards = document.createElement('section');
@@ -125,32 +157,63 @@
       save.before(rewards);
     }
 
+    const title = id === 'click' ? '사보크크 부스 카드뉴스' : booth.extraGalleryTitle || '부스 카드뉴스';
     const gallery = document.createElement('section');
     gallery.className = 'extra-booth-gallery';
+    gallery.setAttribute('aria-label', title);
     const heading = document.createElement('h3');
-    heading.textContent = booth.extraGalleryTitle;
+    heading.textContent = title;
     gallery.appendChild(heading);
+
+    if (id === 'click') {
+      const correction = document.createElement('p');
+      correction.className = 'extra-booth-gallery-hint';
+      correction.textContent = '※ 실제 축제 운영일은 11/4(수)–11/5(목)입니다. 카드뉴스의 목·금 표기는 오기입니다.';
+      gallery.appendChild(correction);
+    }
+
     const track = document.createElement('div');
     track.className = 'extra-booth-gallery-track';
     track.setAttribute('role', 'region');
-    track.setAttribute('aria-label', booth.extraGalleryTitle + ' 이미지');
+    track.setAttribute('aria-label', title + ' 슬라이드');
     track.tabIndex = 0;
-    booth.extraGalleryImages.forEach((src, i) => {
+
+    images.forEach((raw, i) => {
+      const src = String(raw);
       const link = document.createElement('a');
       link.className = 'extra-booth-gallery-slide';
       link.href = src;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.setAttribute('aria-label', `${booth.extraGalleryTitle} ${i + 1}번 이미지 원본 크게 보기`);
+      link.setAttribute('aria-label', `${title} ${i + 1}번 이미지 원본 크게 보기`);
       const img = document.createElement('img');
       img.src = src;
-      img.alt = `${booth.extraGalleryTitle} ${i + 1} / ${booth.extraGalleryImages.length}`;
+      img.alt = `${title} ${i + 1} / ${images.length}`;
       img.loading = i === 0 ? 'eager' : 'lazy';
-      link.appendChild(img);
+      img.decoding = 'async';
+
+      // 이미지를 저장소 루트에 잘못 업로드한 경우 한 번 더 찾아봅니다.
+      let triedRoot = false;
+      img.addEventListener('error', () => {
+        if (!triedRoot && src.startsWith('assets/')) {
+          triedRoot = true;
+          const rootSrc = src.slice('assets/'.length);
+          img.src = rootSrc;
+          link.href = rootSrc;
+          return;
+        }
+        link.classList.add('is-broken');
+        link.removeAttribute('href');
+      });
+      const error = document.createElement('span');
+      error.className = 'extra-booth-gallery-error';
+      error.textContent = `이미지를 불러올 수 없어요 (${src.split('/').pop()}). GitHub의 assets 폴더에 해당 파일을 업로드했는지 확인해 주세요.`;
+      link.append(img, error);
       track.appendChild(link);
     });
     gallery.appendChild(track);
-    if (booth.extraGalleryImages.length > 1) {
+
+    if (images.length > 1) {
       const controls = document.createElement('div');
       controls.className = 'extra-booth-gallery-controls';
       const prev = document.createElement('button');
@@ -166,20 +229,33 @@
       indicator.setAttribute('aria-live', 'polite');
       let page = 0;
       const update = () => {
-        page = Math.max(0, Math.min(booth.extraGalleryImages.length - 1, Math.round(track.scrollLeft / Math.max(track.clientWidth, 1))));
-        indicator.textContent = `${page + 1} / ${booth.extraGalleryImages.length}`;
+        page = Math.max(0, Math.min(images.length - 1,
+          Math.round(track.scrollLeft / Math.max(track.clientWidth, 1))));
+        indicator.textContent = `${page + 1} / ${images.length}`;
         prev.disabled = page === 0;
-        next.disabled = page === booth.extraGalleryImages.length - 1;
+        next.disabled = page === images.length - 1;
       };
-      prev.addEventListener('click', () => track.scrollTo({left: track.clientWidth * Math.max(0, page - 1), behavior: 'smooth'}));
-      next.addEventListener('click', () => track.scrollTo({left: track.clientWidth * Math.min(booth.extraGalleryImages.length - 1, page + 1), behavior: 'smooth'}));
-      track.addEventListener('scroll', update, {passive: true});
+      const go = delta => {
+        const nextPage = Math.max(0, Math.min(images.length - 1, page + delta));
+        track.scrollTo({left: track.clientWidth * nextPage, behavior:'smooth'});
+        page = nextPage;
+        indicator.textContent = `${page + 1} / ${images.length}`;
+        prev.disabled = page === 0;
+        next.disabled = page === images.length - 1;
+      };
+      prev.addEventListener('click', () => go(-1));
+      next.addEventListener('click', () => go(1));
+      track.addEventListener('scroll', update, {passive:true});
+      track.addEventListener('keydown', event => {
+        if (event.key === 'ArrowRight') { event.preventDefault(); go(1); }
+        if (event.key === 'ArrowLeft') { event.preventDefault(); go(-1); }
+      });
       controls.append(prev, indicator, next);
       gallery.appendChild(controls);
       update();
       const hint = document.createElement('p');
       hint.className = 'extra-booth-gallery-hint';
-      hint.textContent = '옆으로 넘겨 보거나 이미지를 눌러 크게 볼 수 있어요.';
+      hint.textContent = '화면을 옆으로 밀거나 버튼으로 넘겨 보세요. 이미지를 누르면 크게 볼 수 있어요.';
       gallery.appendChild(hint);
     } else {
       const hint = document.createElement('p');
