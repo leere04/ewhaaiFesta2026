@@ -156,3 +156,5 @@ button.card-footer:focus-visible,.map-booth-row button:focus-visible{outline:3px
 /* Match the booth illustrations' playful tilt and zoom on interaction. */
 .program-card .program-art>svg{transform:rotate(-5deg);transition:transform .3s}
 .program-card:hover .program-art>svg,.program-card:focus-visible .program-art>svg{transform:rotate(2deg) scale(1.06)}
+.game-ticket-label{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:15px;letter-spacing:1.3px}
+.game-ticket-caption{font-family:'Noto Serif KR','Batang',serif;font-weight:500;font-size:12px;letter-spacing:.3px}
