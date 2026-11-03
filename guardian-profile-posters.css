@@ -129,14 +129,6 @@
 
 
 /* 2026-11-04: 수호 캐릭터 프로필의 글씨체·흰색 테두리 하트·간결한 상징 설명 */
-.guardian-notebook.guardian-poster-profile .guardian-poster-description,
-.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h4,
-.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h5,
-.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-story summary,
-.guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-symbol-list {
-  /* 상단 이미지의 캐릭터명과 어울리는 명조 계열로 모두 통일 */
-  font-family:'Noto Serif KR','AppleMyungjo','Batang',serif!important;
-}
 .guardian-notebook.guardian-poster-profile .guardian-poster-description .guardian-card-full-section h4 {
   font-weight:700!important;
   letter-spacing:-.025em;
@@ -190,4 +182,11 @@
   .guardian-notebook.guardian-poster-profile[data-guardian="jini"] .guardian-card-full-tagline {
     padding-top:5px;
   }
+}
+
+/* 요청한 세이 소개 문구만 가운데 정렬하고 약간 확대 */
+.guardian-notebook.guardian-poster-profile[data-guardian="sei"]
+.guardian-poster-description .guardian-card-full-tagline {
+  text-align:center;
+  font-size:1.06em;
 }

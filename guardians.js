@@ -26,7 +26,7 @@ const guardianCompactSymbols = {
   sei: [['커서 꼬리', '호기심을 실행하는 힘'], ['회로', '생각과 가능성의 연결'], ['따옴표', '앞으로 써 내려갈 이야기']],
   roke: [['마스터 키', '올바른 길을 여는 힘'], ['가디언 실드', '소중한 것을 지키는 방패']],
   jini: [['AI 헤드셋', '배움과 연결'], ['홀로그램 패널', '학습과 발견'], ['데이터 오비트', '함께 만드는 가능성']],
-  data: [['벚꽃과 분홍빛', '피어나는 데이터 이야기'], ['연결된 점과 선', '데이터의 관계'], ['그래프와 차트', '숨겨진 패턴'], ['데이터 지팡이', '흩어진 데이터를 모으는 힘']],
+  data: [['벚꽃과 분홍빛', '피어나는 데이터 이야기'], ['데이터 지팡이', '흩어진 데이터를 모으는 힘']],
   lumi: [['지도', '앞으로 선택할 길'], ['별', '꿈과 가능성']]
 };
 function guardianSymbolRows(items, expanded = false) {
@@ -38,17 +38,17 @@ function guardianSymbolRows(items, expanded = false) {
 }
 function guardianFullDescription(guardian, expanded = false) {
   const briefItems = guardianCompactSymbols[guardian.id] || guardian.items.map(([name,desc])=>[name, desc]);
-  const displayedItems = expanded ? guardian.items : briefItems;
+  const displayedItems = expanded ? (guardian.id === 'data' ? guardian.items.filter(item => ['벚꽃과 분홍빛', '데이터 지팡이'].includes(item[0])) : guardian.items) : briefItems;
   const symbolDetails = guardianSymbolRows(displayedItems);
   return `
     <p class="guardian-card-full-tagline">${esc(guardian.tagline)}</p>
     <div class="guardian-mobile-summary">
-      ${displayedItems.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4><div class="guardian-symbol-list">${symbolDetails}</div></div>` : ''}
+      ${displayedItems.length ? `<div class="guardian-card-full-section"><div class="guardian-symbol-list">${symbolDetails}</div></div>` : ''}
     </div>
     <div class="guardian-desktop-detail">
       ${guardian.quote ? `<p class="guardian-card-full-quote">“${esc(guardian.quote)}”</p>` : ''}
       <p class="guardian-card-full-intro">${esc(guardian.intro)}</p>
-      ${displayedItems.length ? `<div class="guardian-card-full-section"><h4>수호알과 캐릭터의 상징</h4><div class="guardian-symbol-list">${symbolDetails}</div></div>` : ''}
+      ${displayedItems.length ? `<div class="guardian-card-full-section"><div class="guardian-symbol-list">${symbolDetails}</div></div>` : ''}
       ${guardian.story.length ? `<details class="guardian-card-full-section guardian-card-full-story">
         <summary>수호 캐릭터 이야기 <span class="guardian-story-more-closed">더보기</span><span class="guardian-story-more-open">접기</span></summary>
         <div class="guardian-story-content">${guardian.story.map(([name,desc])=>`<h5>${esc(name)}</h5><p>${esc(desc)}</p>`).join('')}</div>
