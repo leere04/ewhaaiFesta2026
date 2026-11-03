@@ -93,7 +93,7 @@
 
   const stylesheet = document.createElement('style');
   stylesheet.textContent = `
-    .extra-booth-gallery { margin: 20px 0 24px; padding-top: 15px; border-top: 1px solid var(--line, #eadfe7); }
+    .extra-booth-gallery { margin: 0 0 24px; padding-top: 0; border-top: 0; }
     .extra-booth-gallery h3, .extra-booth-rewards h3 { font-size: 16px; font-weight: 800; margin: 0 0 12px; color: #733d69; }
     .extra-booth-gallery-track { display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 13px; background: #fff4fa; border: 1px solid #eadce6; overscroll-behavior-x: contain; }
     .extra-booth-gallery-track::-webkit-scrollbar { display: none; }
@@ -171,10 +171,7 @@
     const gallery = document.createElement('section');
     gallery.className = 'extra-booth-gallery';
     gallery.setAttribute('aria-label', title);
-    const heading = document.createElement('h3');
-    heading.textContent = title;
-    gallery.appendChild(heading);
-
+    // 카드뉴스 제목은 화면에 표시하지 않되, 접근성 이름은 유지합니다.
     const track = document.createElement('div');
     track.className = 'extra-booth-gallery-track';
     track.setAttribute('role', 'region');
