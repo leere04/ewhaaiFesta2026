@@ -56,7 +56,7 @@
   });
   const rows = [...directory.querySelectorAll('[data-map-location]')];
   const status = document.getElementById('map-selection-status');
-  const initialStatus = '부스 칸에 마우스를 올리면 지도에 위치가 표시돼요.';
+  const initialStatus = '';
   status.textContent = initialStatus;
   function highlight(row) {
     const id = row?.dataset.mapLocation;

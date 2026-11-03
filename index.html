@@ -27,7 +27,7 @@
   <script src="data.js?v=20261103-program-summary" defer></script>
   <script src="app.js?v=20261103-program-summary" defer></script>
   <script src="guardians.js?v=9" defer></script>
-  <script src="booth-map.js?v=4" defer></script>
+  <script src="booth-map.js?v=5" defer></script>
 <link rel="stylesheet" href="change-theme.css?v=20261103-serif"></head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -92,19 +92,19 @@
     </section>
 
     <section class="section guardians-section" id="guardians">
-      <div class="section-heading"><div><p class="eyebrow section-eyebrow">MY GUARDIAN / OUR POSSIBILITY</p><h2>내 안의 가능성, <span class="pink">캐릭터 체인지!</span></h2><p class="section-description">만들고, 지키고, 배우고, 나의 길을 찾는 마음.<br>학과별 수호알을 눌러 우리의 수호캐릭터를 만나보세요.</p></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
+      <div class="section-heading"><div><p class="eyebrow section-eyebrow">MY GUARDIAN / OUR POSSIBILITY</p><h2>내 안의 가능성, <span class="pink">캐릭터 체인지!</span></h2></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
       <div class="guardian-tabs" id="guardian-tabs" role="group" aria-label="학과별 수호캐릭터 선택"></div>
       <article class="guardian-notebook" id="guardian-panel" aria-label="수호캐릭터 소개"></article>    </section>
     <section id="booths" class="section booths-section">
       <div class="section-heading">
-        <div><p class="eyebrow section-eyebrow">01 / BOOTH LINEUP</p><h2>어느 부스부터 가볼까<span class="pink">?</span></h2><p class="section-description">맛있는 먹거리부터 소장하고 싶은 굿즈까지, 취향대로 골라봐요.</p></div>
+        <div><p class="eyebrow section-eyebrow">01 / BOOTH LINEUP</p><h2>어느 부스부터 가볼까<span class="pink">?</span></h2></div>
         <div class="round-note" aria-hidden="true">취향 발견!<br><strong>9</strong>개의 부스</div>
       </div>
       <div class="booth-controls">
         <div class="control-top"><div class="day-filter" role="group" aria-label="운영 요일"><button class="active" data-day="all" aria-pressed="true">전체 일정</button><button data-day="wed" aria-pressed="false">수요일</button><button data-day="thu" aria-pressed="false">목요일</button></div><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">부스 또는 메뉴 검색</span><input id="search" type="search" placeholder="부스나 메뉴가 궁금하다면?" autocomplete="off"></label></div>
         <div class="control-bottom"><div class="category-filter" role="group" aria-label="부스 종류"><button data-category="all" class="active" aria-pressed="true">전체</button><button data-category="food" aria-pressed="false"><span aria-hidden="true">♨</span> 먹거리</button><button data-category="goods" aria-pressed="false"><span aria-hidden="true">✿</span> 굿즈</button><button data-category="experience" aria-pressed="false"><span aria-hidden="true">✧</span> 체험·이벤트</button></div><button class="saved-filter" id="saved-filter" aria-pressed="false"><span aria-hidden="true">♡</span> 찜한 부스만</button></div>
       </div>
-      <div class="results-line"><p id="result-count" role="status" aria-live="polite">총 9개의 부스</p><span>하트를 눌러 가고 싶은 부스를 모아보세요.</span></div>
+      <div class="results-line"><p id="result-count" role="status" aria-live="polite">총 9개의 부스</p></div>
       <div id="booth-grid" class="booth-grid"></div>
       <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">♡</span><h3>아직 만날 부스가 없어요</h3><p id="empty-copy">다른 검색어나 필터로 찾아볼까요?</p><button id="reset-filters" class="button button-dark">전체 부스 보기</button></div>
       <p class="booth-note"><span aria-hidden="true">ⓘ</span> 10번 부스는 수요일 ‘동물농장’, 목요일 ‘우리동아리 정상영업합니다’로 운영돼요.</p>
@@ -112,17 +112,17 @@
 
     <section id="programs" class="program-section">
       <div class="section">
-        <div class="section-heading"><div><p class="eyebrow section-eyebrow">02 / FESTIVAL PLAYLIST</p><h2>우리의 마음을, Unlock<span class="pink">!</span></h2><p class="section-description">사진도 남기고, 수호알도 만나고. 인지상정의 여섯 가지 즐거움.</p></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
+        <div class="section-heading"><div><p class="eyebrow section-eyebrow">02 / FESTIVAL PLAYLIST</p><h2>우리의 마음을, Unlock<span class="pink">!</span></h2></div><span class="heading-doodle" aria-hidden="true">✧</span></div>
         <div class="program-grid" id="program-grid"></div>
-        <p class="program-note">카드를 눌러 참여 방법을 확인해 주세요. 운영시간과 비용은 현장에서 안내해요.</p>
+        
       </div>
     </section>
 
     <section class="section map-section" id="booth-map" aria-labelledby="map-title">
       <div class="section-heading"><div><p class="eyebrow section-eyebrow">03 / FIND YOUR BOOTH</p><h2 id="map-title">우리 부스, <span class="pink">여기 있어!</span></h2><p class="section-description">학생문화관 야외부스 배치도 · 오른쪽 위가 ECC 방향이에요.</p></div><span class="heading-doodle" aria-hidden="true">⌖</span></div>
       <div class="map-layout">
-        <figure class="map-figure"><div class="map-canvas"><img src="assets/booth-map.jpg?v=20261103" width="1229" height="1080" alt="야외부스 배치도. 왼쪽 위부터 EWHALE, 사보 크크, 컴온앤비욘이 있고 위쪽 대각선에는 랜덤포레스트, 스테디 셀러, 데이터사이언스, 멋쟁이사자처럼, 인공지능대학이 있어요. 아래쪽에는 일일부스가 있어요." loading="lazy"><svg id="map-highlights" viewBox="0 0 1229 1080" aria-hidden="true" focusable="false"></svg></div><figcaption><span id="map-selection-status" role="status">부스명을 누르면 지도에 위치가 표시돼요.</span><a href="assets/booth-map.jpg?v=20261103" target="_blank" rel="noopener">원본 크게 보기 ↗</a></figcaption></figure>
-        <div class="map-directory"><h3>배치도 속 부스 찾기</h3><p>부스 칸에 마우스를 올리면 지도에 위치가 표시돼요. 칸 어디든 누르면 소개가 열려요.</p>
+        <figure class="map-figure"><div class="map-canvas"><img src="assets/booth-map.jpg?v=20261103" width="1229" height="1080" alt="야외부스 배치도. 왼쪽 위부터 EWHALE, 사보 크크, 컴온앤비욘이 있고 위쪽 대각선에는 랜덤포레스트, 스테디 셀러, 데이터사이언스, 멋쟁이사자처럼, 인공지능대학이 있어요. 아래쪽에는 일일부스가 있어요." loading="lazy"><svg id="map-highlights" viewBox="0 0 1229 1080" aria-hidden="true" focusable="false"></svg></div><figcaption><span id="map-selection-status" class="sr-only" role="status">부스명을 누르면 지도에 위치가 표시돼요.</span><a href="assets/booth-map.jpg?v=20261103" target="_blank" rel="noopener">원본 크게 보기 ↗</a></figcaption></figure>
+        <div class="map-directory"><h3>배치도 속 부스 찾기</h3>
           <div class="map-booth-row"><span>1번 · 컴온앤비욘</span><small>컴공 학생회</small><button type="button" data-booth="commit" aria-haspopup="dialog" aria-label="컴온앤비욘 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>2번 · 사보 크크</span><small>사보 학생회</small><button type="button" data-booth="click" aria-haspopup="dialog" aria-label="사보 크크 자세히 보기">자세히 보기 ↗</button></div>
           <div class="map-booth-row"><span>3번 · EWHALE</span><small>네이버 웨일 캠퍼스 크루</small><button type="button" data-booth="ewhale" aria-haspopup="dialog" aria-label="EWHALE 자세히 보기">자세히 보기 ↗</button></div>
@@ -136,11 +136,11 @@
       </div>
     </section>
     <section class="section guide-section" id="guide">
-      <div class="guide-title"><p class="eyebrow section-eyebrow">04 / GOOD TO KNOW</p><h2>만나기 전에 <br>확인해 주세요<span class="pink">.</span></h2><p>즐거운 축제를 위한 작은 안내</p><span aria-hidden="true" class="guide-flower">✿</span></div>
+      <div class="guide-title"><p class="eyebrow section-eyebrow">04 / GOOD TO KNOW</p><h2>만나기 전에 <br>확인해 주세요<span class="pink">.</span></h2><span aria-hidden="true" class="guide-flower">✿</span></div>
       <div class="faq-list">
         <details open><summary>축제는 언제, 어디서 열리나요?<span aria-hidden="true">+</span></summary><div>2026년 11월 4일(수)부터 5일(목)까지, ECC 인지대 라운지 및 학생문화관 야외부스에서 만나요. 야외부스 위치는 부스 배치도에서 확인해 주세요. 자세한 운영시간은 추후 안내할 예정이에요.</div></details>
         <details><summary>요일마다 만날 수 있는 부스가 다른가요?<span aria-hidden="true">+</span></summary><div>대부분의 참여 부스는 양일 운영해요. 10번 부스는 수요일에 ‘동물농장’, 목요일에 ‘우리동아리 정상영업합니다’가 운영되니 요일 필터로 확인해 주세요. 축제 프로그램의 운영일은 추후 안내할 예정이에요.</div></details>
-        <details><summary>메뉴와 가격은 어디서 확인하나요?<span aria-hidden="true">+</span></summary><div>부스의 ‘자세히 보기’를 누르면 판매 품목과 소개를 볼 수 있어요. 아직 확정되지 않은 품목은 ‘미정’ 또는 ‘논의 중’으로 표시했어요. 가격과 결제 방법은 현재 안내 전이에요.</div></details>
+        <details><summary>메뉴와 가격은 어디서 확인하나요?<span aria-hidden="true">+</span></summary><div>각 부스 안내에 판매 품목과 확정된 가격을 정리했어요. 미정인 품목과 결제 방법은 현장에서 확인해 주세요.</div></details>
         <details><summary>도장판 이벤트는 어떻게 참여하나요?<span aria-hidden="true">+</span></summary><div>도장판 이벤트가 준비되어 있어요. 참여 방법, 도장 획득 조건, 선물 등 자세한 내용은 추후 안내할 예정이에요.</div></details>
         <details><summary>찜한 부스는 어디에 저장되나요?<span aria-hidden="true">+</span></summary><div>하트를 누른 부스는 현재 기기의 브라우저에 저장돼요. 상단의 ‘찜한 부스’에서 모아볼 수 있어요. 브라우저 데이터를 삭제하거나 다른 기기를 사용하면 목록이 이어지지 않을 수 있어요.</div></details>
       </div>
