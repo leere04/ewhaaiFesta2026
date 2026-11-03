@@ -38,8 +38,8 @@
     datascience: {
       description: '학점은 말랑하지 않아도 모찌는 말랑하니까.\n\n🫐 블베로 달콤하게!\n\n🍇 샤머로 청량하게!\n\n🍊 귤로 상큼하게!\n\n과제는 미뤄도 모찌는 못 미룸.\n오늘의 행복, 일단 먹고 생각하자 🍡',
       products: [
-        '샤인머스캣 요거트 4,000원',
-        '블루베리 요거트 4,500원',
+        '샤인머스캣 요거트 4,500원',
+        '블루베리 요거트 5,000원',
         '귤 요거트 4,000원'
       ],
       hours: '10:00~17:00',
@@ -47,7 +47,7 @@
       pricesConfirmed: true,
       note: '메뉴 사진은 아래 안내를 확인해 주세요.',
       extraGalleryTitle: '데이터사이언스 부스 메뉴·가격 안내',
-      extraGalleryImages: ['assets/booth-datascience-menu-20261103.jpg']
+      extraGalleryImages: ['assets/booth-datascience-menu-20261103.jpg?v=20261103-menu-final']
     },
     commit: {
       products: [
