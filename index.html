@@ -7,7 +7,7 @@
     display: none !important;
 }
 </style>
-<script src="page-nav.js?v=1" defer></script>
+<script src="page-nav.js?v=2" defer></script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +29,14 @@
   <script src="booth-updates.js?v=20261103-mochi-4" defer></script>
   <script src="guardians.js?v=20261103-planet-eggs-2" defer></script>
   <script src="booth-map.js?v=5" defer></script>
-<link rel="stylesheet" href="change-theme.css?v=20261103-serif"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
+<link rel="stylesheet" href="change-theme.css?v=20261103-mobile-nav"><link rel="stylesheet" href="guardian-cards.css?v=20261103-1"></head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="site-header">
   <div class="header-inner">
-    <nav aria-label="주 메뉴">
+    <a class="mobile-brand" href="#home">인지상정</a>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span id="mobile-page-name">홈</span><span class="mobile-menu-label">메뉴 <span aria-hidden="true">⌄</span></span></button>
+    <nav id="site-navigation" aria-label="주 메뉴">
   <a href="#home">홈</a>
   <a class="game-nav" href="#game">인지상정 게임 <span aria-hidden="true">✦</span></a>
   <a href="#guardians">수호캐릭터</a>
